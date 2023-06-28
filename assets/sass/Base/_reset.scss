@@ -8,5 +8,8 @@
 
 html, body {
     font-family: 'Barlow Semi Condensed', sans-serif;
-    
+    font-size: $fs-2;
+    line-height: $lh-1;
+    font-weight: $fw-1;
+    background-color: $bg-color-base;
 }
