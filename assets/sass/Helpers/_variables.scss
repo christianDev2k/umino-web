@@ -13,13 +13,18 @@ $lh-1: 1.75;
 $fw-1: 400;
 $fw-2: 600;
 
-//color
+// Color
 $base-color: #555;
 $bg-color-base: #fff;
 $bd-color-base: #EBEBEB;
 $primary-color: #d73f0f;
 $color-link: #111;
 $color-link-hover: #555;
+$color-header-bg: #fff;
+
+// Padding
+$pd-y-header: 11px;
+$pd-x-header: 18px;
 
 //break points
 $breakpoints: (

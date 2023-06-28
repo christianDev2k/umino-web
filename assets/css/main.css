@@ -1,1 +1,22 @@
-/*# sourceMappingURL=main.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 400;
+  background-color: #fff;
+}
+
+.navbar {
+  padding: 11px 18px;
+}
+.navbar .nav-left .navbar-brand {
+  width: 90px;
+}/*# sourceMappingURL=main.css.map */
