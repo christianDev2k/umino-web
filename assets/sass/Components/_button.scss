@@ -1,0 +1,19 @@
+.btn {
+    @include Text($fs-1, $fw-2, $color-white);
+    border-radius: $radius-0;
+    padding: $pd-1 + 1 $pd-5;
+    border: 1px solid transparent;
+    transition: $transition;
+}
+
+.btn.btn--primary,
+.btn.btn--primary:hover,
+.btn.btn--secondary:hover {
+    background-color: $color-header;
+    color: $color-white;
+}
+
+.btn.btn--secondary {
+    color: $color-header;
+    border-color: $color-grey;
+}

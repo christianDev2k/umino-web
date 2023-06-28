@@ -14,6 +14,28 @@ html, body {
   background-color: #fff;
 }
 
+.btn {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 11px 30px;
+  border: 1px solid transparent;
+  transition: all 0.4s;
+}
+
+.btn.btn--primary,
+.btn.btn--primary:hover,
+.btn.btn--secondary:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+.btn.btn--secondary {
+  color: #111;
+  border-color: #919191;
+}
+
 header {
   position: fixed;
   width: 100%;
@@ -82,15 +104,6 @@ header .navModal.show {
 }
 header .navModal.show .nav-mobile {
   left: 0;
-}
-@keyframes animateFadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    transform: translateX(-400px);
-    opacity: 0;
-  }
 }
 header .navModal .nav-mobile {
   position: absolute;
@@ -177,6 +190,13 @@ header .searchModal {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+header .searchModal.show {
+  display: block;
+}
+header .searchModal.show .modalContainer {
+  transform: translateY(0);
 }
 header .searchModal .modalContainer {
   position: absolute;
@@ -184,13 +204,26 @@ header .searchModal .modalContainer {
   left: 0;
   right: 0;
   bottom: 50px;
-  padding: 60px 15px;
+  padding: 60px 0;
   background-color: #fff;
+  overflow-y: scroll;
+  transform: translateY(-100%);
+  animation: animateSearchFadeIn 0.4s linear forwards;
+}
+@keyframes animateSearchFadeIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 header .searchModal .modalContainer .modalHeader {
   width: 50%;
 }
-header .searchModal .modalContainer .modalHeader .modalClose {
+header .searchModal .modalContainer .modalHeader .searchModalClose {
   position: absolute;
   top: 30px;
   right: 30px;
@@ -199,7 +232,7 @@ header .searchModal .modalContainer .modalHeader .modalClose {
   transition: all 0.4s;
   z-index: 1;
 }
-header .searchModal .modalContainer .modalHeader .modalClose:hover {
+header .searchModal .modalContainer .modalHeader .searchModalClose:hover {
   color: black;
 }
 header .searchModal .modalContainer .modalHeader h3 {
@@ -210,6 +243,7 @@ header .searchModal .modalContainer .modalHeader h3 {
 }
 header .searchModal .modalContainer .modalHeader .inputGroup {
   position: relative;
+  margin-bottom: 10px;
 }
 header .searchModal .modalContainer .modalHeader .inputGroup .form-control {
   border: 1px solid rgba(0, 0, 0, 0.4);
@@ -233,8 +267,60 @@ header .searchModal .modalContainer .modalHeader .search-title {
 }
 header .searchModal .modalContainer .modalBody {
   margin-top: 10px;
+  padding: 0 30px;
 }
-
+header .searchModal .modalContainer .modalBody h4 {
+  color: #111;
+  font-size: 20px;
+  font-weight: 600;
+}
+header .searchModal .modalContainer .modalBody .card-product-link {
+  text-decoration: none;
+}
+header .searchModal .modalContainer .modalBody .card {
+  border: none;
+  border-radius: 10px;
+}
+header .searchModal .modalContainer .modalBody .card img {
+  border-radius: 10px;
+}
+header .searchModal .modalContainer .modalBody .card .card-body {
+  padding: 0;
+}
+header .searchModal .modalContainer .modalBody .card .card-body .product-vendor {
+  margin-top: 20px;
+  margin-bottom: 0;
+  color: #919191;
+  font-size: 12px;
+  font-weight: 600;
+}
+header .searchModal .modalContainer .modalBody .card .card-body .card-title {
+  margin-top: 5px;
+  color: #111;
+  font-size: 14px;
+  font-weight: 600;
+}
+header .searchModal .modalContainer .modalBody .card .card-body .product-rating {
+  font-size: 10px;
+  margin-top: 5px;
+  color: #000000;
+}
+header .searchModal .modalContainer .modalBody .card .card-body .product-price {
+  color: #111;
+  font-size: 16px;
+  font-weight: 600;
+}
+header .searchModal .modalContainer .modalBody .card .card-body .product-price.sale {
+  color: #d73f0f;
+  font-size: 16px;
+  font-weight: 600;
+}
+header .searchModal .modalContainer .modalBody .card .card-body .product-price-sale {
+  color: #999;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: line-through;
+}
 @media screen and (max-width: 575.98px) {
   header .navModal .nav-mobile {
     width: 100%;
