@@ -73,4 +73,25 @@ main {
 }
 .body .item img:hover {
   transform: scale(1.2);
+}
+
+.content .content_filter button {
+  margin-right: 10px;
+}
+.content .content_style a {
+  text-decoration: none;
+}
+.content .content_style .icon {
+  margin-right: 15px;
+}
+.content .content_none {
+  border-top: 1px solid #555;
+}
+.content .content_none .content_category ul {
+  list-style: none;
+  padding-left: 0;
+}
+.content .content_none .content_category a {
+  text-decoration: none;
+  color: #111;
 }/*# sourceMappingURL=main.css.map */
