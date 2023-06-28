@@ -87,6 +87,10 @@ main {
 .content .content_none {
   border-top: 1px solid #555;
 }
+.content .content_none h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
 .content .content_none .content_category ul {
   list-style: none;
   padding-left: 0;

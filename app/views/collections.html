@@ -133,7 +133,7 @@
                 </div>
                 <div class="content_none mt-3 d-flex justify-content-between">
                     <div class="content_category pt-2">
-                        <h3>Category</h3>
+                        <h4>Category</h4>
                         <ul>
                             <li><a href="#">Dresses</a></li>
                             <li><a href="#">Sweaters</a></li>
@@ -142,22 +142,30 @@
                         </ul>
                     </div>    
                     <div class="content_availability pt-2">
-                        <h3>Availability</h3>
+                        <h4>Availability</h4>
                         <input type="checkbox" name="" id=""> <span>In stock</span>
                         <br>
                         <input type="checkbox" name="" id=""> <span>Out of stock</span>
                     </div>    
                     <div class="content_price pt-2">
-                        <h3>Price</h3>
+                        <h4>Price</h4>
+                        <div class="group">
+                            <div class="progress"></div>
+                            <div class="range-input">
+                                <input class="range-min" max="10000" type="range" value="0">
+                                
+                                <input class="range-max" max="10000" type="range" value="10000">
+                            </div>
+                        </div>
                     </div>    
                     <div class="content_brand pt-2">
-                        <h3>Brand</h3>
+                        <h4>Brand</h4>
                     </div>    
                     <div class="content_size pt-2">
-                        <h3>Size</h3>
+                        <h4>Size</h4>
                     </div>    
                     <div class="content_featuredProduct pt-2">
-                        <h3>Featured Product</h3>
+                        <h4>Featured Product</h3>
                     </div>    
                 </div>
             </div>
@@ -177,6 +185,7 @@
             crossorigin="anonymous"></script>
         
         <!-- Main JS  -->
+        <script src="../../assets/js/range.js"></script>
         <script src="/assets/js/main.js"></script>
     </body>
 </html>

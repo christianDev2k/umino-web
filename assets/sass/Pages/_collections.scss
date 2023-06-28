@@ -76,6 +76,10 @@ main{
     }
     .content_none{
         border-top: 1px solid $color-link-hover;
+        h4{
+            font-size: $fs-2;
+            font-weight: $fw-2;
+        }
         .content_category{
            ul{
                 list-style: none;
