@@ -1,4 +1,5 @@
 // Font size
+$fs-0: 10px;
 $fs-1: 14px;
 $fs-2: 16px;
 $fs-h4: 24px;
@@ -12,6 +13,7 @@ $lh-1: 1.75;
 // Font weight
 $fw-1: 400;
 $fw-2: 600;
+$fw-3: 500;
 
 // Color
 $base-color: #555;
@@ -19,12 +21,33 @@ $bg-color-base: #fff;
 $bd-color-base: #EBEBEB;
 $primary-color: #d73f0f;
 $color-link: #111;
+$color-header: #111;
 $color-link-hover: #555;
 $color-header-bg: #fff;
+$color-white: #fff;
+$color-black: #000;
+$color-grey:#919191;
 
 // Padding
 $pd-y-header: 11px;
 $pd-x-header: 18px;
+$pd-x-nav: 15px;
+$pd-y-nav: 10px;
+$pd-1: 10px;
+$pd-2: 20px;
+$pd-3: 15px;
+$pd-4: 25px;
+$pd-5: 30px;
+
+// Margin
+$m-1: 10px;
+$m-2: 20px;
+
+// Border radius
+$radius-0: 30px;
+
+// Transition
+$transition: all 0.4s;
 
 //break points
 $breakpoints: (
