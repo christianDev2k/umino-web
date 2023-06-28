@@ -1,0 +1,34 @@
+// Font size
+$fs-1: 14px;
+$fs-2: 16px;
+$fs-h4: 24px;
+$fs-h3: 36px;
+$fs-h2: 45px;
+$fs-h1: 48px;
+
+// Line height  
+$lh-base: 1.75;
+
+// Font weight
+$fw-1: 400;
+$fw-2: 600;
+
+//color
+$base-color: #555;
+$bg-color-base: #fff;
+$bd-color-base: #EBEBEB;
+$primary-color: #d73f0f;
+$color-link: #111;
+$color-link-hover: #555;
+
+//break points
+$breakpoints: (
+    "extra-large": 1200px,
+    "large": 992px,
+    "medium": 768px,
+    "small": 576px,
+    "extra-large-down": 1199.98px,
+    "large-down": 991.98px,
+    "medium-down": 767.98px,
+    "small-down": 575.98px,
+);
