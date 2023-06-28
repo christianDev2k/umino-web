@@ -6,6 +6,10 @@
     transition: $transition;
 }
 
+.btn.btn--large {
+    padding: $pd-3 - 1 $pd-7 + 5;
+}
+
 .btn.btn--primary,
 .btn.btn--primary:hover,
 .btn.btn--secondary:hover {
@@ -14,6 +18,7 @@
 }
 
 .btn.btn--secondary {
+    background-color: $bg-color-base;
     color: $color-header;
     border-color: $color-grey;
 }

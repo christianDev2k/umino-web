@@ -277,7 +277,7 @@ header {
                         .product-rating {
                             font-size: $fs-0;
                             margin-top: $m-1 - 5;
-                            color: #000000
+                            color: #000000;
                         }
 
                         .product-price {
@@ -300,7 +300,190 @@ header {
 
     // Cart modal
     .cartModal {
-        
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        display: none;
+
+        &.show {
+            display: block;
+            .modalContainer {
+                transform: translateY(0);
+            }
+        }
+
+        .modalContainer {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            transform: translateX(100%);
+            width: 450px;
+            background: $bg-color-base;
+            animation: cartFadeIn 0.4s linear forwards;
+
+            @keyframes cartFadeIn {
+                from {
+                    transform: translateX(100%);
+                }
+                to {
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        .modal__header {
+            padding: $pd-3 - 1 $pd-5;
+            h4 {
+                @include Text($fs-2 + 2, $fw-2, $color-header);
+            }
+            button {
+                font-size: $fs-3;
+                opacity: 0.5;
+                transition: $transition;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .cart-process {
+            padding: $pd-5 + 5 $pd-5 $pd-2 $pd-5;
+            background-color: $color-grey-light;
+            border-bottom: 1px solid $bd-color-base;
+            border-top: 1px solid $bd-color-base;
+            .truck-process {
+                height: 5px;
+                background-color: $primary-color;
+                margin-bottom: $m-1 + 2;
+                position: relative;
+                border-radius: $radius-1;
+                .truck-icon {
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: $primary-color;
+                    border: 1px solid $primary-color;
+                    background-color: $bg-color-base;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    border-radius: 50%;
+                    font-size: $fs-1;
+                    text-align: center;
+                }
+            }
+            p {
+                @include Text($fs-1, $fw-1, $color-header);
+                span {
+                    @include Text($fs-1, $fw-2, $primary-color);
+                }
+            }
+        }
+
+        .cart-list {
+            overflow-y: scroll;
+        }
+
+        .cart-checkout {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            border-bottom: 1px solid $bd-color-base;
+            border-top: 1px solid $bd-color-base;
+            button {
+                background-color: transparent;
+                border: none;
+                padding: $pd-3 + 2 $pd-2;
+            }
+
+            .subtotal {
+                background-color: $color-grey-light;
+                padding: $pd-2 $pd-5;
+                .price {
+                    @include Text($fs-2 + 2, $fw-3, $color-header);
+                }
+                .policy {
+                    input {
+                        appearance: none;
+                        -webkit-appearance: none;
+                        width: 18px;
+                        height: 18px;
+                        background-color: $bg-color-base;
+                        border: 1px solid $color-grey;
+                        margin-right: 8px;
+                        &::before {
+                            content: '\f00c';
+                            display: none;
+                            width: 100%;
+                            font-weight: 900;
+                            font-family: 'Font Awesome 6 Free';
+                            font-size: $pd-3 - 2;
+                            color: $color-white;
+                        }
+
+                        &:checked {
+                            background-color: $color-link;
+                            border-color: $color-link;
+                        }
+
+                        &:checked::before {
+                            display: block;
+                        }
+                    }
+                    .cart-policy {
+                        @include Text($fs-2, $fw-1, $color-link-hover);
+                    }
+                    .cart-policy-link {
+                        @include Text($fs-2, $fw-1, $color-link);
+                    }
+                }
+                .btn.btn--secondary {
+                    background-color: $bg-color-base;
+                    color: $color-header;
+                    border-color: $color-grey;
+                }
+                .btn.btn--primary,
+                .btn.btn--primary:hover,
+                .btn.btn--secondary:hover {
+                    background-color: $color-header;
+                    color: $color-white;
+                }
+            }
+        }
+    }
+
+    .cartModal.cart-empty {
+        .cart-process {
+            .truck-process {
+                background-color: $bd-color-base;
+                .truck-icon {
+                    left: 0;
+                }
+            }
+
+            .cart-list {
+                padding: $pd-7 $pd-5 $pd-5;
+                .cart-empty-notice {
+                    display: none;
+                    .cart-empty-notice {
+                        .heading {
+                            @include Text($fs-2 + 2, $fw-3, $color-header);
+                        }
+                        .text {
+                            margin-top: $m-1;
+                            @include Text($fs-2, $fw-1, $color-header);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -28,3 +28,22 @@ const $ = document.querySelector.bind(document);
         $('.searchModal').classList.remove('show');
     };
 })();
+
+// Show / hide giỏ hàng
+(function showCartSearch() {
+    $('#cartButton').onclick = () => {
+        $('.cartModal').classList.add('show');
+    };
+
+    $('#closeCartIcon').onclick = () => {
+        $('.cartModal').classList.remove('show');
+    };
+
+    $('.cartModal').onclick = () => {
+        $('.cartModal').classList.remove('show');
+    };
+
+    $('#cartContainer').onclick = e => {
+        e.stopPropagation();
+    };
+})();

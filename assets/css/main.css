@@ -24,6 +24,10 @@ html, body {
   transition: all 0.4s;
 }
 
+.btn.btn--large {
+  padding: 14px 55px;
+}
+
 .btn.btn--primary,
 .btn.btn--primary:hover,
 .btn.btn--secondary:hover {
@@ -32,6 +36,7 @@ html, body {
 }
 
 .btn.btn--secondary {
+  background-color: #fff;
   color: #111;
   border-color: #919191;
 }
@@ -321,6 +326,190 @@ header .searchModal .modalContainer .modalBody .card .card-body .product-price-s
   font-weight: 400;
   text-decoration: line-through;
 }
+header .cartModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+header .cartModal.show {
+  display: block;
+}
+header .cartModal.show .modalContainer {
+  transform: translateY(0);
+}
+header .cartModal .modalContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+  width: 450px;
+  background: #fff;
+  animation: cartFadeIn 0.4s linear forwards;
+}
+@keyframes cartFadeIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+header .cartModal .modal__header {
+  padding: 14px 30px;
+}
+header .cartModal .modal__header h4 {
+  color: #111;
+  font-size: 18px;
+  font-weight: 600;
+}
+header .cartModal .modal__header button {
+  font-size: 20px;
+  opacity: 0.5;
+  transition: all 0.4s;
+}
+header .cartModal .modal__header button:hover {
+  opacity: 1;
+}
+header .cartModal .cart-process {
+  padding: 35px 30px 20px 30px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #EBEBEB;
+  border-top: 1px solid #EBEBEB;
+}
+header .cartModal .cart-process .truck-process {
+  height: 5px;
+  background-color: #d73f0f;
+  margin-bottom: 12px;
+  position: relative;
+  border-radius: 10px;
+}
+header .cartModal .cart-process .truck-process .truck-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #d73f0f;
+  border: 1px solid #d73f0f;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  font-size: 14px;
+  text-align: center;
+}
+header .cartModal .cart-process p {
+  color: #111;
+  font-size: 14px;
+  font-weight: 400;
+}
+header .cartModal .cart-process p span {
+  color: #d73f0f;
+  font-size: 14px;
+  font-weight: 600;
+}
+header .cartModal .cart-list {
+  overflow-y: scroll;
+}
+header .cartModal .cart-checkout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-bottom: 1px solid #EBEBEB;
+  border-top: 1px solid #EBEBEB;
+}
+header .cartModal .cart-checkout button {
+  background-color: transparent;
+  border: none;
+  padding: 17px 20px;
+}
+header .cartModal .cart-checkout .subtotal {
+  background-color: #f5f5f5;
+  padding: 20px 30px;
+}
+header .cartModal .cart-checkout .subtotal .price {
+  color: #111;
+  font-size: 18px;
+  font-weight: 500;
+}
+header .cartModal .cart-checkout .subtotal .policy input {
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: 1px solid #919191;
+  margin-right: 8px;
+}
+header .cartModal .cart-checkout .subtotal .policy input::before {
+  content: "\f00c";
+  display: none;
+  width: 100%;
+  font-weight: 900;
+  font-family: "Font Awesome 6 Free";
+  font-size: 13px;
+  color: #fff;
+}
+header .cartModal .cart-checkout .subtotal .policy input:checked {
+  background-color: #111;
+  border-color: #111;
+}
+header .cartModal .cart-checkout .subtotal .policy input:checked::before {
+  display: block;
+}
+header .cartModal .cart-checkout .subtotal .policy .cart-policy {
+  color: #555;
+  font-size: 16px;
+  font-weight: 400;
+}
+header .cartModal .cart-checkout .subtotal .policy .cart-policy-link {
+  color: #111;
+  font-size: 16px;
+  font-weight: 400;
+}
+header .cartModal .cart-checkout .subtotal .btn.btn--secondary {
+  background-color: #fff;
+  color: #111;
+  border-color: #919191;
+}
+header .cartModal .cart-checkout .subtotal .btn.btn--primary,
+header .cartModal .cart-checkout .subtotal .btn.btn--primary:hover,
+header .cartModal .cart-checkout .subtotal .btn.btn--secondary:hover {
+  background-color: #111;
+  color: #fff;
+}
+header .cartModal.cart-empty .cart-process .truck-process {
+  background-color: #EBEBEB;
+}
+header .cartModal.cart-empty .cart-process .truck-process .truck-icon {
+  left: 0;
+}
+header .cartModal.cart-empty .cart-process .cart-list {
+  padding: 50px 30px 30px;
+}
+header .cartModal.cart-empty .cart-process .cart-list .cart-empty-notice {
+  display: none;
+}
+header .cartModal.cart-empty .cart-process .cart-list .cart-empty-notice .cart-empty-notice .heading {
+  color: #111;
+  font-size: 18px;
+  font-weight: 500;
+}
+header .cartModal.cart-empty .cart-process .cart-list .cart-empty-notice .cart-empty-notice .text {
+  margin-top: 10px;
+  color: #111;
+  font-size: 16px;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 575.98px) {
   header .navModal .nav-mobile {
     width: 100%;
