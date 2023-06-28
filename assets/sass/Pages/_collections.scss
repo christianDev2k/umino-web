@@ -1,0 +1,62 @@
+main{
+    width: 85%;
+    margin: auto;
+}
+
+.main_banner{
+    // background-image: url('../../img/port_bg_cate.jpg');
+    background-image: url('../../../assets/img/port_bg_cate.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+        color: $bg-color-base;
+        margin-bottom: 0;
+    }
+    p{
+        text-align: center;
+        color: $bg-color-base;
+    }
+    a{
+        color: $bg-color-base;
+        text-decoration: none;
+        transition: all .5s;
+        &:hover{
+            color: $color-link-hover;
+        }
+    }
+}
+
+.body{
+    .item{
+        height: 395px;
+        width: 295px;
+        background-color: $bd-color-base;
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        button{
+        position: absolute;
+        bottom: 20px;
+        left: 50px;
+        padding: 10px 80px;
+        background-color: $bg-color-base;
+        border: none;
+        border-radius: 50px;
+        font-weight: $fw-2;
+        }
+        img{
+            height: 395px;
+            width: 295px;
+            object-fit: cover;
+            transition: all .5s;
+            &:hover{
+                transform: scale(1.2);
+            }
+        }
+    }
+}

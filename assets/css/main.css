@@ -1,1 +1,76 @@
-/*# sourceMappingURL=main.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  font-weight: 400;
+  background-color: #fff;
+}
+
+main {
+  width: 85%;
+  margin: auto;
+}
+
+.main_banner {
+  background-image: url("../../../assets/img/port_bg_cate.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_banner h1 {
+  color: #fff;
+  margin-bottom: 0;
+}
+.main_banner p {
+  text-align: center;
+  color: #fff;
+}
+.main_banner a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.main_banner a:hover {
+  color: #555;
+}
+
+.body .item {
+  height: 395px;
+  width: 295px;
+  background-color: #EBEBEB;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.body .item button {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  padding: 10px 80px;
+  background-color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+}
+.body .item img {
+  height: 395px;
+  width: 295px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.5s;
+}
+.body .item img:hover {
+  transform: scale(1.2);
+}/*# sourceMappingURL=main.css.map */
