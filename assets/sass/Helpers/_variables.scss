@@ -7,6 +7,7 @@ $fs-h4: 24px;
 $fs-h3: 36px;
 $fs-h2: 45px;
 $fs-h1: 48px;
+$fs-9: 90px;
 
 // Line height  
 $lh-1: 1.75;
@@ -15,6 +16,7 @@ $lh-1: 1.75;
 $fw-1: 400;
 $fw-2: 600;
 $fw-3: 500;
+$fw-4: 700;
 
 // Color
 $base-color: #555;
@@ -44,12 +46,16 @@ $pd-4: 25px;
 $pd-5: 30px;
 $pd-6: 40px;
 $pd-7: 50px;
+$pd-8: 80px;
+$pd-9: 90px;
+$pd-10: 60px;
 
 // Margin
 $m-1: 10px;
 $m-2: 20px;
 $m-3: 15px;
 $m-4: 30px;
+$m-5: 50px;
 
 // Border radius
 $radius-0: 30px;
@@ -70,3 +76,5 @@ $breakpoints: (
     "medium-down": 767.98px,
     "small-down": 575.98px,
 );
+
+

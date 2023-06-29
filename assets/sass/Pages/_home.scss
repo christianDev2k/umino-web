@@ -1,0 +1,44 @@
+.section-header {
+    margin-bottom: $m-2;
+    .section-heading {
+        @include Text($fs-h2, $fw-2, $color-header);
+        margin-bottom: $m-1 - 5px;
+    }
+}
+
+// TRENDING SECTION
+.trendProduct {
+    .nav-tabs {
+        border-bottom: none;
+        .nav-item {
+            margin-right: $m-3 + 5;
+            margin-left: $m-3 + 5;
+            .nav-link {
+                @include Text($fs-1, $fw-2, $color-header);
+                padding: 0;
+                border: none;
+                text-align: center;
+                line-height: 1.4;
+                &::after {
+                    content: '';
+                    display: block;
+                    height: 2px;
+                    background-color: $color-header;
+                    width: 0;
+                    transition: $transition;
+                }
+                &:hover {
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+            .nav-link.active {
+                border: none;
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

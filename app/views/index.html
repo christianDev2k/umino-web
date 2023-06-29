@@ -28,6 +28,9 @@
             href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
             rel="stylesheet" />
 
+        <!-- Animate.css  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
         <!-- Main CSS  -->
         <link rel="stylesheet" href="/assets/css/main.css" />
     </head>
@@ -645,7 +648,10 @@
                             <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Password*" />
                             <small id="helpId" class="form-message"></small>
                         </div>
-                        <a href="#" class="login_forgot text-decoration-none">Your personal data will be used to support your experience throughout this website, to manage access to your account and for other purposes described in our privacy policy.</a>
+                        <a href="#" class="login_forgot text-decoration-none"
+                            >Your personal data will be used to support your experience throughout this website, to manage access to your account and for other purposes described in our privacy
+                            policy.</a
+                        >
                         <div class="login__button">
                             <div>
                                 <button type="button" class="btn btn--primary">LOGIN</button>
@@ -659,8 +665,91 @@
             </div>
         </header>
 
-        <!-- Main  -->
-        <main></main>
+        <!-- CAROUSEL  -->
+        <section id="homeCarousel" class="myCarousel carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../../assets/img/Carousel/sport_s1.webp" class="d-block w-100" alt="..." />
+                    <div class="carousel-caption">
+                        <h5 class="wow animate__animated animate__fadeInLeft animate__delay-0_6s animate__fast">SUMMER ESSENTIALS</h5>
+                        <h1 class="wow animate__animated animate__fadeInLeft animate__delay-0_8s animate__fast">FITNESS HOUSE</h1>
+                        <p class="wow animate__animated animate__fadeInLeft animate__delay-1s animate__fast">Update your wardrobe with distinctive fashion style.</p>
+                        <div class="wow animate__animated animate__fadeInLeft animate__delay-1s2 animate__fast">
+                            <button class="btn btn--carousel">SHOP NOW</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../../assets/img/Carousel/sport_s3.webp" class="d-block w-100" alt="..." />
+                    <div class="carousel-caption">
+                        <h5 class="wow animate__animated animate__fadeInDown animate__delay-0_6s animate__fast">WINTER MELTING</h5>
+                        <h1 class="wow animate__animated animate__fadeInDown animate__delay-0_8s animate__fast">MIX CLOTHES</h1>
+                        <p class="wow animate__animated animate__fadeInDown animate__delay-1s animate__fast">Update your wardrobe with distinctive fashion style.</p>
+                        <div class="wow animate__animated animate__fadeInDown animate__delay-1s2 animate__fast">
+                            <button class="btn btn--carousel">SHOP NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+                <div class="carousel__wrap-pre-icon">
+                    <span class="carousel__prev-icon" aria-hidden="true">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </span>
+                </div>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+                <div class="carousel__wrap-next-icon">
+                    <span class="carousel__next-icon" aria-hidden="true">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </span>
+                </div>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </section>
+
+        <!-- TOP TRENDING  -->
+        <section class="trendProduct px-3 py-5">
+            <div class="container-fluid py-5">
+                <div class="section-header">
+                    <h2 class="section-heading text-center">TOP TRENDING</h2>
+                </div>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="all-shoes" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">ALL SHOES</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="fitness" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">FITNESS</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="life-style" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">
+                            LIFESTYLE
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="running" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">RUNNING</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="football" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">FOOTBALL</button>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="all-shoes">home</div>
+                    <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="fitness">profile</div>
+                    <div class="tab-pane" id="running" role="tabpanel" aria-labelledby="running">running</div>
+                    <div class="tab-pane" id="football" role="tabpanel" aria-labelledby="football">football</div>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer  -->
         <footer>
@@ -678,6 +767,10 @@
             crossorigin="anonymous"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+        <!-- WOW library  -->
+        <script src="../../assets/lib/js/wow.min.js"></script>
+
         <!-- Main JS  -->
         <script src="../controllers/home.js"></script>
         <script src="/assets/js/main.js"></script>

@@ -1,4 +1,44 @@
 const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+// Wow library
+const wow = new WOW();
+wow.init();
+
+// Show / hide mobile navbar
+showModal('.navModal', '.nav-mobile', '#navModalClose', '#nav-toggle-icon');
+
+// Show / hide search modal
+showModal('.searchModal', '.searchModal .modalContainer', '.searchModalClose', '#navSearch');
+
+// Show / hide giỏ hàng
+showModal('.cartModal', '.cartModal .modalContainer', '#closeCartIcon', '#cartButton');
+
+// Show / hide login
+handAccountModal();
+
+// Header nav active
+navActive('header .navbar-nav');
+
+// Trend product tabs active
+navActive('.trendProduct .nav-tabs');
+
+// =================================================================
+
+function handAccountModal() {
+    showModal('.loginModal', '.loginModal .modalContainer', '.closeLoginIcon', '#loginBtn');
+    $('#register__btn').onclick = e => {
+        e.preventDefault();
+        $('.modalContainer.login').classList.remove('login');
+        $('#register').classList.add('register');
+    };
+
+    $('#closeRegisterIcon').onclick = () => {
+        $('#register').classList.remove('register');
+        $('#login').classList.add('login');
+    };
+}
+
 function showModal(modal, modalContainer, closeButton, modalIcon) {
     $(modalIcon).onclick = () => {
         $(modal).classList.add('show');
@@ -16,29 +56,17 @@ function showModal(modal, modalContainer, closeButton, modalIcon) {
         e.stopPropagation();
     };
 }
-// Show / hide mobile navbar
-showModal('.navModal', '.nav-mobile', '#navModalClose', '#nav-toggle-icon');
 
-// Show / hide search modal
-showModal('.searchModal', '.searchModal .modalContainer', '.searchModalClose', '#navSearch');
+function navActive(navTabSelector) {
+    const navTab = $(navTabSelector);
+    const navLink = navTab.querySelectorAll('.nav-link');
 
-// Show / hide giỏ hàng
-showModal('.cartModal', '.cartModal .modalContainer', '#closeCartIcon', '#cartButton');
-
-// Show / hide login
-handAccountModal();
-function handAccountModal() {
-    showModal('.loginModal', '.loginModal .modalContainer', '.closeLoginIcon', '#loginBtn');
-    $('#register__btn').onclick = e => {
-        e.preventDefault();
-        $('.modalContainer.login').classList.remove('login');
-        $('#register').classList.add('register');
-    };
-    
-    $('#closeRegisterIcon').onclick = () => {
-        $('#register').classList.remove('register');
-        $('#login').classList.add('login');
-    };
-    
+    navLink.forEach(nav => {
+        nav.onclick = () => {
+            navTab.querySelector('.nav-link.active').classList.remove('active');
+            nav.classList.add('active');
+        }
+    })
 }
+
 

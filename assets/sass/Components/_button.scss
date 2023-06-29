@@ -23,3 +23,11 @@
     color: $color-header;
     border-color: $color-input-bd;
 }
+
+.btn.btn--carousel,
+.btn.btn--carousel:hover {
+    background-color: $bg-color-base;
+    color: $color-header;
+    font-weight: $fw-4;
+    padding: $pd-3 $pd-10;
+}
