@@ -98,4 +98,18 @@ main {
 .content .content_none .content_category a {
   text-decoration: none;
   color: #111;
+}
+.content .content_none .content_size a {
+  display: inline-block;
+  text-decoration: none;
+  border: 2px solid #ebebeb;
+  color: black;
+  margin-top: 30px;
+  padding: 10px 15px;
+  transition: all 0.5s;
+  position: relative;
+}
+.content .content_none .content_size a:hover {
+  background-color: black;
+  color: white;
 }/*# sourceMappingURL=main.css.map */
