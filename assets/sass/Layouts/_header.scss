@@ -1,8 +1,11 @@
 header {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     background-color: $color-header-bg;
+    height: 70px;
 
     // Nav Menu
     .navbar {
@@ -25,6 +28,9 @@ header {
                     opacity: 0.5;
                 }
                 &:hover {
+                    color: $primary-color;
+                }
+                &.active {
                     color: $primary-color;
                 }
             }
