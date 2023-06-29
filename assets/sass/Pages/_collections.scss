@@ -1,4 +1,4 @@
-main {
+.body {
     width: 85%;
     margin: auto;
 }
@@ -35,7 +35,7 @@ main {
     }
 }
 
-.body {
+.typeofshoes {
     .item {
         height: 395px;
         width: 295px;
@@ -87,24 +87,49 @@ main {
 
     .content_none {
         border-top: 1px solid $color-link-hover;
-
         h4 {
-            font-size: $fs-2;
-            font-weight: $fw-2;
+            @include Text($fs-2,$fw-2,$color-link)
         }
-
         .content_category {
             ul {
                 list-style: none;
                 padding-left: 0;
-            }
-
-            a {
-                text-decoration: none;
-                color: $color-link;
+                a{ 
+                    text-decoration: none;
+                    color: $color-link-hover;
+                }
+                li{
+                    transform: translateX(1px);
+                    transition: all .5s;
+                    color: $color-link-hover;
+                   &:hover{
+                        transform: translateX(10px);
+                       a{
+                        color: $color-link;
+                       }
+                   }
+                    
+                }
             }
         }
-
+        .content_availability{
+            span{
+                color: $color-link-hover;
+                transition: all .5s;
+                &:hover{
+                    color: $color-link;
+                }
+            }
+        }
+        .content_brand{
+            span{
+                color: $color-link-hover;
+                transition: all .5s;
+                &:hover{
+                    color: $color-link;
+                }
+            }
+        }
         .content_size {
             a {
                 display: inline-block;
@@ -115,10 +140,143 @@ main {
                 padding: 10px 15px;
                 transition: all .5s;
                 position: relative;
-                &:hover{
+
+                &:hover {
                     background-color: black;
                     color: white;
                 }
+            }
+        }
+        .content_featuredProduct {
+            .image {
+                width: 75px;
+                height: 80px;
+                border-radius: 10px;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    width: 75px;
+                    height: 80px;
+                    object-fit: cover;
+                }
+
+                .image-none {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    transition: all .5s;
+
+                    &:hover {
+                        opacity: 1;
+                        transform: scale(1.2);
+                    }
+                }
+            }
+            .hot_product{
+                h5{
+                    @include Text($fs-1,$fw-2,$color-link)
+                }
+            }
+        }
+        .poster{
+            img{
+                width: 247px;
+                height: 371px;
+            }
+        }
+    }
+    .product{
+        .item-product{
+            .image_product{
+                overflow: hidden;
+                width: 512px;
+                height: 512px;
+                border-radius: 10px;
+                position: relative;
+                .sale{
+                    position: absolute;
+                    top: 10px;
+                    left: 20px;
+                    z-index: 1;
+                    h5{
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        background-color: $primary-color;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        color: white;
+                        font-size: $fs-1;
+                        width: 50px;
+                        height: 25px;
+                    }
+                    p{
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        background-color: #177f91;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        color: white;
+                        font-size: $fs-1;
+                        width: 70px;
+                        height: 25px;
+                    }
+                }
+                .option{
+                    position: absolute;
+                    bottom: 45px;
+                    left: 180px;
+                    width: 150px;
+                    z-index: 1;
+                    .icon-details{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 40px;
+                        height: 40px;
+                        background-color:$bg-color-base ;
+                        border-radius: 50px;
+                        text-align: center;
+                        margin-right: 10px;
+                    }
+                }
+                .img-2{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    transform: scale(1);
+                    transition: all .6s;
+                }
+                .img-1{
+                    transform: scale(1);
+                    transition: all .6s;
+                }
+                &:hover{
+                    .img-1{
+                        transform: scale(1.1);
+                    }
+                    .img-2{
+                        opacity: 1;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            h5{
+                @include Text ($fs-1,$fw-2,$color-link-hover);
+            }
+            h4{
+                @include Text ($fs-1,$fw-2,$color-link);
+                margin: 0;
+            }
+            .star{
+                font-size: 10px;
+                margin: 10px 0px;
             }
         }
     }
