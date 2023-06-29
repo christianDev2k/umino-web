@@ -189,46 +189,62 @@ main {
     }
     .product{
         .item-product{
-            overflow: hidden;
-            position: relative;
-            .sale{
-                position: absolute;
-                top: 10px;
-                left: 20px;
-                z-index: 1;
-                h5{
-                    margin: 0;
-                    padding: 0;
-                    display: flex;
-                    background-color: $primary-color;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 10px;
-                    color: white;
-                    font-size: $fs-1;
-                    width: 50px;
-                    height: 25px;
-                }
-                p{
-                    margin: 0;
-                    padding: 0;
-                    display: flex;
-                    background-color: #177f91;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 10px;
-                    color: white;
-                    font-size: $fs-1;
-                    width: 70px;
-                    height: 25px;
-                }
-            }
             .image_product{
                 overflow: hidden;
                 width: 512px;
                 height: 512px;
                 border-radius: 10px;
                 position: relative;
+                .sale{
+                    position: absolute;
+                    top: 10px;
+                    left: 20px;
+                    z-index: 1;
+                    h5{
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        background-color: $primary-color;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        color: white;
+                        font-size: $fs-1;
+                        width: 50px;
+                        height: 25px;
+                    }
+                    p{
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                        background-color: #177f91;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        color: white;
+                        font-size: $fs-1;
+                        width: 70px;
+                        height: 25px;
+                    }
+                }
+                .option{
+                    position: absolute;
+                    bottom: 45px;
+                    left: 180px;
+                    width: 150px;
+                    z-index: 1;
+                    .icon-details{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 40px;
+                        height: 40px;
+                        background-color:$bg-color-base ;
+                        border-radius: 50px;
+                        text-align: center;
+                        margin-right: 10px;
+                    }
+                }
                 .img-2{
                     position: absolute;
                     top: 0;
