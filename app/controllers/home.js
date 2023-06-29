@@ -1,4 +1,4 @@
-const $ = document.querySelector.bind(document);
+const _$ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 // Wow library
@@ -45,38 +45,38 @@ navActive('.trendProduct .nav-tabs');
 
 function handAccountModal() {
     showModal('.loginModal', '.loginModal .modalContainer', '.closeLoginIcon', '#loginBtn');
-    $('#register__btn').onclick = e => {
+    _$('#register__btn').onclick = e => {
         e.preventDefault();
-        $('.modalContainer.login').classList.remove('login');
-        $('#register').classList.add('register');
+        _$('.modalContainer.login').classList.remove('login');
+        _$('#register').classList.add('register');
     };
 
-    $('#closeRegisterIcon').onclick = () => {
-        $('#register').classList.remove('register');
-        $('#login').classList.add('login');
+    _$('#closeRegisterIcon').onclick = () => {
+        _$('#register').classList.remove('register');
+        _$('#login').classList.add('login');
     };
 }
 
 function showModal(modal, modalContainer, closeButton, modalIcon) {
-    $(modalIcon).onclick = () => {
-        $(modal).classList.add('show');
+    _$(modalIcon).onclick = () => {
+        _$(modal).classList.add('show');
     };
 
-    $(closeButton).onclick = () => {
-        $(modal).classList.remove('show');
+    _$(closeButton).onclick = () => {
+        _$(modal).classList.remove('show');
     };
 
-    $(modal).onclick = () => {
-        $(modal).classList.remove('show');
+    _$(modal).onclick = () => {
+        _$(modal).classList.remove('show');
     };
 
-    $(modalContainer).onclick = e => {
+    _$(modalContainer).onclick = e => {
         e.stopPropagation();
     };
 }
 
 function navActive(navTabSelector) {
-    const navTab = $(navTabSelector);
+    const navTab = _$(navTabSelector);
     const navLink = navTab.querySelectorAll('.nav-link');
 
     navLink.forEach(nav => {
