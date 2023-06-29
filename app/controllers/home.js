@@ -5,6 +5,24 @@ const $$ = document.querySelectorAll.bind(document);
 const wow = new WOW();
 wow.init();
 
+// Owl library
+$('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+        0: {
+            items: 1,
+        },
+        600: {
+            items: 3,
+        },
+        1000: {
+            items: 5,
+        },
+    },
+});
+
 // Show / hide mobile navbar
 showModal('.navModal', '.nav-mobile', '#navModalClose', '#nav-toggle-icon');
 
@@ -65,8 +83,6 @@ function navActive(navTabSelector) {
         nav.onclick = () => {
             navTab.querySelector('.nav-link.active').classList.remove('active');
             nav.classList.add('active');
-        }
-    })
+        };
+    });
 }
-
-
