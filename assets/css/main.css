@@ -22,6 +22,7 @@ html, body {
   padding: 11px 30px;
   border: 1px solid transparent;
   transition: all 0.4s;
+  height: 50px;
 }
 
 .btn.btn--large {
@@ -38,7 +39,7 @@ html, body {
 .btn.btn--secondary {
   background-color: #fff;
   color: #111;
-  border-color: #919191;
+  border-color: #dedede;
 }
 
 header {
@@ -341,6 +342,29 @@ header .cartModal.show {
 header .cartModal.show .modalContainer {
   transform: translateY(0);
 }
+header .cartModal .cartModal.cart-empty .cart-process .truck-process {
+  background-color: #EBEBEB;
+}
+header .cartModal .cartModal.cart-empty .cart-process .truck-process .truck-icon {
+  left: 0;
+}
+header .cartModal .cartModal.cart-empty .cart-process .cart-list {
+  padding: 50px 30px 30px;
+}
+header .cartModal .cartModal.cart-empty .cart-process .cart-list .cart-empty-notice {
+  display: none;
+}
+header .cartModal .cartModal.cart-empty .cart-process .cart-list .cart-empty-notice .cart-empty-notice .heading {
+  color: #111;
+  font-size: 18px;
+  font-weight: 500;
+}
+header .cartModal .cartModal.cart-empty .cart-process .cart-list .cart-empty-notice .cart-empty-notice .text {
+  margin-top: 10px;
+  color: #111;
+  font-size: 16px;
+  font-weight: 400;
+}
 header .cartModal .modalContainer {
   position: absolute;
   top: 0;
@@ -472,10 +496,15 @@ header .cartModal .product-item .product-info .product-qty .qty-value {
 }
 header .cartModal .product-item .product-btn button {
   line-height: 1;
+  transition: all 0.4s;
 }
 header .cartModal .product-item .product-btn i {
   font-size: 12px;
   color: #919191;
+  transition: all 0.4s;
+}
+header .cartModal .product-item .product-btn i:hover {
+  color: #111;
 }
 header .cartModal .cart-checkout {
   border-bottom: 1px solid #EBEBEB;
@@ -542,32 +571,98 @@ header .cartModal .cart-checkout .subtotal .btn.btn--secondary:hover {
   background-color: #111;
   color: #fff;
 }
-header .cartModal.cart-empty .cart-process .truck-process {
-  background-color: #EBEBEB;
-}
-header .cartModal.cart-empty .cart-process .truck-process .truck-icon {
+header .loginModal {
+  position: fixed;
+  top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
-header .cartModal.cart-empty .cart-process .cart-list {
-  padding: 50px 30px 30px;
+header .loginModal.show {
+  display: flex;
 }
-header .cartModal.cart-empty .cart-process .cart-list .cart-empty-notice {
+header .loginModal.show .modalContainer {
+  opacity: 1;
+  visibility: visible;
+}
+header .loginModal .modalContainer {
+  width: 500px;
+  background: #fff;
+  border-radius: 5px;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
   display: none;
 }
-header .cartModal.cart-empty .cart-process .cart-list .cart-empty-notice .cart-empty-notice .heading {
-  color: #111;
-  font-size: 18px;
-  font-weight: 500;
+header .loginModal .modalContainer .closeLoginIcon {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 10px;
+  line-height: 1;
+  font-size: 20px;
+  color: #919191;
+  transition: all 0.4s;
 }
-header .cartModal.cart-empty .cart-process .cart-list .cart-empty-notice .cart-empty-notice .text {
-  margin-top: 10px;
+header .loginModal .modalContainer .closeLoginIcon:hover {
   color: #111;
-  font-size: 16px;
+}
+header .loginModal .modalContainer.login {
+  display: block;
+}
+header .loginModal .modalContainer.register {
+  display: block;
+}
+header .loginModal .modalContainer.register .login_forgot {
+  font-size: 14px;
+}
+header .loginModal .modal__header {
+  padding-top: 35px;
+}
+header .loginModal .modal__header h4 {
+  color: #111;
+  font-size: 24px;
+  font-weight: 600;
+}
+header .loginModal .modal_body {
+  padding: 30px;
+}
+header .loginModal .modal_body .form-control {
+  color: #555;
+  font-size: 14px;
   font-weight: 400;
+  padding: 10px 20px;
+  border-radius: 30px;
+  height: 50px;
+  box-shadow: none;
+  border: 1px solid #dedede;
+  transition: all 0.4s;
+}
+header .loginModal .modal_body .form-control:focus {
+  border-color: #111;
+}
+header .loginModal .modal_body .login_forgot {
+  color: #555;
+}
+header .loginModal .modal_body .login__button {
+  margin-top: 30px;
+}
+header .loginModal .modal_body .login__button button {
+  width: 100%;
+}
+header .loginModal .modal_body .login__button .btn.btn--secondary {
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 575.98px) {
   header .navModal .nav-mobile {
+    width: 100%;
+  }
+  header .cartModal .modalContainer {
     width: 100%;
   }
 }

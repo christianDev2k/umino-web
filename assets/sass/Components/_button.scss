@@ -4,6 +4,7 @@
     padding: $pd-1 + 1 $pd-5;
     border: 1px solid transparent;
     transition: $transition;
+    height: 50px;
 }
 
 .btn.btn--large {
@@ -20,5 +21,5 @@
 .btn.btn--secondary {
     background-color: $bg-color-base;
     color: $color-header;
-    border-color: $color-grey;
+    border-color: $color-input-bd;
 }
