@@ -69,16 +69,16 @@
                                     <a class="nav-link active" href="#" aria-current="page">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"> Shop </a>
+                                    <a class="nav-link" href="../views/collections.html">Shop</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"> Product </a>
+                                    <a class="nav-link" href="#">Product</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"> Blog </a>
+                                    <a class="nav-link" href="#">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#"> Page </a>
+                                    <a class="nav-link" href="#">Page</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">GO DASHBOARD!</a>
@@ -407,8 +407,8 @@
             </div>
 
             <!-- Cart modal  -->
-            <div class="cartModal show">
-                <div id="cartContainer" class="modalContainer">
+            <div class="cartModal">
+                <div id="cartContainer" class="modalContainer d-flex flex-column">
                     <div class="modal__header d-flex justify-content-between">
                         <h4>Shopping Cart</h4>
                         <button id="closeCartIcon" class="bg-transparent border-0">
@@ -459,36 +459,110 @@
                             <button class="btn btn--large btn--primary">RETURN TO SHOP</button>
                         </div> -->
 
-                        <div class="product-item">
+                        <div class="product-item mt-3">
                             <div class="card mb-3 border-0">
                                 <div class="d-flex">
                                     <div class="product-img">
                                         <img
                                             src="../../assets/img/products_sport_1_1.webp"
-                                            class="img-fluid rounded-start"
+                                            class="img-fluid"
                                             alt="Card title" />
                                     </div>
-                                    <div class="">
-                                        <div class="card-body">
-                                            <h5 class="product-title">Running Shoes Air Zoom Premium</h5>
-                                            <p class="product-size">L</p>
+                                    <div class="product-info">
+                                        <div class="card-body p-0">
+                                            <h5 class="product-title mb-0">Running Shoes Air Zoom Premium</h5>
+                                            <p class="product-size mb-0">L</p>
                                             <p class="product-price">$150.00</p>
-                                            <form id="myform" class="quantity" action="#">
-                                                <input
-                                                    type="button"
-                                                    value="-"
-                                                    class="qtyminus minus"
-                                                    field="quantity" />
-                                                <input type="text" name="quantity" value="0" class="qty" />
-                                                <input type="button" value="+" class="qtyplus plus" field="quantity" />
+                                            <form id="product-qty" class="product-qty d-flex align-items-center" action="#">
+                                                <button class="qty-down">
+                                                    <i class="fa-solid fa-minus"></i>
+                                                </button>
+                                                <input type="text" value="1" class="qty-value bg-transparent border-0">
+                                                <button class="qty-up">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="">
-                                        <div>
+                                    <div class="product-btn">
+                                        <button class="product-del bg-transparent border-0 d-block mb-2">
                                             <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                        <button class="product-edit bg-transparent border-0 d-block">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item mt-3">
+                            <div class="card mb-3 border-0">
+                                <div class="d-flex">
+                                    <div class="product-img">
+                                        <img
+                                            src="../../assets/img/products_sport_1_1.webp"
+                                            class="img-fluid"
+                                            alt="Card title" />
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="card-body p-0">
+                                            <h5 class="product-title mb-0">Running Shoes Air Zoom Premium</h5>
+                                            <p class="product-size mb-0">L</p>
+                                            <p class="product-price">$150.00</p>
+                                            <form id="product-qty" class="product-qty d-flex align-items-center" action="#">
+                                                <button class="qty-down">
+                                                    <i class="fa-solid fa-minus"></i>
+                                                </button>
+                                                <input type="text" value="1" class="qty-value bg-transparent border-0">
+                                                <button class="qty-up">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </button>
+                                            </form>
                                         </div>
-                                        <div></div>
+                                    </div>
+                                    <div class="product-btn">
+                                        <button class="product-del bg-transparent border-0 d-block mb-2">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                        <button class="product-edit bg-transparent border-0 d-block">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item mt-3">
+                            <div class="card mb-3 border-0">
+                                <div class="d-flex">
+                                    <div class="product-img">
+                                        <img
+                                            src="../../assets/img/products_sport_1_1.webp"
+                                            class="img-fluid"
+                                            alt="Card title" />
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="card-body p-0">
+                                            <h5 class="product-title mb-0">Running Shoes Air Zoom Premium</h5>
+                                            <p class="product-size mb-0">L</p>
+                                            <p class="product-price">$150.00</p>
+                                            <form id="product-qty" class="product-qty d-flex align-items-center" action="#">
+                                                <button class="qty-down">
+                                                    <i class="fa-solid fa-minus"></i>
+                                                </button>
+                                                <input type="text" value="1" class="qty-value bg-transparent border-0">
+                                                <button class="qty-up">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="product-btn">
+                                        <button class="product-del bg-transparent border-0 d-block mb-2">
+                                            <i class="fa-regular fa-trash-can"></i>
+                                        </button>
+                                        <button class="product-edit bg-transparent border-0 d-block">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

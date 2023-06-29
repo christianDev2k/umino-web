@@ -387,16 +387,67 @@ header {
 
         .cart-list {
             overflow-y: scroll;
-            .card {
+        }
+
+        .product-item {
+            padding: 0 $pd-5 $pd-5 $pd-5;
+            .product-img {
+                width: 87px;
+                height: 87px;
+                img {
+                    border-radius: $radius-1;
+                    object-fit: cover;
+                }
+            }
+
+            .product-info {
+                flex-grow: 1;
+                margin-left: $m-3;
+                margin-right: $m-1;
+                .product-title {
+                    @include Text($fs-2, $fw-1, $color-header);
+                }
+                .product-size {
+                    @include Text($fs-1, $fw-1, $color-grey);
+                }
+                .product-price {
+                    margin-top: 6px;
+                    @include Text($fs-2, $fw-3, $color-header);
+                }
+                .product-qty {
+                    background-color: $color-grey-light;
+                    width: 90px;
+                    height: 30px;
+                    border-radius: $radius-1 - 4;
+                    border: 1px solid $bd-color-base;
+                    .qty-down,
+                    .qty-up {
+                        background-color: transparent;
+                        border: none;
+                        width: 25px;
+                        height: 25px;
+                        font-size: $fs-1 - 2;
+                    }
+                    .qty-value {
+                        width: 40px;
+                        height: 25px;
+                        text-align: center;
+                        outline: none;
+                    }
+                }
+            }
+
+            .product-btn button {
+                line-height: 1;
+            }
+
+            .product-btn i {
+                font-size: $fs-1 - 2;
+                color: $color-grey;
             }
         }
 
         .cart-checkout {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 1;
             border-bottom: 1px solid $bd-color-base;
             border-top: 1px solid $bd-color-base;
             button {
