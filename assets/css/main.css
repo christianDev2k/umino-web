@@ -112,4 +112,35 @@ main {
 .content .content_none .content_size a:hover {
   background-color: black;
   color: white;
+}
+.content .content_none .content_featuredProduct .image {
+  width: 75px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.content .content_none .content_featuredProduct .image img {
+  width: 75px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.content .content_none .content_featuredProduct .image .image-none {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.content .content_none .content_featuredProduct .image .image-none:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.content .content_none .content_featuredProduct .hot_product h5 {
+  font-size: 14px;
+}
+.content .poster img {
+  width: 247px;
+  height: 371px;
 }/*# sourceMappingURL=main.css.map */

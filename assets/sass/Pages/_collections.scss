@@ -115,11 +115,52 @@ main {
                 padding: 10px 15px;
                 transition: all .5s;
                 position: relative;
-                &:hover{
+
+                &:hover {
                     background-color: black;
                     color: white;
                 }
             }
+        }
+
+        .content_featuredProduct {
+            .image {
+                width: 75px;
+                height: 80px;
+                border-radius: 10px;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    width: 75px;
+                    height: 80px;
+                    object-fit: cover;
+                }
+
+                .image-none {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    transition: all .5s;
+
+                    &:hover {
+                        opacity: 1;
+                        transform: scale(1.2);
+                    }
+                }
+            }
+            .hot_product{
+                h5{
+                    font-size: $fs-1;
+                }
+            }
+        }
+    }
+    .poster{
+        img{
+            width: 247px;
+            height: 371px;
         }
     }
 }
