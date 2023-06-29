@@ -818,6 +818,7 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
 
 .trendProduct .nav-tabs {
   border-bottom: none;
+  margin-bottom: 40px;
 }
 .trendProduct .nav-tabs .nav-item {
   margin-right: 20px;
