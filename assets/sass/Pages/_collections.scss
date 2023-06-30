@@ -145,6 +145,7 @@
                     background-color: black;
                     color: white;
                     width: 100%;
+                    transition: all .5s;
                     &::after{
                         content: '';
                         position: absolute;
@@ -169,7 +170,7 @@
                 }
                 &:hover {
                     a{
-                        background-color: black;
+                    background-color: black;
                     color: white;
                     }
                     span{
@@ -264,17 +265,56 @@
                     left: 180px;
                     width: 150px;
                     z-index: 1;
-                    .icon-details{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        width: 40px;
-                        height: 40px;
-                        background-color:$bg-color-base ;
-                        border-radius: 50px;
-                        text-align: center;
-                        margin-right: 10px;
+                    .icon{
+                        position: relative;
+                        span{
+                            display: flex;
+                            justify-content: center;
+                            width: 120px;
+                            top: -55px;
+                            left: -35px;
+                            position: absolute;
+                            border-radius: 5px ;
+                            background-color: black;
+                            color: white;
+                            padding: 5px 10px;
+                            opacity: 0;
+                            transition: all .5s;
+                            &::after{
+                                content: '';
+                                position: absolute;
+                                top: 35px;
+                                left: 45px;
+                                display:flex;
+                                justify-content: center;
+                                border-left: 10px solid transparent;
+                                border-right: 10px solid transparent;
+                                border-top: 10px solid black;
+                                border-bottom: 10px solid transparent;
+                            }
+                        }
+                        .icon-details{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 40px;
+                            height: 40px;
+                            background-color:$bg-color-base ;
+                            border-radius: 50px;
+                            text-align: center;
+                            margin-right: 10px;
+                            transition: all .5s;
+                        }
+                        &:hover{
+                            span{
+                                opacity: 1;
+                            }
+                            .icon-details{
+                                filter: invert(100%);
+                            }
+                        }
                     }
+                    
                 }
                 .img-2{
                     position: absolute;
