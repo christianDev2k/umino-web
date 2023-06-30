@@ -125,19 +125,49 @@ html, body {
 .content .content_none .content_brand span:hover {
   color: #111;
 }
-.content .content_none .content_size a {
+.content .content_none .content_size .type {
+  position: relative;
+}
+.content .content_none .content_size .type span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 5px;
+  opacity: 0;
+  top: -30px;
+  left: 0px;
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+.content .content_none .content_size .type span::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  justify-content: center;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid black;
+  border-bottom: 10px solid transparent;
+}
+.content .content_none .content_size .type a {
   display: inline-block;
   text-decoration: none;
   border: 2px solid #ebebeb;
+  border-radius: 5px;
   color: black;
-  margin-top: 30px;
-  padding: 10px 15px;
+  margin-top: 5px;
+  padding: 2px 15px;
   transition: all 0.5s;
   position: relative;
 }
-.content .content_none .content_size a:hover {
+.content .content_none .content_size .type:hover a {
   background-color: black;
   color: white;
+}
+.content .content_none .content_size .type:hover span {
+  opacity: 1;
 }
 .content .content_none .content_featuredProduct .image {
   width: 75px;
