@@ -14,7 +14,7 @@ html, body {
   background-color: #fff;
 }
 
-main {
+.body {
   width: 85%;
   margin: auto;
 }
@@ -46,7 +46,7 @@ main {
   color: #555;
 }
 
-.body .item {
+.typeofshoes .item {
   height: 395px;
   width: 295px;
   background-color: #EBEBEB;
@@ -54,7 +54,7 @@ main {
   border-radius: 20px;
   overflow: hidden;
 }
-.body .item button {
+.typeofshoes .item button {
   position: absolute;
   bottom: 20px;
   left: 50px;
@@ -64,14 +64,14 @@ main {
   border-radius: 50px;
   font-weight: 600;
 }
-.body .item img {
+.typeofshoes .item img {
   height: 395px;
   width: 295px;
   -o-object-fit: cover;
      object-fit: cover;
   transition: all 0.5s;
 }
-.body .item img:hover {
+.typeofshoes .item img:hover {
   transform: scale(1.2);
 }
 
