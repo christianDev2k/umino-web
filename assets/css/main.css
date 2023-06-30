@@ -13,6 +13,7 @@ html, body {
   font-weight: 400;
   background-color: #fff;
 }
+
 .btn {
   color: #fff;
   font-size: 14px;
@@ -849,6 +850,7 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
 .trendProduct .nav-tabs .nav-item .nav-link.active::after {
   width: 100%;
 }
+
 .body {
   width: 85%;
   margin: auto;
