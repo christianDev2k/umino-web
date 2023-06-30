@@ -14,6 +14,7 @@ html, body {
   background-color: #fff;
 }
 
+<<<<<<< HEAD
 .btn {
   color: #fff;
   font-size: 14px;
@@ -851,6 +852,8 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   width: 100%;
 }
 
+=======
+>>>>>>> phuc
 .body {
   width: 85%;
   margin: auto;
@@ -962,19 +965,50 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
 .content .content_none .content_brand span:hover {
   color: #111;
 }
-.content .content_none .content_size a {
+.content .content_none .content_size .type {
+  position: relative;
+}
+.content .content_none .content_size .type span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 5px;
+  opacity: 0;
+  top: -30px;
+  left: 0px;
+  background-color: black;
+  color: white;
+  width: 100%;
+  transition: all 0.5s;
+}
+.content .content_none .content_size .type span::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  justify-content: center;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid black;
+  border-bottom: 10px solid transparent;
+}
+.content .content_none .content_size .type a {
   display: inline-block;
   text-decoration: none;
   border: 2px solid #ebebeb;
+  border-radius: 5px;
   color: black;
-  margin-top: 30px;
-  padding: 10px 15px;
+  margin-top: 5px;
+  padding: 2px 15px;
   transition: all 0.5s;
   position: relative;
 }
-.content .content_none .content_size a:hover {
+.content .content_none .content_size .type:hover a {
   background-color: black;
   color: white;
+}
+.content .content_none .content_size .type:hover span {
+  opacity: 1;
 }
 .content .content_none .content_featuredProduct .image {
   width: 75px;
@@ -1055,7 +1089,36 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   width: 150px;
   z-index: 1;
 }
-.content .product .item-product .image_product .option .icon-details {
+.content .product .item-product .image_product .option .icon {
+  position: relative;
+}
+.content .product .item-product .image_product .option .icon span {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  top: -55px;
+  left: -35px;
+  position: absolute;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.content .product .item-product .image_product .option .icon span::after {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 45px;
+  display: flex;
+  justify-content: center;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid black;
+  border-bottom: 10px solid transparent;
+}
+.content .product .item-product .image_product .option .icon .icon-details {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1065,6 +1128,13 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   border-radius: 50px;
   text-align: center;
   margin-right: 10px;
+  transition: all 0.5s;
+}
+.content .product .item-product .image_product .option .icon:hover span {
+  opacity: 1;
+}
+.content .product .item-product .image_product .option .icon:hover .icon-details {
+  filter: invert(100%);
 }
 .content .product .item-product .image_product .img-2 {
   position: absolute;
