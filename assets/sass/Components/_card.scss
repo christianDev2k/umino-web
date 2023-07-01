@@ -49,6 +49,28 @@
                     }
                 }
             }
+            .card-product-discount {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                .red {
+                    background-color: $primary-color;
+                    width: 50px;
+                    height: 22px;
+                    text-align: center;
+                    border-radius: $radius-0;
+                    @include Text($fs-1 - 2, $fw-1, $color-white);
+                }
+                .blue {
+                    margin-top: $m-1 - 4;
+                    background-color: #177f91;
+                    width: 70px;
+                    height: 22px;
+                    text-align: center;
+                    border-radius: $radius-0;
+                    @include Text($fs-1 - 2, $fw-1, $color-white);
+                }
+            }
         }
         .card-body {
             padding: 0;
