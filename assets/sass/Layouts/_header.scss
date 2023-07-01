@@ -77,7 +77,7 @@ header {
         &.show {
             display: block;
             .nav-mobile {
-                left: 0;
+                width: 400px;
             }
         }
 
@@ -87,6 +87,7 @@ header {
             top: 0;
             bottom: 0;
             width: 400px;
+            width: 0;
             background-color: $bg-color-base;
             animation: animateFading 0.4s ease-in-out;
 
@@ -258,47 +259,6 @@ header {
                 padding: 0 $pd-5;
                 h4 {
                     @include Text($fs-3, $fw-2, $color-link);
-                }
-                .card-product-link {
-                    text-decoration: none;
-                }
-                .card {
-                    border: none;
-                    border-radius: $radius-1;
-                    img {
-                        border-radius: $radius-1;
-                    }
-                    .card-body {
-                        padding: 0;
-                        .product-vendor {
-                            margin-top: $m-2;
-                            margin-bottom: 0;
-                            @include Text($fs-0 + 2, $fw-2, $color-grey);
-                        }
-                        .card-title {
-                            margin-top: $m-1 - 5px;
-                            @include Text($fs-1, $fw-2, $color-header);
-                        }
-
-                        .product-rating {
-                            font-size: $fs-0;
-                            margin-top: $m-1 - 5;
-                            color: #000000;
-                        }
-
-                        .product-price {
-                            @include Text($fs-2, $fw-2, $color-header);
-                        }
-
-                        .product-price.sale {
-                            @include Text($fs-2, $fw-2, $primary-color);
-                        }
-
-                        .product-price-sale {
-                            @include Text($fs-2, $fw-1, #999);
-                            text-decoration: line-through;
-                        }
-                    }
                 }
             }
         }

@@ -1,6 +1,9 @@
 const _$ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
 // Wow library
 const wow = new WOW();
 wow.init();
@@ -18,7 +21,7 @@ $('.owl-carousel').owlCarousel({
             items: 3,
         },
         1000: {
-            items: 5,
+            items: 4,
         },
     },
 });

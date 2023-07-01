@@ -1,0 +1,97 @@
+.card-product-link {
+    text-decoration: none;
+    .card {
+        border: none;
+        border-radius: $radius-1;
+        img {
+            border-radius: $radius-1;
+        }
+        .card-img {
+            position: relative;
+            .card-img-hover {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                opacity: 0;
+                visibility: 0;
+                transform: scale(0.9);
+                transition: $transition;
+            }
+            .card-product-icon {
+                position: absolute;
+                left: 0;
+                right: 0;;
+                bottom: 5%;
+                display: flex;
+                justify-content: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: $transition;
+                
+                .icon-bg {
+                    display: inline-block;
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    background-color: $bg-color-base;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 $m-1 - 6;
+                    transition: $transition;
+                    &:hover {
+                        background-color: $color-header;
+                        .product-svg path {
+                            fill: $color-white;
+                        }
+                    }
+                }
+            }
+        }
+        .card-body {
+            padding: 0;
+            .product-vendor {
+                margin-top: $m-2;
+                margin-bottom: 0;
+                @include Text($fs-0 + 2, $fw-2, $color-grey);
+            }
+            .card-title {
+                margin-top: $m-1 - 5px;
+                @include Text($fs-1, $fw-2, $color-header);
+            }
+
+            .product-rating {
+                font-size: $fs-0;
+                margin-top: $m-1 - 5;
+                color: #000000;
+            }
+
+            .product-price {
+                @include Text($fs-2, $fw-2, $color-header);
+            }
+
+            .product-price.sale {
+                @include Text($fs-2, $fw-2, $primary-color);
+            }
+
+            .product-price-sale {
+                @include Text($fs-2, $fw-1, #999);
+                text-decoration: line-through;
+            }
+        }
+        &:hover {
+            .card-img-hover {
+                transform: scale(1);
+                opacity: 1;
+                visibility: 1;
+            }
+            .card-product-icon {
+                bottom: 10%;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
