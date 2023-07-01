@@ -961,10 +961,11 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   width: 295px;
   -o-object-fit: cover;
      object-fit: cover;
+  transform: scale(1.2);
   transition: all 0.5s;
 }
 .typeofshoes .item img:hover {
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 
 .content .content_filter button {
@@ -1139,7 +1140,10 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   bottom: 45px;
   left: 180px;
   width: 150px;
+  opacity: 0;
+  transform: translateY(100px);
   z-index: 1;
+  transition: all 0.5s;
 }
 .content .product .item-product .image_product .option .icon {
   position: relative;
@@ -1206,6 +1210,10 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
 .content .product .item-product .image_product:hover .img-2 {
   opacity: 1;
   transform: scale(1.1);
+}
+.content .product .item-product .image_product:hover .option {
+  transform: translateY(5px);
+  opacity: 1;
 }
 .content .product .item-product h5 {
   color: #555;
