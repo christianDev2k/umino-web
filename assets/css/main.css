@@ -50,6 +50,15 @@ html, body {
   padding: 15px 60px;
 }
 
+.btn.btn-primary-db {
+  background-color: #8231D3;
+  line-height: 26px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 /* <a href="#" class="card-product-link">
 <div class="card">
     <div class="card-img">
@@ -1450,4 +1459,87 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
 .content .product .item-product .star {
   font-size: 10px;
   margin: 10px 0px;
+}
+
+html, body {
+  font-family: "Jost", sans-serif;
+}
+
+header {
+  background-color: #fff;
+  height: 106px;
+}
+header .navbar .navbar-brand {
+  width: 120px;
+}
+header .navbar .navbar-brand .brand-text {
+  color: #111;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+header .navbar .navbar__toogle-sidebar {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  transition: all 0.4s;
+  color: #404040;
+}
+header .navbar .navbar__toogle-sidebar:hover {
+  background-color: rgba(130, 49, 211, 0.1);
+  color: #8231D3;
+}
+header .navbar .navbar__toogle-sidebar:hover svg {
+  fill: #8231D3;
+}
+header .navbar .navbar-toggler {
+  font-size: 16px;
+}
+header .navbar .navbar-nav {
+  padding: 20px 0;
+}
+header .navbar .nav-item {
+  margin-left: 24px;
+}
+header .navbar .nav-item .nav-link {
+  padding: 0;
+}
+header .navbar .nav-item .nav-link img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+header .navbar .profile-name {
+  color: #404040;
+  font-size: 14px;
+  font-weight: 600;
+}
+header .navbar .profile-name .profile-name-icon {
+  font-size: 10px;
+}
+
+.main-content {
+  background-color: #fff;
+  margin-top: 106px;
+}
+.main-content .sidebar {
+  width: 280px;
+  padding: 10px 20px;
+}
+.main-content .sidebar .sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #404040;
+  font-size: 14px;
+  font-weight: 500;
+}
+.main-content .sidebar .sidebar-name {
+  margin-left: 20px;
+}
+.main-content .sidebar .sidebar-toggle {
+  display: inline-block;
+  margin-left: auto;
+  font-size: 10px;
 }/*# sourceMappingURL=main.css.map */

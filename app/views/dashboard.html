@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+
+        <!-- FontAwesome 6.2.0 CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+
+        <!-- Google font  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+        <!-- Main css  -->
+        <link rel="stylesheet" href="/assets/css/main.css" />
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm fixed-top">
+                <div class="container-fluid">
+                    <!-- Logo  -->
+                    <a class="navbar-brand text-center me-5" href="./dashboard.html">
+                        <img src="../../assets/brand/logo.avif" alt="" class="img-fluid" />
+                        <div class="brand-text mt-1">DASHBOARD</div>
+                    </a>
+
+                    <!-- Sidebar button  -->
+                    <button class="navbar__toogle-sidebar border-0 rounded-circle ms-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 0 24 24" class="svg replaced-svg">
+                            <path fill="#525768" d="M5,8H19a1,1,0,0,0,0-2H5A1,1,0,0,0,5,8Zm16,3H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Zm-2,5H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Go shop  -->
+                    <button class="navbar__toogle-sidebar border-0 rounded-circle ms-3"><i class="fa-solid fa-house"></i></button>
+
+                    <!-- Navbar button  -->
+                    <button class="navbar-toggler border-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar__toggler-icon">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </span>
+                    </button>
+
+                    <!-- Navbar list  -->
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav ms-auto align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" aria-current="page">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" class="svg replaced-svg">
+                                        <path
+                                            id="envelope"
+                                            d="M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7a3,3,0,0,0-3-3Zm-.41,2-5.88,5.88a1,1,0,0,1-1.42,0L5.41,6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V7.41l5.88,5.88a3,3,0,0,0,4.24,0L20,7.41Z"
+                                            transform="translate(-2 -4)"
+                                            fill="#a0a0a0"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20.001" viewBox="0 0 16.041 20.001" class="svg replaced-svg">
+                                        <path
+                                            id="bell"
+                                            d="M18.035,13.208V10.02A6.015,6.015,0,0,0,13.023,4.1V3a1,1,0,1,0-2.005,0V4.1A6.015,6.015,0,0,0,6.005,10.02v3.188A3.008,3.008,0,0,0,4,16.035V18.04a1,1,0,0,0,1,1H8.15a4.01,4.01,0,0,0,7.74,0h3.148a1,1,0,0,0,1-1V16.035a3.008,3.008,0,0,0-2.005-2.827ZM8.01,10.02a4.01,4.01,0,0,1,8.02,0v3.008H8.01Zm4.01,10.025a2.005,2.005,0,0,1-1.724-1h3.449A2.005,2.005,0,0,1,12.02,20.046Zm6.015-3.008H6.005v-1a1,1,0,0,1,1-1H17.033a1,1,0,0,1,1,1Z"
+                                            transform="translate(-4 -2)"
+                                            fill="#a0a0a0"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img src="../../assets/img/Dashboard/setting.png" alt="" />
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img src="../../assets/img/Dashboard/flag.png" alt="" class="img-fluid" />
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center" href="#">
+                                    <img src="../../assets/img/Dashboard/avt.jpg" alt="" class="img-fluid" />
+                                    <p class="profile-name mb-0 ms-2">
+                                        Wibu
+                                        <i class="profile-name-icon fa-solid fa-angle-down"></i>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <!-- Main content -->
+        <section class="main-content d-flex">
+            <div class="sidebar">
+                <a href="" class="sidebar-link">
+                    <div>
+                        <span class="sidebar-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </span>
+                        <span class="sidebar-name">Dashboard</span>
+                    </div>
+                    <span class="sidebar-toggle">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="data-list flex-grow-1"></div>
+        </section>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -31,3 +31,10 @@
     font-weight: $fw-4;
     padding: $pd-3 $pd-10;
 }
+
+.btn.btn-primary-db {
+    background-color: $dash-primary-color;
+    line-height: 26px;
+    border-radius: 5px;
+    @include Text($fs-1, $fw-3, $color-white);
+}
