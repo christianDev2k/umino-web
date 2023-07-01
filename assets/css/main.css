@@ -993,6 +993,9 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   font-weight: 600;
   margin-bottom: 5px;
 }
+.section-header p {
+  color: #555;
+}
 
 .trendProduct .nav-tabs {
   border-bottom: none;
@@ -1062,9 +1065,13 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   padding-right: 4vw;
 }
 
-.banner-gender .banner-item img {
+.banner-gender .banner-item {
+  overflow: hidden;
   border-radius: 10px;
+}
+.banner-gender .banner-item img {
   width: 100%;
+  transition: all 0.4s;
 }
 .banner-gender .banner-item .gender-heading {
   left: 30px;
@@ -1075,6 +1082,9 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   color: #111;
   font-size: 14px;
   font-weight: 600;
+}
+.banner-gender .banner-item:hover img {
+  transform: scale(1.1);
 }
 
 .policy .policy-item img {
@@ -1092,6 +1102,31 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   font-weight: 400;
 }
 
+.inspire-product .item {
+  overflow: hidden;
+  border-radius: 10px;
+}
+.inspire-product .item img {
+  transition: all 0.4s;
+}
+.inspire-product .item img:hover {
+  transform: scale(1.1);
+}
+.inspire-product .item .cart-svg {
+  top: 10px;
+  right: 10px;
+}
+
+@media screen and (max-width: 575.98px) {
+  .section-header {
+    margin-bottom: 20px;
+  }
+  .section-header .section-heading {
+    color: #111;
+    font-size: 36px;
+    font-weight: 600;
+  }
+}
 .body {
   width: 85%;
   margin: auto;

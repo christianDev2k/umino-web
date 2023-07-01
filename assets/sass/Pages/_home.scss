@@ -4,6 +4,9 @@
         @include Text($fs-h2, $fw-2, $color-header);
         margin-bottom: $m-1 - 5px;
     }
+    p {
+        color: $color-input;
+    }
 }
 
 // TRENDING SECTION
@@ -79,9 +82,11 @@
 // BANNER GENDER
 .banner-gender {
     .banner-item {
+        overflow: hidden;
+        border-radius: $radius-1;
         img {
-            border-radius: $radius-1;
             width: 100%;
+            transition: $transition;
         }
         .gender-heading {
             left: 30px;
@@ -90,6 +95,11 @@
             padding: $pd-1 + 1 $pd-7;
             border-radius: $radius-0;
             @include Text($fs-1, $fw-2, $color-header);
+        }
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
         }
     }
 }
@@ -106,6 +116,33 @@
         }
         p {
             @include Text($fs-2, $fw-1, $color-input);
+        }
+    }
+}
+
+// INSPRIRED
+.inspire-product {
+    .item {
+        overflow: hidden;
+        border-radius: $radius-1;
+        img {
+            transition: $transition;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        .cart-svg {
+            top: 10px;
+            right: 10px;
+        }
+    }
+}
+
+@include Responsive('small-down') {
+    .section-header {
+        margin-bottom: $m-2;
+        .section-heading {
+            @include Text($fs-h3, $fw-2, $color-header);
         }
     }
 }

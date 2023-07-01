@@ -13,6 +13,7 @@ $('.owl-carousel').owlCarousel({
     loop: true,
     margin: 10,
     nav: true,
+    dots: false,
     autoplay: true,
     responsive: {
         0: {
@@ -26,6 +27,7 @@ $('.owl-carousel').owlCarousel({
         },
     },
 });
+
 
 // Show / hide mobile navbar
 showModal('.navModal', '.nav-mobile', '#navModalClose', '#nav-toggle-icon');
