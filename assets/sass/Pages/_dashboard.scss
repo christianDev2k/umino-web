@@ -1,0 +1,84 @@
+html, body {
+    font-family: 'Jost', sans-serif;
+}
+
+// Header
+header {
+    background-color: $bg-color-base;
+    height: 106px;
+    .navbar {
+        .navbar-brand {
+            width: 120px;
+            .brand-text {
+                @include Text($fs-3, 800, $color-header);
+                letter-spacing: 3px;
+            }
+        }
+        .navbar__toogle-sidebar {
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            transition: $transition;
+            color: $color-gray;
+            &:hover {
+                background-color: rgba($color: $dash-primary-color, $alpha: 0.1);
+                color: $dash-primary-color;
+                svg {
+                    fill: $dash-primary-color;
+                }
+            }
+        }
+    
+        .navbar-toggler {
+            font-size: $fs-2;
+        }
+
+        .navbar-nav {
+            padding: $pd-2 0;
+        }
+    
+        .nav-item {
+            margin-left: $m-2 + 4;
+            .nav-link {
+                padding: 0;
+                img {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                }
+            }
+        }
+        .profile-name {
+            @include Text($fs-1, $fw-2, $color-gray);
+            .profile-name-icon {
+                font-size: $fs-0;
+            }
+        }
+    }
+}
+
+.main-content {
+    background-color: $bg-color-base;
+    margin-top: 106px;
+    .sidebar {
+        width: 280px;
+        padding: $pd-1 $pd-2;
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            @include Text($fs-1, $fw-3, $color-gray);
+        }
+
+        .sidebar-name {
+            margin-left: $m-2;
+        }
+
+        .sidebar-toggle {
+            display: inline-block;
+            margin-left: auto;
+            font-size: $fs-1 - 4;
+        }
+    }
+}
