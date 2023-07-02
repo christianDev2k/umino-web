@@ -36,43 +36,51 @@
 }
 
 .typeofshoes {
-    .item {
-        height: 395px;
-        width: 295px;
-        background-color: $bd-color-base;
-        position: relative;
-        border-radius: 20px;
+    .item{
+        border-radius: 15px;
         overflow: hidden;
-
-        button {
+        transition: all .5s;
+        position: relative;
+        p{
+            margin-bottom: 0;
+        }
+        img{
+            transform: scale(1.4);
+            transition: all .5s;
+            
+        }
+        .button_name{
             position: absolute;
-            bottom: 20px;
-            left: 50px;
-            padding: 10px 80px;
-            background-color: $bg-color-base;
-            border: none;
+            bottom:0px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 50px;
+            background-color: white;
             border-radius: 50px;
             font-weight: $fw-2;
+            color: black;
         }
-
-        img {
-            height: 395px;
-            width: 295px;
-            object-fit: cover;
-            transform: scale(1.2);
-            transition: all .5s;
-
-            &:hover {
-                transform: scale(1.4);
+        &:hover{
+            img{
+                transform: scale(1.5);
             }
         }
     }
+    
 }
 
 .content {
     .content_filter {
-        button {
+        .button {
+            background-color: white;
+            border-radius: 2px;
+            padding: 5px 20px;
             margin-right: 10px;
+            &:hover{
+                background-color: black;
+                border-color: white;
+                color: white;
+            }
         }
     }
 
@@ -87,6 +95,9 @@
     }
 
     .content_none {
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        max-height: 800px;
         border-top: 1px solid $color-link-hover;
         h4 {
             @include Text($fs-2,$fw-2,$color-link)
@@ -224,8 +235,6 @@
         .item-product{
             .image_product{
                 overflow: hidden;
-                width: 512px;
-                height: 512px;
                 border-radius: 10px;
                 position: relative;
                 .sale{
@@ -262,8 +271,9 @@
                 }
                 .option{
                     position: absolute;
-                    bottom: 45px;
-                    left: 180px;
+                    bottom:  40px;
+                    left: 35%;
+                    transform: translate(-50%, -50%);
                     width: 150px;
                     opacity: 0;
                     transform: translateY(100px);
@@ -274,7 +284,7 @@
                         span{
                             display: flex;
                             justify-content: center;
-                            width: 120px;
+                            width: 135px;
                             top: -55px;
                             left: -35px;
                             position: absolute;
@@ -358,5 +368,20 @@
                 margin: 10px 0px;
             }
         }
+    }
+}
+
+// responsive
+@media screen and (max-width: 800px) {
+    .content_filter{
+        span{
+            display: none;
+        }
+    }
+    .content_style{
+        display: none;
+    }
+    .soft{
+        display: none;
     }
 }
