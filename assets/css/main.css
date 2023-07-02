@@ -1461,7 +1461,8 @@ header .loginModal .modal_body .login__button .btn.btn--secondary {
   margin: 10px 0px;
 }
 
-html, body {
+html,
+body {
   font-family: "Jost", sans-serif;
 }
 
@@ -1523,23 +1524,91 @@ header .navbar .profile-name .profile-name-icon {
   margin-top: 106px;
 }
 .main-content .sidebar {
-  width: 280px;
-  padding: 10px 20px;
+  width: 74px;
+  text-align: center;
+  height: 100vh;
+  overflow: scroll;
+}
+.main-content .sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+.main-content .sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.main-content .sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .main-content .sidebar .sidebar-link {
+  text-decoration: none;
+  color: #A0A0A0;
+  padding: 10px 0;
+  display: block;
+}
+.main-content .sidebar .sidebar-icon {
+  color: #A0A0A0;
+}
+.main-content .sidebar .sidebar-name,
+.main-content .sidebar .sidebar-toggle,
+.main-content .sidebar .sidebar-title,
+.main-content .sidebar .sidebar-changlog,
+.main-content .sidebar .sidebar-chat {
+  display: none;
+}
+.main-content .sidebar.show {
+  width: 280px;
+  padding: 10px;
+}
+.main-content .sidebar.show .sidebar-title {
+  padding-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #747474;
+  font-size: 12px;
+  font-weight: 500;
+}
+.main-content .sidebar.show .sidebar-link {
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.4s;
   color: #404040;
   font-size: 14px;
   font-weight: 500;
 }
-.main-content .sidebar .sidebar-name {
+.main-content .sidebar.show .sidebar-link:hover {
+  color: #8231D3;
+}
+.main-content .sidebar.show .sidebar-link .sidebar-name {
+  display: inline-block;
   margin-left: 20px;
 }
-.main-content .sidebar .sidebar-toggle {
+.main-content .sidebar.show .sidebar-link .sidebar-toggle {
   display: inline-block;
   margin-left: auto;
   font-size: 10px;
+}
+.main-content .sidebar.show .sidebar-link .sidebar-changlog {
+  padding: 0 6px;
+  color: #00AAFF;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 10px;
+  background-color: rgba(0, 170, 255, 0.1);
+}
+.main-content .sidebar.show .sidebar-link .sidebar-chat {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 10px;
+  background-color: #01B81A;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=main.css.map */
