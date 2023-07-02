@@ -6,8 +6,10 @@ body {
 // Header
 header {
     background-color: $bg-color-base;
-    height: 106px;
     .navbar {
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: $bg-color-base;
         .navbar-brand {
             width: 120px;
             .brand-text {
@@ -34,10 +36,6 @@ header {
             font-size: $fs-2;
         }
 
-        .navbar-nav {
-            padding: $pd-2 0;
-        }
-
         .nav-item {
             margin-left: $m-2 + 4;
             .nav-link {
@@ -51,16 +49,21 @@ header {
         }
         .profile-name {
             @include Text($fs-1, $fw-2, $color-gray);
+            padding: $pd-2 0;
             .profile-name-icon {
                 font-size: $fs-0;
             }
+        }
+
+        .navbar-toggler {
+            box-shadow: none;
         }
     }
 }
 
 .main-content {
     background-color: $bg-color-base;
-    margin-top: 106px;
+    margin-top: 84px;
 
     .sidebar {
         width: 74px;
@@ -87,6 +90,10 @@ header {
 
         .sidebar-icon {
             color: $color-lighten;
+            border-radius: 50%;
+            &:hover {
+                color: $dash-primary-color;
+            }
         }
 
         .sidebar-name,
@@ -96,60 +103,67 @@ header {
         .sidebar-chat {
             display: none;
         }
-    }
 
-    .sidebar.show {
-        width: 280px;
-        padding: $pd-1;
+        &.show {
+            width: 280px;
+            padding: $pd-1;
 
-        .sidebar-title {
-            padding-left: $pd-5;
-            margin-top: $m-4;
-            margin-bottom: $m-1;
-            text-transform: uppercase;
-            @include Text($fs-1 - 2, $fw-3, $color-light);
-        }
-
-        .sidebar-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            padding: $pd-1 $pd-2;
-            transition: $transition;
-            @include Text($fs-1, $fw-3, $color-gray);
-
-            &:hover {
-                color: $dash-primary-color;
+            .sidebar-title {
+                padding-left: $pd-5;
+                margin-top: $m-4;
+                margin-bottom: $m-1;
+                text-transform: uppercase;
+                @include Text($fs-1 - 2, $fw-3, $color-light);
             }
 
-            .sidebar-name {
-                display: inline-block;
-                margin-left: $m-2;
-            }
-
-            .sidebar-toggle {
-                display: inline-block;
-                margin-left: auto;
-                font-size: $fs-1 - 4;
-            }
-            .sidebar-changlog {
-                padding: 0 $pd-1 - 4;
-                @include Text($fs-0, $fw-4, $color-info);
-                border-radius: $radius-1;
-                background-color: rgba($color: $color-info, $alpha: 0.1);
-            }
-            .sidebar-chat {
-                @include Text($fs-0, $fw-4, $color-white);
-                border-radius: $radius-1;
-                background-color: $color-success;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
+            .sidebar-link {
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-between;
+                text-decoration: none;
+                padding: $pd-1 $pd-2;
+                transition: $transition;
+                @include Text($fs-1, $fw-3, $color-gray);
+
+                &:hover {
+                    color: $dash-primary-color;
+                }
+
+                .sidebar-name {
+                    display: inline-block;
+                    margin-left: $m-2;
+                }
+
+                .sidebar-toggle {
+                    display: inline-block;
+                    margin-left: auto;
+                    font-size: $fs-1 - 4;
+                }
+                .sidebar-changlog {
+                    padding: 0 $pd-1 - 4;
+                    @include Text($fs-0, $fw-4, $color-info);
+                    border-radius: $radius-1;
+                    background-color: rgba($color: $color-info, $alpha: 0.1);
+                }
+                .sidebar-chat {
+                    @include Text($fs-0, $fw-4, $color-white);
+                    border-radius: $radius-1;
+                    background-color: $color-success;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
         }
     }
+
+    .data-list {
+        background-color: $contents-bg;
+    }
+}
+
+@include Responsive(large) {
 }

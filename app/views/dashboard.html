@@ -28,23 +28,25 @@
 
     <body>
         <header>
-            <nav class="navbar navbar-expand-sm fixed-top">
+            <nav class="navbar navbar-expand-md fixed-top">
                 <div class="container-fluid">
-                    <!-- Logo  -->
-                    <a class="navbar-brand text-center me-5" href="./dashboard.html">
-                        <img src="../../assets/brand/logo.avif" alt="" class="img-fluid" />
-                        <div class="brand-text mt-1">DASHBOARD</div>
-                    </a>
+                    <div class="navbar-left d-flex align-items-center">
+                        <!-- Logo  -->
+                        <a class="navbar-brand text-center me-5" href="./dashboard.html">
+                            <img src="../../assets/brand/logo.avif" alt="" class="img-fluid" />
+                            <div class="brand-text mt-1">DASHBOARD</div>
+                        </a>
 
-                    <!-- Sidebar button  -->
-                    <button class="navbar__toogle-sidebar border-0 rounded-circle ms-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 0 24 24" class="svg replaced-svg">
-                            <path fill="#525768" d="M5,8H19a1,1,0,0,0,0-2H5A1,1,0,0,0,5,8Zm16,3H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Zm-2,5H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"></path>
-                        </svg>
-                    </button>
+                        <!-- Sidebar button  -->
+                        <button class="navbar__toogle-sidebar border-0 rounded-circle ms-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18px" viewBox="0 0 24 24" class="svg replaced-svg">
+                                <path fill="#525768" d="M5,8H19a1,1,0,0,0,0-2H5A1,1,0,0,0,5,8Zm16,3H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Zm-2,5H5a1,1,0,0,0,0,2H19a1,1,0,0,0,0-2Z"></path>
+                            </svg>
+                        </button>
 
-                    <!-- Go shop  -->
-                    <a href="./index.html" class="navbar__toogle-sidebar border-0 rounded-circle ms-3 d-flex align-items-center justify-content-center"><i class="fa-solid fa-house"></i></a>
+                        <!-- Go shop  -->
+                        <a href="./index.html" class="navbar__toogle-sidebar border-0 rounded-circle ms-3 d-flex align-items-center justify-content-center"><i class="fa-solid fa-house"></i></a>
+                    </div>
 
                     <!-- Navbar button  -->
                     <button class="navbar-toggler border-0 d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +57,7 @@
 
                     <!-- Navbar list  -->
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
-                        <ul class="navbar-nav ms-auto align-items-center">
+                        <ul class="navbar-nav ms-auto align-items-center flex-row justify-content-end">
                             <li class="nav-item">
                                 <a class="nav-link" href="#" aria-current="page">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" class="svg replaced-svg">
@@ -294,7 +296,18 @@
                     </span>
                 </a>
             </div>
-            <div class="data-list flex-grow-1"></div>
+            <div class="data-list flex-grow-1">
+                <div class="container-fluid">
+                    <!-- CONTENT HEADER  -->
+                    <div class="content-header"></div>
+
+                    <!-- CONTENT BODY  -->
+                    <div class="content-body"></div>
+
+                    <!-- CONTENT FOOTER  -->
+                    <div class="content-footer"></div>
+                </div>
+            </div>
         </section>
         <footer>
             <!-- place footer here -->
