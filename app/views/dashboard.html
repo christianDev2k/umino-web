@@ -45,7 +45,9 @@
                         </button>
 
                         <!-- Go shop  -->
-                        <a href="./index.html" class="navbar__toogle-sidebar border-0 rounded-circle ms-3 d-flex align-items-center justify-content-center"><i class="fa-solid fa-house"></i></a>
+                        <a href="./index.html" class="navbar__toogle-sidebar border-0 rounded-circle ms-3 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-house"></i>
+                        </a>
                     </div>
 
                     <!-- Navbar button  -->
@@ -299,13 +301,99 @@
             <div class="data-list flex-grow-1">
                 <div class="container-fluid">
                     <!-- CONTENT HEADER  -->
-                    <div class="content-header"></div>
+                    <div class="content-header d-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            <h2 class="content-title mb-0">Data List</h2>
+                            <button class="btn btn-primary-db">
+                                <i class="fa-solid fa-plus me-1"></i>
+                                Add New
+                            </button>
+                        </div>
+                        <div class="input-group ms-auto">
+                            <span class="input-group-text bg-white border-0">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Search by Name" />
+                        </div>
+                    </div>
 
                     <!-- CONTENT BODY  -->
-                    <div class="content-body"></div>
+                    <div class="content-body">
+                        <div class="table-header d-flex align-items-center">
+                            <h3 class="mb-0">Product List</h3>
+                        </div>
+                        <div class="table-body">
+                            <table class="product-list w-100">
+                                <thead class="table-title">
+                                    <tr>
+                                        <th class="col-5per">ID</th>
+                                        <th class="col-15per">Image</th>
+                                        <th class="col-10per">Brand</th>
+                                        <th class="col-25per">Name</th>
+                                        <th class="col-10per">Qty</th>
+                                        <th class="col-10per">Price</th>
+                                        <th class="col-10per">In stock</th>
+                                        <th class="col-10per text-end">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productContent">
+                                    <tr>
+                                        <th>1234</th>
+                                        <th>
+                                            <img src="../../assets/img/products_sport_1_1.webp" alt="" class="img-fluid product-img">
+                                        </th>
+                                        <th>Umino</th>
+                                        <th class="product-tb-name"></th>
+                                        <th>12</th>
+                                        <th>20000000</th>
+                                        <th>
+                                            <span class="instock-status outOfStock">KO</span>
+                                        </th>
+                                        <th class="action-icon text-end">
+                                            <button class="navbar__toogle-sidebar border-0 bg-transparent">
+                                                <i class="fa-regular fa-eye"></i>
+                                            </button>
+                                            <button class="navbar__toogle-sidebar border-0 bg-transparent">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </button>
+                                            <button class="navbar__toogle-sidebar border-0 bg-transparent">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>1234</th>
+                                        <th>
+                                            <img src="../../assets/img/products_sport_4_1.webp" alt="" class="img-fluid product-img">
+                                        </th>
+                                        <th>Umino</th>
+                                        <th class="product-tb-name"></th>
+                                        <th>12</th>
+                                        <th>20000000</th>
+                                        <th>
+                                            <span class="instock-status success">OK</span>
+                                        </th>
+                                        <th class="action-icon">
+                                            <button class="navbar__toogle-sidebar border-0 bg-transparent">
+                                                <i class="fa-regular fa-eye"></i>
+                                            </button>
+                                            <button class="navbar__toogle-sidebar border-0 bg-transparent">
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </button>
+                                            <button class="navbar__toogle-sidebar border-0 bg-transparent">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
                     <!-- CONTENT FOOTER  -->
-                    <div class="content-footer"></div>
+                    <div class="content-footer">
+
+                    </div>
                 </div>
             </div>
         </section>

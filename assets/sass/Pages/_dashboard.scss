@@ -10,6 +10,7 @@ header {
         padding-top: 0;
         padding-bottom: 0;
         background-color: $bg-color-base;
+        box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.1);
         .navbar-brand {
             width: 120px;
             .brand-text {
@@ -109,6 +110,8 @@ header {
             padding: $pd-1;
 
             .sidebar-title {
+                text-align: left;
+                display: block;
                 padding-left: $pd-5;
                 margin-top: $m-4;
                 margin-bottom: $m-1;
@@ -162,6 +165,102 @@ header {
 
     .data-list {
         background-color: $contents-bg;
+        padding: 0 $pd-5;
+        .content-header {
+            margin: $m-4 + 3 0;
+
+            .content-title {
+                @include Text($fs-3, $fw-3, $color-header);
+                margin-right: $m-2 + 2;
+            }
+            .input-group {
+                width: 300px;
+                height: 40px;
+            }
+            .input-group-text {
+                font-size: $fs-1;
+                color: $color-light;
+            }
+            .form-control {
+                border: transparent;
+                box-shadow: none;
+                line-height: 1.5;
+                @include Text($fs-1, $fw-1, $color-header);
+                &::placeholder {
+                    color: $color-lighten;
+                }
+            }
+        }
+        .content-body {
+            background-color: $bg-color-base;
+            padding: 0 $pd-4;
+            border-radius: $radius-1;
+            .table-header {
+                min-height: 66px;
+                border-bottom: 1px solid $bd-color-base;
+                h3 {
+                    @include Text($fs-2, $fw-3, $color-header);
+                }
+            }
+            .table-body {
+                padding: $pd-3 + 1 0;
+                .product-list {
+                    min-width: 1150px;
+                    .col-5per {
+                        width: 5%;
+                    }
+                    .col-10per {
+                        width: 10%;
+                    }
+                    .col-15per {
+                        width: 15%;
+                    }
+                    .col-25per {
+                        width: 25%;
+                    }
+
+                    .table-title th {
+                        padding: $pd-1 + 3 $pd-2;
+                        background-color: $bg-normal;
+                        @include Text($fs-1, $fw-3, $color-gray);
+                        &:first-child {
+                            border-top-left-radius: 10px;
+                            border-bottom-left-radius: 10px;
+                        }
+                        &:last-child {
+                            border-top-right-radius: 10px;
+                            border-bottom-right-radius: 10px;
+                        }
+                    }
+                    th {
+                        padding: $pd-1 $pd-2;
+                        @include Text($fs-1, $fw-3, $color-header);
+                    }
+                    .action-icon button {
+                        color: $color-light;
+                        margin-left: $m-1 - 2;
+                    }
+                    .instock-status {
+                        padding: $pd-1 - 5 $pd-1 + 2;
+                        border-radius: 50px;
+                        font-size: 14px;
+                    }
+                    .instock-status.success {
+                        color: $color-success;
+                        background-color: rgba($color: $color-success, $alpha: 0.15);
+                    }
+                    .instock-status.outOfStock {
+                        color: $color-danger;
+                        background-color: rgba($color: $color-danger, $alpha: 0.15);
+                    }
+                    .product-img {
+                        width: 100px;
+                        height: 100px;
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -33,8 +33,14 @@
 }
 
 .btn.btn-primary-db {
+    height: auto;
+    padding: $pd-3 $pd-4;
     background-color: $dash-primary-color;
-    line-height: 26px;
     border-radius: 5px;
+    line-height: 1;
     @include Text($fs-1, $fw-3, $color-white);
+    &:hover {
+        background-color: $bg-primary-hover;
+        @include Text($fs-1, $fw-3, $color-white);
+    }
 }
