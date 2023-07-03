@@ -1911,6 +1911,9 @@ body {
 .main-content .data-list .content-body .table-body .product-list .col-25per {
   width: 25%;
 }
+.main-content .data-list .content-body .table-body .product-list .col-20per {
+  width: 20%;
+}
 .main-content .data-list .content-body .table-body .product-list .table-title th {
   padding: 13px 20px;
   background-color: #f8f9fb;

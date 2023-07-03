@@ -11,7 +11,7 @@
     + Validate (đã xong).
     + RenderHTML (array, string): RenderHTML. Tham số truyền vào là 1 mảng và 1 string html.
     
-    + GetData: Lấy dữ liệu từ API
+    + GetData: Lấy dữ liệu từ API (done)
     + PostData: Tạo mới sản phẩm vào API.
     + DeleteData: Xóa sản phẩm khỏi API.
     + PutData: Chỉnh sửa sản phẩm trong API.
