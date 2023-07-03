@@ -1681,66 +1681,67 @@ footer .copyright .image_payment img {
     display: none;
   }
 }
-html, body {
+html,
+body {
   font-family: "Jost", sans-serif;
 }
 
-header {
+.headerDashboard {
   background-color: #fff;
 }
-header .navbar {
+.headerDashboard .navbar {
   padding-top: 0;
   padding-bottom: 0;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
-header .navbar .navbar-brand {
+.headerDashboard .navbar .navbar-brand {
   width: 120px;
 }
-header .navbar .navbar-brand .brand-text {
+.headerDashboard .navbar .navbar-brand .brand-text {
   color: #111;
   font-size: 20px;
   font-weight: 800;
   letter-spacing: 3px;
 }
-header .navbar .navbar__toogle-sidebar {
+.headerDashboard .navbar .navbar__toogle-sidebar {
   width: 40px;
   height: 40px;
   background-color: transparent;
   transition: all 0.4s;
   color: #404040;
 }
-header .navbar .navbar__toogle-sidebar:hover {
+.headerDashboard .navbar .navbar__toogle-sidebar:hover {
   background-color: rgba(130, 49, 211, 0.1);
   color: #8231D3;
 }
-header .navbar .navbar__toogle-sidebar:hover svg {
+.headerDashboard .navbar .navbar__toogle-sidebar:hover svg {
   fill: #8231D3;
 }
-header .navbar .navbar-toggler {
+.headerDashboard .navbar .navbar-toggler {
   font-size: 16px;
 }
-header .navbar .nav-item {
+.headerDashboard .navbar .nav-item {
   margin-left: 24px;
 }
-header .navbar .nav-item .nav-link {
+.headerDashboard .navbar .nav-item .nav-link {
   padding: 0;
 }
-header .navbar .nav-item .nav-link img {
+.headerDashboard .navbar .nav-item .nav-link img {
   width: 20px;
   height: 20px;
   border-radius: 50%;
 }
-header .navbar .profile-name {
+.headerDashboard .navbar .profile-name {
   color: #404040;
   font-size: 14px;
   font-weight: 600;
   padding: 20px 0;
 }
-header .navbar .profile-name .profile-name-icon {
+.headerDashboard .navbar .profile-name .profile-name-icon {
   font-size: 10px;
 }
-header .navbar .navbar-toggler {
+.headerDashboard .navbar .navbar-toggler {
   box-shadow: none;
 }
 
