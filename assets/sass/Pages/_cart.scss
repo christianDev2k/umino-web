@@ -1,0 +1,238 @@
+.content-empty{
+    display: none;
+    min-height: 600px;
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        button{
+            background-color: white;
+            border-color: $color-gray ;
+            padding: 10px 30px;
+            border-radius: 50px;
+            transition: all .5s;
+            outline: none;
+            &:hover{
+                background-color: black;
+                box-shadow: none;
+                border-color: white;
+                a{
+                    color: white;
+                }
+            }
+        }
+}
+.content-haveProduct{
+    min-height: 600px;
+    a{
+        text-decoration: none;
+        color: black;
+        transition: all .5s;
+    }
+    .payment-left{
+        table{
+        border-collapse: collapse;
+        .title-3{
+            padding-right: 20px;
+        }
+        th{
+            padding: 5px 10px;
+            padding-left: 20px;
+            border: 1px solid $color-lighten; 
+        }
+        td {
+            border: 1px solid $color-lighten;
+            padding: 10px 45px;
+          }
+        .content-product{
+            .img-product{
+                margin-right: 10px;
+                img{
+                    width: 70px;
+                    height: 70px;
+                    border-radius: $radius-2;
+                }
+            }
+            .name-product{
+                h4{
+                    color: $color-black;
+                    font-weight: $fw-2;
+                    font-size: $fs-2;
+                }
+                h5{
+                    color: $color-grey;
+                    font-weight: $fw-3;
+                    font-size: $fs-1;
+                }
+            }
+        }
+        select{
+            padding: 10px 20px;
+            margin-right: 70px;
+            margin-left: 20px;
+        }
+        }
+        .product_short{
+        .content-product{
+            .img-product{
+                margin-right: 10px;
+                img{
+                    width: 70px;
+                    height: 70px;
+                    border-radius: $radius-2;
+                }
+            }
+            .name-product{
+                h4{
+                    color: $color-black;
+                    font-weight: $fw-2;
+                    font-size: $fs-2;
+                }
+                h5{
+                    color: $color-grey;
+                    font-weight: $fw-3;
+                    font-size: $fs-1;
+                }
+            }
+        }
+        }
+        .discount{
+            p{
+                font-weight: $fw-2;
+                font-size: $fs-1;
+                span{
+                    color: $color-grey;
+                }
+            }
+            textarea{
+                display: block;
+                width: 50%;
+            }
+            .feedBack{
+                label{
+                    font-weight: $fw-2;
+                }
+            }
+        }
+
+    }
+    .payment-right{
+        padding: 40px;
+        width: 100%;
+        max-height: 1500px;
+        background-color: $color-grey-light;
+        border-radius: $radius-2 ;
+        .truck-process{
+            height: 5px;
+            background-color: #d73f0f;
+            margin-bottom: 12px;
+            position: relative;
+            border-radius: 10px;
+            .truck-icon {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #d73f0f;
+                border: 1px solid #d73f0f;
+                background-color: #fff;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 50%;
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+        .process_title{
+            p{
+                font-size: $fs-0;
+            }
+            h4{
+                font-size: $fs-1;
+                font-weight: $fw-2;
+            }
+        }
+        .choose_country{
+            label{
+                font-size: $fs-1;
+                color: $color-grey;
+            }
+        }
+        .choose_provine{
+            label{
+                font-size: $fs-1;
+                color: $color-grey;
+            }            
+        }
+        .choose_zip{
+            label{
+                font-size: $fs-1;
+                color: $color-grey;
+            }
+        }
+        .submit-form{
+            button{
+                width: 100%;
+            }
+        }
+        .add_coupon{
+            border-top: 1px solid $color-grey;
+            border-bottom: 1px solid $color-grey;
+            font-weight: $fw-2;
+        }
+        .sum_money{
+            span{
+                color: $color-black;
+                font-weight: $fw-2;
+            }
+            p{
+                font-size: $fs-0;
+                color: $color-grey;
+            }
+        }
+        .check_boxRule{
+            .check{
+                margin-right: 5px;
+            }
+            .rule{
+                font-size: $fs-1;
+                .modal-content{
+                    max-width: 645px;
+                }
+            }
+            a{
+                &:hover{
+                    color: blue;
+                }
+            }
+        }
+        .paymet_paypal{
+            background-color: yellow;
+            border: 2px solid white;
+            padding: 20px;
+            cursor: pointer;
+            transition: all .5s;
+            &:hover{
+                border-color: black;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+}
+
+// resposive
+@media screen and (max-width: 996px) {
+    table{
+        display: none;
+    }
+}
+@media screen and (min-width: 996px) {
+    .product_short{
+        display: none;
+    }
+}
