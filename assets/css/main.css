@@ -1908,11 +1908,11 @@ body {
 .main-content .data-list .content-body .table-body .product-list .col-15per {
   width: 15%;
 }
-.main-content .data-list .content-body .table-body .product-list .col-25per {
-  width: 25%;
+.main-content .data-list .content-body .table-body .product-list .col-30per {
+  width: 30%;
 }
 .main-content .data-list .content-body .table-body .product-list .col-20per {
-  width: 20%;
+  width: 15%;
 }
 .main-content .data-list .content-body .table-body .product-list .table-title th {
   padding: 13px 20px;

@@ -4,7 +4,7 @@ body {
 }
 
 // Header
-.headerDashboard  {
+.headerDashboard {
     background-color: $bg-color-base;
     .navbar {
         padding-top: 0;
@@ -215,12 +215,13 @@ body {
                     .col-15per {
                         width: 15%;
                     }
-                    .col-25per {
-                        width: 25%;
+                    .col-30per {
+                        width: 30%;
                     }
                     .col-20per {
-                        width: 20%;
+                        width: 15%;
                     }
+
 
                     .table-title th {
                         padding: $pd-1 + 3 $pd-2;
