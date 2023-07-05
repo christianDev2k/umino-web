@@ -5,7 +5,11 @@ export async function handleAddProduct(product) {
     $('#submitFormBtn').innerHTML = 'Add Now!';
 
     await api.postProduct(product);
-    RenderDataList();
+    const data = await api.getProduct();
+
+    $('#closeModalAddBtn').click();
+    RenderDataList(data);
+    showNotice('Added successful!');
 }
 
 // Delete product và render product
@@ -16,12 +20,14 @@ export function handleDeleteProduct(id) {
     const childElement = $(selectorChild);
     const parentElement = childElement.closest('tr');
     parentElement.remove();
+    showNotice('Delete successful!', 'delete');
 }
 
 // Get product and show modal
 export async function getEditProduct(id) {
     const ProductList = await api.getProduct();
     const index = ProductList.findIndex(p => p.id === id);
+
     if (index !== -1) {
         $('#productName').value = ProductList[index].name;
         $('#productSize').value = ProductList[index].size;
@@ -40,14 +46,15 @@ export async function getEditProduct(id) {
 // Edit product và render product
 export async function handleEditProduct(product, id) {
     await api.putProduct(product, id);
-    RenderDataList();
+
+    const data = await api.getProduct();
+    RenderDataList(data);
+    showStatus('Edit successful!');
 }
 
 // Render dashboard
-export async function RenderDataList() {
-    const productList = await api.getProduct();
-
-    let html = productList.map(p => {
+export async function RenderDataList(arr) {
+    let html = arr.map(p => {
         const { name, img, size, price, discount, id, qty } = p;
         return `
             <tr>
@@ -78,14 +85,57 @@ export async function RenderDataList() {
     $('#productContent').innerHTML = html.join('');
 }
 
-// Reset form 
+// Sắp xếp tăng dần
+export async function sortAscending() {
+    const data = await api.getProduct();
+    data.sort((a, b) => a.price - b.price);
+    RenderDataList(data);
+}
+
+// Sắp xếp giảm dần
+export async function sortDescending() {
+    const data = await api.getProduct();
+    data.sort((a, b) => b.price - a.price);
+    RenderDataList(data);
+}
+
+// Reset form
 export function resetForm() {
     const inputs = $('#addProductForm').querySelectorAll('.form-group.invalid');
     const message = $('#addProductForm').querySelectorAll('.form-group.invalid .form-message');
-    
+
     $('#addProductForm').reset();
     for (let i = 0; i < inputs.length; i++) {
         inputs[i].classList.remove('invalid');
         message[i].innerHTML = '';
     }
+}
+
+// Seach by Name
+export async function searchByName() {
+    // Chuyển value về dạng: xóa khoảng trắng, chữ thường, không dấu.
+    const keyInput = $('#searchNameInput').value.trim().toLowerCase();
+    const inputName = keyInput.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+    const data = await api.getProduct();
+    const filteredData = data.filter(p => {
+        const nameLowerCase = p.name.toLowerCase();
+        const dataName = nameLowerCase.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+        return dataName.includes(inputName);
+    });
+
+    filteredData.length ? RenderDataList(filteredData) : showNotice('No results found!', 'no result');
+    
+}
+
+export function showNotice(message, status = 'success') {
+    const noticeElement = document.querySelector('.notice-status');
+    noticeElement.classList.add('show');
+    noticeElement.innerHTML = message;
+    noticeElement.style.backgroundColor = status === 'success' ? '#8231D3' : '#ff0000';
+
+    setTimeout(() => {
+        noticeElement.classList.remove('show');
+    }, 2000);
 }

@@ -310,17 +310,30 @@
                             </button>
                         </div>
                         <div class="input-group ms-auto">
-                            <span class="input-group-text bg-white border-0">
+                            <span id="search-btn" class="search-pd-btn input-group-text bg-white border-0">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
-                            <input type="text" class="form-control" placeholder="Search by Name" />
+                            <input type="text" id="searchNameInput" class="form-control" placeholder="Search by Name" />
                         </div>
                     </div>
 
                     <!-- CONTENT BODY  -->
                     <div class="content-body">
-                        <div class="table-header d-flex align-items-center">
+                        <div class="table-header d-flex align-items-center justify-content-between">
                             <h3 class="mb-0">Product List</h3>
+                            <div class="d-flex">
+                                <p class="mb-0">Sort by price</p>
+                                <div class="ms-1 sort-price">
+                                    <input type="radio" name="sort-price" class="d-none" id="price-ascending" value="ascending" />
+                                    <label for="price-ascending" class="sort-label">
+                                        <i class="fa-solid fa-arrow-up-1-9"></i>
+                                    </label>
+                                    <input type="radio" name="sort-price" class="d-none" id="price-descending" value="descending" />
+                                    <label for="price-descending" class="sort-label">
+                                        <i class="fa-solid fa-arrow-down-9-1"></i>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="table-body">
                             <table class="product-list w-100">
@@ -331,36 +344,13 @@
                                         <th class="col-25per">Name</th>
                                         <th class="col-20per">Size</th>
                                         <th class="col-5per">Qty</th>
-                                        <th class="col-10per">Price</th>
-                                        <th class="col-5per">Discount</th>
-                                        <th class="col-10per">Sale Price</th>
+                                        <th class="col-10per">Price (USD)</th>
+                                        <th class="col-5per">Discount (%)</th>
+                                        <th class="col-10per">Sale Price (USD)</th>
                                         <th class="col-15per text-end">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody id="productContent">
-                                    <!-- <tr>
-                                        <th>1234</th>
-                                        <th>
-                                            <img src="../../assets/img/products_sport_1_1.webp" alt="" class="img-fluid product-img" />
-                                        </th>
-                                        <th class="product-tb-name"></th>
-                                        <th></th>
-                                        <th>12</th>
-                                        <th>20000000</th>
-                                        <th></th>
-                                        <th class="action-icon text-end">
-                                            <button class="navbar__toogle-sidebar border-0 bg-transparent">
-                                                <i class="fa-regular fa-eye"></i>
-                                            </button>
-                                            <button class="navbar__toogle-sidebar border-0 bg-transparent">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </button>
-                                            <button class="navbar__toogle-sidebar border-0 bg-transparent">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </button>
-                                        </th>
-                                    </tr> -->
-                                </tbody>
+                                <tbody id="productContent"></tbody>
                             </table>
                         </div>
                     </div>
@@ -442,9 +432,9 @@
             </div>
         </div>
 
-        <footer>
-            <!-- place footer here -->
-        </footer>
+        <!-- Show status  -->
+        <div class="notice-status"></div>
+        
         <!-- Bootstrap JavaScript Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 

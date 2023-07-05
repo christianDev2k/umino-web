@@ -166,7 +166,7 @@ body {
 
     .data-list {
         background-color: $contents-bg;
-        padding: 0 $pd-5;
+        padding: 0 $pd-3;
         .content-header {
             margin: $m-4 + 3 0;
 
@@ -178,9 +178,14 @@ body {
                 width: 300px;
                 height: 40px;
             }
-            .input-group-text {
+            .search-pd-btn {
                 font-size: $fs-1;
                 color: $color-light;
+                transition: $transition;
+                cursor: pointer;
+                &:hover {
+                    color: $bg-primary-hover;
+                }
             }
             .form-control {
                 border: transparent;
@@ -201,6 +206,11 @@ body {
                 border-bottom: 1px solid $bd-color-base;
                 h3 {
                     @include Text($fs-2, $fw-3, $color-header);
+                }
+                .sort-price {
+                    .sort-label {
+                        cursor: pointer;
+                    }
                 }
             }
             .table-body {
@@ -277,5 +287,35 @@ body {
     }
     .form-control[disabled] {
         background-color: $bg-color-base;
+    }
+}
+
+.notice-status {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+    color: #fff;
+    padding: 4px 40px;
+    border-radius: 32px;
+    font-size: 14px;
+    animation: fadeIn 0.3s ease-in-out;
+    display: none;
+}
+
+.notice-status.show {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        top: -5%;
+    }
+
+    to {
+        top: 5%;
+        opacity: 1;
     }
 }

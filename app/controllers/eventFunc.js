@@ -26,6 +26,18 @@ const event = () => {
         $('#productSalePrice').value = price && discount ? price * ((100 - discount) / 100) : '';
     };
 
+    // Sắp xếp
+    const sortButton = document.getElementsByName('sort-price');
+    sortButton.forEach(b => {
+        b.onchange = () => {
+            b.value === 'ascending' ? f.sortAscending() : f.sortDescending();
+        };
+    });
+
+    $('#search-btn').onclick = () => {
+        f.searchByName();
+    };
+
     $('#productContent').onclick = e => {
         // Event ấn vào nút Xóa
         if (e.target.parentElement.getAttribute('data-del')) {

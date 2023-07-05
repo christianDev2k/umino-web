@@ -11,23 +11,27 @@ export const postProduct = async product => {
 };
 
 export const putProduct = async (product, id) => {
-    await fetch(url + id, {
+    const res = await fetch(url + id, {
         method: 'PUT',
         body: JSON.stringify(product),
         headers: {
             'Content-Type': 'application/json',
         },
     });
+    const data = await res.json();
+    return data;
 };
 
 export const deleteProduct = async id => {
-    await fetch(url + id, {
+    const res = await fetch(url + id, {
         method: 'DELETE',
     });
+    const data = await res.json();
+    return data;
 };
 
 export const getProduct = async () => {
     const res = await fetch(url);
-    const listData = await res.json();
-    return listData;
+    const data = await res.json();
+    return data;
 };

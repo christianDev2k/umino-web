@@ -2064,7 +2064,7 @@ body {
 }
 .main-content .data-list {
   background-color: #f4f5f7;
-  padding: 0 30px;
+  padding: 0 15px;
 }
 .main-content .data-list .content-header {
   margin: 33px 0;
@@ -2079,9 +2079,14 @@ body {
   width: 300px;
   height: 40px;
 }
-.main-content .data-list .content-header .input-group-text {
+.main-content .data-list .content-header .search-pd-btn {
   font-size: 14px;
   color: #747474;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.main-content .data-list .content-header .search-pd-btn:hover {
+  color: #6726A8;
 }
 .main-content .data-list .content-header .form-control {
   border: transparent;
@@ -2110,6 +2115,9 @@ body {
   color: #111;
   font-size: 16px;
   font-weight: 500;
+}
+.main-content .data-list .content-body .table-header .sort-price .sort-label {
+  cursor: pointer;
 }
 .main-content .data-list .content-body .table-body {
   padding: 16px 0;
@@ -2182,4 +2190,33 @@ body {
 }
 #addProductForm .form-control[disabled] {
   background-color: #fff;
+}
+
+.notice-status {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  color: #fff;
+  padding: 4px 40px;
+  border-radius: 32px;
+  font-size: 14px;
+  animation: fadeIn 0.3s ease-in-out;
+  display: none;
+}
+
+.notice-status.show {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    top: -5%;
+  }
+  to {
+    top: 5%;
+    opacity: 1;
+  }
 }/*# sourceMappingURL=main.css.map */
