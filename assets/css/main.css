@@ -50,18 +50,32 @@ html, body {
   padding: 15px 60px;
 }
 
-.btn.btn-primary-db {
+.btn {
   height: auto;
   padding: 15px 25px;
-  background-color: #8231D3;
   border-radius: 5px;
   line-height: 1;
+}
+.btn.btn-primary-db {
+  background-color: #8231D3;
   color: #fff;
   font-size: 14px;
   font-weight: 500;
 }
 .btn.btn-primary-db:hover {
   background-color: #6726A8;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.btn.btn-secondary-db {
+  background-color: #919191;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.btn.btn-secondary-db:hover {
+  background-color: #A0A0A0;
   color: #fff;
   font-size: 14px;
   font-weight: 500;
@@ -418,6 +432,7 @@ html, body {
 }
 
 header {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -2117,6 +2132,9 @@ body {
 .main-content .data-list .content-body .table-body .product-list .col-20per {
   width: 15%;
 }
+.main-content .data-list .content-body .table-body .product-list .col-25per {
+  width: 25%;
+}
 .main-content .data-list .content-body .table-body .product-list .table-title th {
   padding: 13px 20px;
   background-color: #f8f9fb;
@@ -2142,22 +2160,26 @@ body {
   color: #747474;
   margin-left: 8px;
 }
-.main-content .data-list .content-body .table-body .product-list .instock-status {
-  padding: 5px 12px;
-  border-radius: 50px;
-  font-size: 14px;
-}
-.main-content .data-list .content-body .table-body .product-list .instock-status.success {
-  color: #01B81A;
-  background-color: rgba(1, 184, 26, 0.15);
-}
-.main-content .data-list .content-body .table-body .product-list .instock-status.outOfStock {
-  color: #FF0F0F;
-  background-color: rgba(255, 15, 15, 0.15);
-}
 .main-content .data-list .content-body .table-body .product-list .product-img {
-  width: 100px;
-  height: 100px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  width: 70px;
+  height: 70px;
+}
+
+#addProductForm .form-group.invalid .form-message {
+  color: #FF0F0F;
+}
+#addProductForm .form-label {
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+#addProductForm .form-control {
+  box-shadow: none;
+  border: 1px solid rgba(103, 38, 168, 0.3);
+  transition: all 0.4s;
+}
+#addProductForm .form-control:focus {
+  border-color: #6726A8;
+}
+#addProductForm .form-control[disabled] {
+  background-color: #fff;
 }/*# sourceMappingURL=main.css.map */

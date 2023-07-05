@@ -72,6 +72,9 @@ export default function Validator(formSelector) {
                 return value.length <= max ? undefined : `Vui lòng nhập tối đa ${max} kí tự`;
             };
         },
+        number(value) {
+            return !isNaN(value) ? undefined : 'This field is a number!';
+        }
     };
 
     // DOM element form

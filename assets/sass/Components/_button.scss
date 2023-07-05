@@ -32,15 +32,27 @@
     padding: $pd-3 $pd-10;
 }
 
-.btn.btn-primary-db {
+.btn {
     height: auto;
     padding: $pd-3 $pd-4;
-    background-color: $dash-primary-color;
     border-radius: 5px;
     line-height: 1;
-    @include Text($fs-1, $fw-3, $color-white);
-    &:hover {
-        background-color: $bg-primary-hover;
+
+    &.btn-primary-db {
+        background-color: $dash-primary-color;
         @include Text($fs-1, $fw-3, $color-white);
+        &:hover {
+            background-color: $bg-primary-hover;
+            @include Text($fs-1, $fw-3, $color-white);
+        }
+    }
+    &.btn-secondary-db {
+        background-color: $color-grey;
+        @include Text($fs-1, $fw-3, $color-white);
+        &:hover {
+            background-color: $color-lighten;
+            @include Text($fs-1, $fw-3, $color-white);
+        }
     }
 }
+

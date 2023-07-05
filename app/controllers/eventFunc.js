@@ -7,14 +7,26 @@ let editID = -1;
 
 ValidateAddForm.onSubmit = product => {
     $('#closeModalAddBtn').click();
-    const { name, img, size, price, desc, discount } = product;
-    const newProduct = new Product(name, img, size, price, desc, discount);
+    const { name, img, size, price, desc, discount, qty } = product;
+    const newProduct = new Product(name, img, size, price, desc, discount, qty);
 
     editID === -1 ? f.handleAddProduct(newProduct) : f.handleEditProduct(newProduct, editID);
 };
 
-const event = e => {
-    $('#productContent').addEventListener('click', e => {
+const event = () => {
+    // Reset form khi thêm sản phẩm mới
+    $('#addNewBtn').onclick = () => {
+        f.resetForm();
+    };
+
+    $('#productDiscount').onblur = () => {
+        const price = $('#productPrice').value;
+        const discount = $('#productDiscount').value;
+
+        $('#productSalePrice').value = price && discount ? price * ((100 - discount) / 100) : '';
+    };
+
+    $('#productContent').onclick = e => {
         // Event ấn vào nút Xóa
         if (e.target.parentElement.getAttribute('data-del')) {
             f.handleDeleteProduct(e.target.parentElement.dataset.del);
@@ -24,11 +36,11 @@ const event = e => {
         if (e.target.parentElement.getAttribute('data-edit')) {
             $('#addNewBtn').click();
             $('#submitFormBtn').innerHTML = 'Edit Now!';
-            
+
             editID = e.target.parentElement.dataset.edit;
             f.getEditProduct(editID);
         }
-    });
+    };
 };
 
 export default event;

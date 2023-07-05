@@ -4,8 +4,6 @@ import * as api from './call_API.js';
 export async function handleAddProduct(product) {
     $('#submitFormBtn').innerHTML = 'Add Now!';
 
-    // Nếu đã tồn tại thì + 1. Chưa thì post
-    
     await api.postProduct(product);
     RenderDataList();
 }
@@ -31,6 +29,11 @@ export async function getEditProduct(id) {
         $('#productDiscount').value = ProductList[index].discount;
         $('#productImg').value = ProductList[index].img;
         $('#productDesc').value = ProductList[index].desc;
+        $('#productQty').value = ProductList[index].qty;
+
+        const discount = $('#productDiscount').value;
+        const price = $('#productPrice').value;
+        $('#productSalePrice').value = discount ? price * ((100 - discount) / 100) : '';
     }
 }
 
@@ -45,7 +48,7 @@ export async function RenderDataList() {
     const productList = await api.getProduct();
 
     let html = productList.map(p => {
-        const { name, img, size, price, discount, id, quantity } = p;
+        const { name, img, size, price, discount, id, qty } = p;
         return `
             <tr>
                 <th>${id}</th>
@@ -54,9 +57,10 @@ export async function RenderDataList() {
                 </th>
                 <th class="product-tb-name">${name}</th>
                 <th>${size}</th>
-                <th>${quantity}</th>
+                <th>${qty}</th>
                 <th>${price}</th>
                 <th>${discount}</th>
+                <th>${discount !== '' ? price * ((100 - discount) / 100) : ''}</th>
                 <th class="action-icon text-end">
                     <button class="navbar__toogle-sidebar border-0 bg-transparent">
                         <i class="fa-regular fa-eye"></i>
@@ -72,4 +76,16 @@ export async function RenderDataList() {
         `;
     });
     $('#productContent').innerHTML = html.join('');
+}
+
+// Reset form 
+export function resetForm() {
+    const inputs = $('#addProductForm').querySelectorAll('.form-group.invalid');
+    const message = $('#addProductForm').querySelectorAll('.form-group.invalid .form-message');
+    
+    $('#addProductForm').reset();
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].classList.remove('invalid');
+        message[i].innerHTML = '';
+    }
 }
