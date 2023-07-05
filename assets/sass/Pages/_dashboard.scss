@@ -200,6 +200,7 @@ body {
         .content-body {
             background-color: $bg-color-base;
             padding: 0 $pd-4;
+            margin-bottom: $m-4;
             border-radius: $radius-1;
             .table-header {
                 min-height: 66px;
@@ -226,16 +227,10 @@ body {
                     .col-15per {
                         width: 15%;
                     }
-                    .col-30per {
-                        width: 30%;
-                    }
+
                     .col-20per {
                         width: 15%;
                     }
-                    .col-25per {
-                        width: 25%;
-                    }
-
                     .table-title th {
                         padding: $pd-1 + 3 $pd-2;
                         background-color: $bg-normal;
@@ -261,6 +256,28 @@ body {
                         width: 70px;
                         height: 70px;
                     }
+                }
+            }
+        }
+
+        .page-footer {
+            background-color: $bg-color-base;
+            padding: $pd-4 $pd-5;
+            .footer__left {
+                @include Text($fs-1, $fw-3, $color-gray);
+                a {
+                    color: $dash-primary-color;
+                    transition: $transition;
+                    &:hover {
+                        color: $db-secondary-color;
+                    }
+                }
+            }
+            .nav-link {
+                @include Text($fs-1, $fw-1, $color-light);
+                transition: $transition;
+                &:hover {
+                    color: $dash-primary-color;
                 }
             }
         }
@@ -302,20 +319,18 @@ body {
     font-size: 14px;
     animation: fadeIn 0.3s ease-in-out;
     display: none;
-}
-
-.notice-status.show {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        top: -5%;
+    &.show {
+        display: block;
     }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            top: -5%;
+        }
 
-    to {
-        top: 5%;
-        opacity: 1;
+        to {
+            top: 5%;
+            opacity: 1;
+        }
     }
 }

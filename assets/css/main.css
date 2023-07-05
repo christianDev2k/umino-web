@@ -2105,6 +2105,7 @@ body {
 .main-content .data-list .content-body {
   background-color: #fff;
   padding: 0 25px;
+  margin-bottom: 30px;
   border-radius: 10px;
 }
 .main-content .data-list .content-body .table-header {
@@ -2134,14 +2135,8 @@ body {
 .main-content .data-list .content-body .table-body .product-list .col-15per {
   width: 15%;
 }
-.main-content .data-list .content-body .table-body .product-list .col-30per {
-  width: 30%;
-}
 .main-content .data-list .content-body .table-body .product-list .col-20per {
   width: 15%;
-}
-.main-content .data-list .content-body .table-body .product-list .col-25per {
-  width: 25%;
 }
 .main-content .data-list .content-body .table-body .product-list .table-title th {
   padding: 13px 20px;
@@ -2172,9 +2167,34 @@ body {
   width: 70px;
   height: 70px;
 }
+.main-content .data-list .page-footer {
+  background-color: #fff;
+  padding: 25px 30px;
+}
+.main-content .data-list .page-footer .footer__left {
+  color: #404040;
+  font-size: 14px;
+  font-weight: 500;
+}
+.main-content .data-list .page-footer .footer__left a {
+  color: #8231D3;
+  transition: all 0.4s;
+}
+.main-content .data-list .page-footer .footer__left a:hover {
+  color: #5840FF;
+}
+.main-content .data-list .page-footer .nav-link {
+  color: #747474;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.4s;
+}
+.main-content .data-list .page-footer .nav-link:hover {
+  color: #8231D3;
+}
 
 #addProductForm .form-group.invalid .form-message {
-  color: #FF0F0F;
+  color: #ff0f0f;
 }
 #addProductForm .form-label {
   margin-bottom: 6px;
@@ -2205,11 +2225,9 @@ body {
   animation: fadeIn 0.3s ease-in-out;
   display: none;
 }
-
 .notice-status.show {
   display: block;
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -49,7 +49,7 @@ export async function handleEditProduct(product, id) {
 
     const data = await api.getProduct();
     RenderDataList(data);
-    showStatus('Edit successful!');
+    showNotice('Edit successful!');
 }
 
 // Render dashboard
@@ -133,7 +133,7 @@ export function showNotice(message, status = 'success') {
     const noticeElement = document.querySelector('.notice-status');
     noticeElement.classList.add('show');
     noticeElement.innerHTML = message;
-    noticeElement.style.backgroundColor = status === 'success' ? '#8231D3' : '#ff0000';
+    noticeElement.style.backgroundColor = status === 'success' ? 'rgba(130, 49, 211, 0.8)' : 'rgba(255, 15, 15, 0.8)';
 
     setTimeout(() => {
         noticeElement.classList.remove('show');

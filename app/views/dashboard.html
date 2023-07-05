@@ -341,12 +341,12 @@
                                     <tr>
                                         <th class="col-5per">ID</th>
                                         <th class="col-10per">Image</th>
-                                        <th class="col-25per">Name</th>
+                                        <th class="col-20per">Name</th>
                                         <th class="col-20per">Size</th>
                                         <th class="col-5per">Qty</th>
                                         <th class="col-10per">Price (USD)</th>
-                                        <th class="col-5per">Discount (%)</th>
-                                        <th class="col-10per">Sale Price (USD)</th>
+                                        <th class="col-10per">Discount (%)</th>
+                                        <th class="col-10per">Sale Price</th>
                                         <th class="col-15per text-end">Action</th>
                                     </tr>
                                 </thead>
@@ -356,14 +356,37 @@
                     </div>
 
                     <!-- CONTENT FOOTER  -->
-                    <div class="content-footer"></div>
+                    <div class="content-footer">
+
+                    </div>
+
+                    <!-- FOOTER  -->
+                    <div class="page-footer container-fluid d-flex justify-content-between align-items-center">
+                        <div class="footer__left">
+                            <span>&copy; 2023</span>
+                            <a href="" class="ms-1 text-decoration-none">Cybersoft BC47 - Group 15</a>
+                        </div>
+                        <ul class="list-unstyled ps-0 mb-0 d-flex">
+                            <li>
+                                <a href="#" class="nav-link">About</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link ms-3">Team</a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link ms-3">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Show status  -->
+        <div class="notice-status"></div>
+
         <!-- Modal Body -->
-        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-        <div class="modal fade" id="addProductModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content px-3">
                     <div class="modal-header py-4 justify-content-center">
@@ -432,9 +455,6 @@
             </div>
         </div>
 
-        <!-- Show status  -->
-        <div class="notice-status"></div>
-        
         <!-- Bootstrap JavaScript Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 
