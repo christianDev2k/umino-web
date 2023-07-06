@@ -1,25 +1,25 @@
 import * as api from './call_API.js';
 
 // Add và render product
-export async function handleAddProduct(product) {
+export async function handleAddProduct(product, activePage) {
     $('#submitFormBtn').innerHTML = 'Add Now!';
 
     await api.postProduct(product);
-    const data = await api.getProduct();
-
+    setUIDashboard(activePage);
     $('#closeModalAddBtn').click();
-    RenderDataList(data);
     showNotice('Added successful!');
 }
 
 // Delete product và render product
-export function handleDeleteProduct(id) {
+export async function handleDeleteProduct(id, index) {
     api.deleteProduct(id);
 
     const selectorChild = `[data-del="${id}"]`;
     const childElement = $(selectorChild);
     const parentElement = childElement.closest('tr');
     parentElement.remove();
+
+    setUIDashboard(index);
     showNotice('Delete successful!', 'delete');
 }
 
@@ -39,64 +39,112 @@ export async function getEditProduct(id) {
 
         const discount = $('#productDiscount').value;
         const price = $('#productPrice').value;
-        $('#productSalePrice').value = discount ? price * ((100 - discount) / 100) : '';
+        $('#productSalePrice').value = discount ? (price * ((100 - discount) / 100)).toFixed(2) : '';
     }
 }
 
 // Edit product và render product
-export async function handleEditProduct(product, id) {
+export async function handleEditProduct(product, id, index) {
     await api.putProduct(product, id);
 
-    const data = await api.getProduct();
-    RenderDataList(data);
+    setUIDashboard(index);
     showNotice('Edit successful!');
 }
 
+// Pagination
+export function Paginate(arr) {
+    const itemsPage = 10;
+    const pageNum = Math.ceil(arr.length / 10);
+
+    const paginate = Array.from({ length: pageNum }, (_, i) => {
+        const index = i * itemsPage;
+        return arr.slice(index, index + itemsPage);
+    });
+    return paginate;
+}
+
+// Render button
+export function renderButton(dataPageList, active) {
+    const pageButton = dataPageList.map((_, i) => {
+        return `
+            <li class="page-item">
+                <button data-index="${i}" class="page page-num ${i === parseInt(active) ? 'active' : null}">${i + 1}</button>
+            </li>
+        `;
+    });
+
+    const preBtn = `<li class="page-item">
+                        <button data-index="pre" class="page page-control">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </button>
+                    </li>`;
+    const nextBtn = `<li class="page-item">
+                        <button data-index="next" class="page page-control">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </button>
+                    </li>`;
+    pageButton.unshift(preBtn);
+    pageButton.push(nextBtn);
+
+    $('.content-footer').style.display = 'block';
+    $('#dbPagination').innerHTML = pageButton.join('');
+}
+
 // Render dashboard
-export async function RenderDataList(arr) {
+export function RenderListProduct(arr) {
     let html = arr.map(p => {
         const { name, img, size, price, discount, id, qty } = p;
         return `
-            <tr>
-                <th>${id}</th>
-                <th>
-                    <img src="${img}" alt="" class="img-fluid product-img" />
-                </th>
-                <th class="product-tb-name">${name}</th>
-                <th>${size}</th>
-                <th>${qty}</th>
-                <th>${price}</th>
-                <th>${discount}</th>
-                <th>${discount !== '' ? price * ((100 - discount) / 100) : ''}</th>
-                <th class="action-icon text-end">
-                    <button class="navbar__toogle-sidebar border-0 bg-transparent">
-                        <i class="fa-regular fa-eye"></i>
-                    </button>
-                    <button data-edit="${id}" class="navbar__toogle-sidebar border-0 bg-transparent">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                    </button>
-                    <button data-del="${id}" class="navbar__toogle-sidebar border-0 bg-transparent">
-                        <i class="fa-regular fa-trash-can"></i>
-                    </button>
-                </th>
-            </tr>
-        `;
+        <tr>
+            <th>${id}</th>
+            <th>
+                <img src="${img}" alt="" class="img-fluid product-img" />
+            </th>
+            <th class="product-tb-name">${name}</th>
+            <th>${size}</th>
+            <th>${qty}</th>
+            <th>${price}</th>
+            <th>${discount}</th>
+            <th>${discount !== '' ? (price * ((100 - discount) / 100)).toLocaleString('vi-VN') : ''}</th>
+            <th class="action-icon text-end">
+                <button class="navbar__toogle-sidebar border-0 bg-transparent">
+                    <i class="fa-regular fa-eye"></i>
+                </button>
+                <button data-edit="${id}" class="navbar__toogle-sidebar border-0 bg-transparent">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </button>
+                <button data-del="${id}" class="navbar__toogle-sidebar border-0 bg-transparent">
+                    <i class="fa-regular fa-trash-can"></i>
+                </button>
+            </th>
+        </tr>
+    `;
     });
     $('#productContent').innerHTML = html.join('');
 }
 
-// Sắp xếp tăng dần
+export async function setUIDashboard(index) {
+    const data = await api.getProduct();
+    data.reverse();
+    const page = Paginate(data);
+    RenderListProduct(page[index]);
+    renderButton(page, index);
+}
+
+// sortAscending
 export async function sortAscending() {
     const data = await api.getProduct();
     data.sort((a, b) => a.price - b.price);
-    RenderDataList(data);
+    RenderListProduct(data);
+    $('.content-footer').style.display = 'none';
 }
 
-// Sắp xếp giảm dần
+// sortDescending
 export async function sortDescending() {
     const data = await api.getProduct();
     data.sort((a, b) => b.price - a.price);
-    RenderDataList(data);
+    RenderListProduct(data);
+    $('.content-footer').style.display = 'none';
 }
 
 // Reset form
@@ -125,17 +173,25 @@ export async function searchByName() {
         return dataName.includes(inputName);
     });
 
-    filteredData.length ? RenderDataList(filteredData) : showNotice('No results found!', 'no result');
-    
+    if (filteredData.length && keyInput.length) {
+        RenderListProduct(filteredData);
+        $('.content-footer').style.display = 'none';
+    } else {
+        showNotice('No results found!', 'no result');
+        setUIDashboard(0);
+    }
 }
 
+// Show status notice
 export function showNotice(message, status = 'success') {
-    const noticeElement = document.querySelector('.notice-status');
-    noticeElement.classList.add('show');
-    noticeElement.innerHTML = message;
-    noticeElement.style.backgroundColor = status === 'success' ? 'rgba(130, 49, 211, 0.8)' : 'rgba(255, 15, 15, 0.8)';
-
     setTimeout(() => {
-        noticeElement.classList.remove('show');
-    }, 2000);
+        const noticeElement = document.querySelector('.notice-status');
+        noticeElement.classList.add('show');
+        noticeElement.innerHTML = message;
+        noticeElement.style.backgroundColor = status === 'success' ? 'rgba(130, 49, 211, 0.8)' : 'rgba(255, 15, 15, 0.8)';
+
+        setTimeout(() => {
+            noticeElement.classList.remove('show');
+        }, 2000);
+    }, 500);
 }

@@ -108,7 +108,7 @@
         </header>
 
         <!-- Main content -->
-        <section class="main-content d-flex">
+        <section class="main-content">
             <div class="sidebar show">
                 <a href="" class="sidebar-link">
                     <div>
@@ -298,8 +298,8 @@
                     </span>
                 </a>
             </div>
-            <div class="data-list flex-grow-1">
-                <div class="container-fluid">
+            <div class="data-list">
+                <div class="container-fluid px-4">
                     <!-- CONTENT HEADER  -->
                     <div class="content-header d-flex align-items-center">
                         <div class="d-flex align-items-center">
@@ -323,7 +323,7 @@
                             <h3 class="mb-0">Product List</h3>
                             <div class="d-flex">
                                 <p class="mb-0">Sort by price</p>
-                                <div class="ms-1 sort-price">
+                                <div class="ms-2 sort-price">
                                     <input type="radio" name="sort-price" class="d-none" id="price-ascending" value="ascending" />
                                     <label for="price-ascending" class="sort-label">
                                         <i class="fa-solid fa-arrow-up-1-9"></i>
@@ -333,6 +333,9 @@
                                         <i class="fa-solid fa-arrow-down-9-1"></i>
                                     </label>
                                 </div>
+                                <button id="clearFilter" class="ms-2 bg-transparent border-0">
+                                    <i class="fa-solid fa-filter-circle-xmark"></i>
+                                </button>
                             </div>
                         </div>
                         <div class="table-body">
@@ -352,12 +355,29 @@
                                 </thead>
                                 <tbody id="productContent"></tbody>
                             </table>
+
+                            <!-- CONTENT FOOTER -->
+                            <div class="content-footer">
+                                <ul id="dbPagination" class="page-list d-flex list-unstyled mb-0 justify-content-end">
+                                    <li class="page-item">
+                                        <button class="page page-control">
+                                            <i class="fa-solid fa-angle-left"></i>
+                                        </button>
+                                    </li>
+                                    <li class="page-item">
+                                        <button class="page page-num">1</button>
+                                    </li>
+                                    <li class="page-item">
+                                        <button class="page page-num">2</button>
+                                    </li>
+                                    <li class="page-item">
+                                        <button class="page page-control">
+                                            <i class="fa-solid fa-angle-right"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- CONTENT FOOTER  -->
-                    <div class="content-footer">
-
                     </div>
 
                     <!-- FOOTER  -->

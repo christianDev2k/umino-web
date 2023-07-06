@@ -1906,6 +1906,7 @@ body {
 
 .headerDashboard {
   background-color: #fff;
+  height: 84px;
 }
 .headerDashboard .navbar {
   padding-top: 0;
@@ -1972,6 +1973,11 @@ body {
   text-align: center;
   height: 100vh;
   overflow: scroll;
+  position: fixed;
+  top: 84px;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
 }
 .main-content .sidebar::-webkit-scrollbar {
   width: 8px;
@@ -2006,6 +2012,9 @@ body {
 .main-content .sidebar.show {
   width: 280px;
   padding: 10px;
+}
+.main-content .sidebar.show ~ .data-list {
+  padding-left: 280px;
 }
 .main-content .sidebar.show .sidebar-title {
   text-align: left;
@@ -2064,10 +2073,10 @@ body {
 }
 .main-content .data-list {
   background-color: #f4f5f7;
-  padding: 0 15px;
+  padding-left: 74px;
 }
 .main-content .data-list .content-header {
-  margin: 33px 0;
+  padding: 33px 0;
 }
 .main-content .data-list .content-header .content-title {
   color: #111;
@@ -2167,9 +2176,36 @@ body {
   width: 70px;
   height: 70px;
 }
+.main-content .data-list .content-body .table-body .content-footer {
+  padding-top: 20px;
+}
+.main-content .data-list .content-body .table-body .content-footer .page-item {
+  margin: 0 3px;
+}
+.main-content .data-list .content-body .table-body .content-footer .page {
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+  border-radius: 4px;
+  border: 1px solid #f1f2f6;
+  background-color: #fff;
+  color: #404040;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.4s;
+}
+.main-content .data-list .content-body .table-body .content-footer .page:hover, .main-content .data-list .content-body .table-body .content-footer .page.active {
+  border: 1px solid #8231D3;
+  background-color: #8231D3;
+  color: #fff;
+}
+.main-content .data-list .content-body .table-body .content-footer .page-control {
+  font-size: 12px;
+}
 .main-content .data-list .page-footer {
   background-color: #fff;
   padding: 25px 30px;
+  border-radius: 10px;
 }
 .main-content .data-list .page-footer .footer__left {
   color: #404040;
