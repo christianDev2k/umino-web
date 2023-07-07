@@ -1,8 +1,7 @@
-var toggleButton = document.querySelector('#toggleButton')
-var contentNone = document.querySelector('#contentNone')
+let toggleButton = document.querySelector('#toggleButton')
+let contentNone = document.querySelector('#contentNone')
 
-var isContentExpanded = true;
-var contentHeight = contentNone.scrollHeight; // Lấy chiều cao thực tế 
+let isContentExpanded = true;
 
 toggleButton.addEventListener('click', function() {
     if (isContentExpanded) {
@@ -10,7 +9,7 @@ toggleButton.addEventListener('click', function() {
       contentNone.style.maxHeight = '0';
     } else {
       // Mở rộng nội dung
-      contentNone.style.maxHeight = contentHeight + 'px';
+      contentNone.style.maxHeight = '800px';
     }
   
     isContentExpanded = !isContentExpanded;
