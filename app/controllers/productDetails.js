@@ -60,11 +60,11 @@ let isContentExpanded = true;
 
 toggleButton.addEventListener('click', function() {
   if (isContentExpanded) {
-    // Thu gọn nội dung
-    content.style.maxHeight = '0';
+    //Mở rộng nội dung
+    content.style.display = 'block';
   } else {
-    // Mở rộng nội dung
-    content.style.maxHeight = '800px';    
+    //Thu gọn nội dung
+    content.style.display = 'none';
   }
 
   isContentExpanded = !isContentExpanded;

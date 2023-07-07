@@ -1472,6 +1472,11 @@ footer .copyright .image_payment img {
   margin: auto;
 }
 
+.reviewAboutProducts {
+  border-top: 1px solid #A0A0A0;
+  border-bottom: 1px solid #A0A0A0;
+  padding: 60px 0px;
+}
 .reviewAboutProducts .nav-item .nav-link {
   color: black;
   font-weight: 600;
@@ -1519,10 +1524,10 @@ footer .copyright .image_payment img {
   margin-right: 10px;
 }
 .reviewAboutProducts .tab-content #pillRev .content-none {
+  display: none;
   border-top: 1px solid #A0A0A0;
   overflow: hidden;
-  max-height: 900px;
-  transition: max-height 0.3s ease-out;
+  max-height: 800px;
 }
 .reviewAboutProducts .tab-content #pillRev .content-none .name input {
   padding: 10px;
@@ -1564,6 +1569,15 @@ footer .copyright .image_payment img {
   padding-left: 20px;
   border-radius: 30px;
   border: 1px solid #919191;
+}
+.reviewAboutProducts .tab-content #pillRev .commentofCustomer {
+  border-top: 2px dotted #A0A0A0;
+}
+.reviewAboutProducts .tab-content #pillRev .commentofCustomer .content_command .icon_star {
+  margin-right: 10px;
+}
+.reviewAboutProducts .tab-content #pillRev .commentofCustomer .content_command .header_command span {
+  font-weight: 600;
 }
 
 .content-empty {

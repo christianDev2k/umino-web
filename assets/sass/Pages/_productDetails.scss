@@ -327,6 +327,9 @@
     }   
 }
 .reviewAboutProducts{
+    border-top: 1px solid $color-lighten;
+    border-bottom: 1px solid $color-lighten;
+    padding: 60px 0px;
     .nav-item{
         .nav-link{
             color: black;
@@ -388,10 +391,10 @@
                 }
             }
             .content-none{
+                display: none;
                 border-top: 1px solid $color-lighten;
                 overflow: hidden;
-                max-height: 900px;
-                transition: max-height 0.3s ease-out;
+                max-height: 800px;
                 .name{
                     input{
                         padding: 10px;
@@ -446,6 +449,20 @@
                         border: 1px solid $color-grey;
                     }
                 }
+            }
+            .commentofCustomer{
+                border-top: 2px dotted $color-lighten; 
+                .content_command{
+                    .icon_star{
+                        margin-right: 10px;
+                    } 
+                    .header_command{
+                        span{
+                            font-weight: $fw-2;
+                        }
+                    }   
+                }
+               
             }
         }
     }
