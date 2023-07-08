@@ -1186,6 +1186,7 @@ footer .container_top .container_mail input {
   color: white;
 }
 footer .container_top .container_mail button {
+  font-size: 14px;
   padding: 10px 35px;
   border-radius: 50px;
   background-color: white;
@@ -1260,6 +1261,15 @@ footer .copyright .image_payment img {
 }
 .inforAboutProducts .details_product .content-right .evalute .flex .text {
   color: #e9977d;
+  font-size: 14px;
+}
+.inforAboutProducts .details_product .content-right .price {
+  color: #111;
+  font-size: 24px;
+  font-weight: 600;
+}
+.inforAboutProducts .details_product .content-right .describe {
+  color: #A0A0A0;
   font-size: 14px;
 }
 .inforAboutProducts .details_product .content-right .size .size_product .sizeofProduct:hover span {
@@ -1469,11 +1479,18 @@ footer .copyright .image_payment img {
   margin-right: 10px;
 }
 .inforAboutProducts .details_product .content-right .return_information p {
+  color: #A0A0A0;
+  font-size: 14px;
   margin-bottom: 0px;
+}
+.inforAboutProducts .details_product .content-right .return_information span {
+  font-weight: 600;
+  color: #000;
 }
 .inforAboutProducts .details_product .content-right .typeofProduct ul {
   padding-left: 0;
   list-style: none;
+  color: #A0A0A0;
 }
 .inforAboutProducts .details_product .content-right .typeofProduct ul li .property {
   min-width: 8rem;
@@ -1489,6 +1506,7 @@ footer .copyright .image_payment img {
   left: 50%;
   transform: translate(-50%);
   background-color: white;
+  padding: 0px 20px;
 }
 .inforAboutProducts .details_product .content-right .paymet_trust_badge img {
   padding: 20px 25px;
@@ -2345,6 +2363,12 @@ footer .copyright .image_payment img {
 .content .content_none .poster img {
   width: 247px;
   height: 371px;
+}
+.content .product a {
+  text-decoration: none;
+}
+.content .product a i {
+  color: black;
 }
 
 @media screen and (max-width: 800px) {

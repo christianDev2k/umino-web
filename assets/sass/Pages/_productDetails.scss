@@ -57,6 +57,15 @@
                     }
                 }
             }
+            .price{
+                color: $color-header;
+                font-size: $fs-h4;
+                font-weight:$fw-2 ;
+            }
+            .describe{
+                color: $color-lighten;
+                font-size: $fs-1;
+            }
             .size{
                 .size_product{
                     .sizeofProduct{
@@ -293,13 +302,20 @@
                     margin-right: 10px;
                 }
                 p{
+                    color: $color-lighten;
+                    font-size: $fs-1;
                     margin-bottom: 0px;
+                }
+                span{
+                    font-weight: $fw-2;
+                    color: $color-black;
                 }
             }
             .typeofProduct{
                 ul{
                     padding-left: 0;
                     list-style: none;
+                    color: $color-lighten;
                     li{
                         .property{
                             min-width: 8rem;
@@ -317,6 +333,7 @@
                     left: 50%;
                     transform: translate(-50%   );
                     background-color: white;
+                    padding: 0px 20px;
                 }
                 img{
                     padding: 20px 25px;
