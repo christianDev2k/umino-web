@@ -40,6 +40,70 @@ body {
 
         .nav-item {
             margin-left: $m-2 + 4;
+            position: relative;
+
+            &.message::before,
+            &.notice::before {
+                content: '';
+                display: block;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: $color-success;
+                position: absolute;
+                top: 4px;
+                right: -2px;
+            }
+            &.notice::before {
+                background-color: $color-danger;
+            }
+
+            &.message:hover .dropdown {
+                display: block;
+            }
+            &.notice:hover .dropdown {
+                display: block;
+            }
+
+            &.setting {
+                .dropdown {
+                    width: 700px;
+                    padding: $pd-1;
+                    .feature-item {
+                        padding: $pd-2;
+                        transition: $transition;
+                        &:hover {
+                            box-shadow: 0 5px 10px rgba($color-gray, 0.05);
+                        }
+                        .feature-icon {
+                            margin-right: $m-3 + 1;
+                            img {
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+
+                        .feature-name {
+                            flex-grow: 1;
+                            .title {
+                                @include Text($fs-2, $fw-3, $color-header);
+                                line-height: 1.2;
+                                margin-bottom: 0;
+                            }
+                            .desc {
+                                @include Text($fs-1, $fw-1, $color-grey);
+                                line-height: 1.5;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.setting:hover .dropdown {
+                display: block;
+            }
+
             .nav-link {
                 padding: 0;
                 img {
@@ -59,6 +123,121 @@ body {
 
         .navbar-toggler {
             box-shadow: none;
+        }
+    }
+    .dropdown {
+        width: 360px;
+        background-color: $bg-color-base;
+        top: calc(100% + 35px);
+        right: 0;
+        box-shadow: 0px 0px 10px rgba($color: $color-black, $alpha: 0.1);
+        display: none;
+        transform-origin: top right;
+        animation: dropdownFadeIn 0.2s linear;
+        position: absolute;
+        @keyframes dropdownFadeIn {
+            from {
+                opacity: 0.5;
+                transform: scale(0.7);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            z-index: 1000;
+        }
+        .drop-header {
+            padding: $pd-3;
+            margin: $m-1;
+            background-color: $contents-bg;
+            border-radius: $radius-2 + 1;
+            justify-content: center;
+            h2 {
+                @include Text($fs-1, $fw-2, $color-header);
+                line-height: 1.2;
+            }
+            .circle {
+                width: 20px;
+                height: 20px;
+                background-color: $color-success;
+                color: $color-white;
+                @include Text($fs-0 + 1, $fw-3, $color-white);
+            }
+        }
+        .drop-body {
+            height: 320px;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba($color: #000000, $alpha: 0.1);
+                border-radius: $radius-1;
+                &:hover {
+                    background-color: rgba($color: #000000, $alpha: 0.3);
+                }
+            }
+            .drop-items {
+                padding: $pd-3 $pd-4;
+                transition: $transition;
+                &:hover {
+                    background-color: $color-grey-light;
+                }
+                .notice-img {
+                    margin-right: $m-3;
+                    img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+
+                .title {
+                    @include Text($fs-1, $fw-1, $color-header);
+                    line-height: 1.5;
+                }
+
+                .time {
+                    @include Text($fs-0 + 2, $fw-3, #01b81a);
+                    line-height: 1.5;
+                }
+
+                .detail {
+                    @include Text($fs-1, $fw-1, $color-grey);
+                    line-height: 1.5;
+                }
+
+                .num {
+                    @include Text($fs-0 - 2, $fw-3, $color-white);
+                    background-color: #01b81a;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    text-align: center;
+                    line-height: 14px;
+                }
+            }
+        }
+
+        .drop-footer {
+            padding: $pd-3;
+            a {
+                @include Text($fs-1 - 1, $fw-3, $color-lighten);
+                transition: $transition;
+                &:hover {
+                    color: $bg-primary-hover;
+                }
+            }
         }
     }
 }
