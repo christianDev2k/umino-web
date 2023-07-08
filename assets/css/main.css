@@ -2447,6 +2447,9 @@ body {
 .headerDashboard .navbar .nav-item.notice:hover .dropdown {
   display: block;
 }
+.headerDashboard .navbar .nav-item.setting:hover .dropdown {
+  display: block;
+}
 .headerDashboard .navbar .nav-item.setting .dropdown {
   width: 700px;
   padding: 10px;
@@ -2482,8 +2485,98 @@ body {
   line-height: 1.5;
   margin-bottom: 0;
 }
-.headerDashboard .navbar .nav-item.setting:hover .dropdown {
+.headerDashboard .navbar .nav-item.lang:hover .dropdown {
   display: block;
+}
+.headerDashboard .navbar .nav-item.lang .dropdown {
+  width: 130px;
+}
+.headerDashboard .navbar .nav-item.lang .dropdown .lang-list {
+  padding: 5px 0;
+}
+.headerDashboard .navbar .nav-item.lang .dropdown .lang-list .lang-item {
+  padding: 7px 20px;
+  transition: all 0.4s;
+}
+.headerDashboard .navbar .nav-item.lang .dropdown .lang-list .lang-item:hover {
+  background-color: rgba(130, 49, 211, 0.1);
+}
+.headerDashboard .navbar .nav-item.lang .dropdown .lang-list .lang-item:hover .lang-name {
+  color: #8231D3;
+}
+.headerDashboard .navbar .nav-item.lang .dropdown img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.headerDashboard .navbar .nav-item.lang .dropdown .lang-name {
+  color: #A0A0A0;
+  font-size: 14px;
+  font-weight: 400;
+}
+.headerDashboard .navbar .nav-item.profile:hover .dropdown {
+  display: block;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown {
+  width: 280px;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-header {
+  margin: 10px;
+  padding: 20px 25px;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-header img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-header .name {
+  color: #111;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-header .job-name {
+  color: #919191;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-body {
+  margin-bottom: 15px;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-body .profile-item {
+  transition: all 0.4s;
+  padding: 9px 25px;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-body .profile-item:hover {
+  padding-left: 35px;
+  background-color: rgba(130, 49, 211, 0.05);
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-body .profile-item:hover .profile-icon,
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-body .profile-item:hover .profile-title {
+  color: #8231D3;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-body .profile-item .profile-icon {
+  margin-right: 12px;
+  color: #747474;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-body .profile-item .profile-title {
+  color: #747474;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-footer {
+  padding: 18px 15px;
+  background-color: #f4f5f7;
+  color: #868eae;
+  font-size: 13px;
+  font-weight: 500;
+}
+.headerDashboard .navbar .nav-item.profile .dropdown .drop-footer .profile-icon {
+  margin-right: 6px;
 }
 .headerDashboard .navbar .nav-item .nav-link {
   padding: 0;
@@ -2519,7 +2612,7 @@ body {
 @keyframes dropdownFadeIn {
   from {
     opacity: 0.5;
-    transform: scale(0.7);
+    transform: scale(0.6);
   }
   to {
     opacity: 1;
