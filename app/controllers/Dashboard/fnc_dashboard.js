@@ -1,4 +1,6 @@
-import * as api from './call_API.js';
+import * as api from '../../../assets/js/call_API.js';
+
+const $ = document.querySelector.bind(document);
 
 // Add và render product
 export async function handleAddProduct(product, activePage) {
@@ -91,7 +93,7 @@ export function renderButton(dataPageList, active) {
 }
 
 // Render dashboard
-export function RenderListProduct(arr) {
+export function RenderListProduct(arr = []) {
     let html = arr.map(p => {
         const { name, img, size, price, discount, id, qty } = p;
         return `

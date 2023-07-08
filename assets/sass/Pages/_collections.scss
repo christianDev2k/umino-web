@@ -1,10 +1,4 @@
-
-.body{
-    width: 85%;
-    margin: auto;
-}
 .main_banner {
-    // background-image: url('../../img/port_bg_cate.jpg');
     background-image: url('../../../assets/img/port_bg_cate.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -13,10 +7,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 70px;
 
     h1 {
-        color: $bg-color-base;
         margin-bottom: 0;
+        @include Text(clamp(3rem, 4vw, $fs-h2), $fw-2, $color-white);
     }
 
     p {
@@ -27,7 +22,7 @@
     a {
         color: $bg-color-base;
         text-decoration: none;
-        transition: all .5s;
+        transition: all 0.5s;
 
         &:hover {
             color: $color-link-hover;
@@ -36,22 +31,20 @@
 }
 
 .typeofshoes {
-    .item{
+    .item {
         border-radius: 15px;
         overflow: hidden;
-        transition: all .5s;
+        transition: all 0.5s;
         position: relative;
-        p{
+        p {
             margin-bottom: 0;
         }
-        img{
-            transform: scale(1.4);
-            transition: all .5s;
-            
+        img {
+            transition: all 0.5s;
         }
-        .button_name{
+        .button_name {
             position: absolute;
-            bottom:0px;
+            bottom: 0px;
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 10px 50px;
@@ -60,16 +53,15 @@
             font-weight: $fw-2;
             color: black;
         }
-        &:hover{
-            img{
-                transform: scale(1.5);
+        &:hover {
+            img {
+                transform: scale(1.1);
             }
         }
     }
-    
 }
 
-.content {
+.all-products {
     .content_filter {
         .button {
             background-color: black;
@@ -78,8 +70,8 @@
             border-radius: 2px;
             padding: 5px 20px;
             margin-right: 10px;
-            transition: all .5s;
-            &:hover{
+            transition: all 0.5s;
+            &:hover {
                 background-color: white;
                 border-color: black;
                 color: black;
@@ -103,52 +95,51 @@
         max-height: 0px;
         border-top: 1px solid $color-link-hover;
         h4 {
-            @include Text($fs-2,$fw-2,$color-link)
+            @include Text($fs-2, $fw-2, $color-link);
         }
         .content_category {
             ul {
                 list-style: none;
                 padding-left: 0;
-                a{ 
+                a {
                     text-decoration: none;
                     color: $color-link-hover;
                 }
-                li{
+                li {
                     transform: translateX(1px);
-                    transition: all .5s;
+                    transition: all 0.5s;
                     color: $color-link-hover;
-                   &:hover{
+                    &:hover {
                         transform: translateX(10px);
-                       a{
-                        color: $color-link;
-                       }
-                   }
-                    
+                        a {
+                            color: $color-link;
+                        }
+                    }
                 }
             }
         }
-        .content_availability{
-            span{
+        .content_availability {
+            span {
                 color: $color-link-hover;
-                transition: all .5s;
-                &:hover{
+                transition: all 0.5s;
+                &:hover {
                     color: $color-link;
                 }
             }
         }
-        .content_brand{
-            span{
+        .content_brand {
+            span {
                 color: $color-link-hover;
-                transition: all .5s;
-                &:hover{
+                transition: all 0.5s;
+                &:hover {
                     color: $color-link;
                 }
             }
         }
         .content_size {
-            .type{
+            .type {
                 position: relative;
-                span{
+                span {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -160,8 +151,8 @@
                     background-color: black;
                     color: white;
                     width: 100%;
-                    transition: all .5s;
-                    &::after{
+                    transition: all 0.5s;
+                    &::after {
                         content: '';
                         position: absolute;
                         top: 25px;
@@ -180,20 +171,20 @@
                     color: black;
                     margin-top: 5px;
                     padding: 2px 15px;
-                    transition: all .5s;
-                    position: relative;    
+                    transition: all 0.5s;
+                    position: relative;
                 }
                 &:hover {
-                    a{
-                    background-color: black;
-                    color: white;
+                    a {
+                        background-color: black;
+                        color: white;
                     }
-                    span{
+                    span {
                         opacity: 1;
                     }
                 }
             }
-            }
+        }
         .content_featuredProduct {
             .image {
                 width: 75px;
@@ -213,7 +204,7 @@
                     top: 0;
                     left: 0;
                     opacity: 0;
-                    transition: all .5s;
+                    transition: all 0.5s;
 
                     &:hover {
                         opacity: 1;
@@ -221,40 +212,40 @@
                     }
                 }
             }
-            .hot_product{
-                h5{
-                    @include Text($fs-1,$fw-2,$color-link)
+            .hot_product {
+                h5 {
+                    @include Text($fs-1, $fw-2, $color-link);
                 }
             }
         }
-        .poster{
-            img{
+        .poster {
+            img {
                 width: 247px;
                 height: 371px;
             }
         }
     }
-    .product{
-       a{
-        text-decoration: none;
-        i{
-            color: black;
+    .product {
+        a {
+            text-decoration: none;
+            i {
+                color: black;
+            }
         }
-       } 
     }
 }
 
 // responsive
 @media screen and (max-width: 800px) {
-    .content_filter{
-        span{
+    .content_filter {
+        span {
             display: none;
         }
     }
-    .content_style{
+    .content_style {
         display: none;
     }
-    .soft{
+    .soft {
         display: none;
     }
 }

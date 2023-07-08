@@ -72,22 +72,11 @@
         }
         .card-img {
             position: relative;
-            .card-img-hover {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                opacity: 0;
-                visibility: 0;
-                transform: scale(0.9);
-                transition: $transition;
-            }
             .card-product-icon {
                 position: absolute;
                 left: 0;
                 right: 0;
-                bottom: 5%;
+                bottom: 2%;
                 display: flex;
                 justify-content: center;
                 opacity: 0;
@@ -105,6 +94,7 @@
                     justify-content: center;
                     margin: 0 $m-1 - 6;
                     transition: $transition;
+                    border: 1px solid transparent;
                     &:hover {
                         background-color: $color-header;
                         .product-svg path {
@@ -168,13 +158,8 @@
             }
         }
         &:hover {
-            .card-img-hover {
-                transform: scale(1);
-                opacity: 1;
-                visibility: 1;
-            }
             .card-product-icon {
-                bottom: 10%;
+                bottom: 5%;
                 opacity: 1;
                 visibility: visible;
             }

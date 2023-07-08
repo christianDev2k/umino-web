@@ -1,5 +1,4 @@
-html,
-body {
+.app__dashboard {
     font-family: 'Jost', sans-serif;
 }
 
@@ -451,6 +450,8 @@ body {
     .data-list {
         background-color: $contents-bg;
         padding-left: 74px;
+        min-height: 100vh;
+
         .content-header {
             padding: $m-4 + 3 0;
 

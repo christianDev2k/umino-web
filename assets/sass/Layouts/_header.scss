@@ -63,542 +63,6 @@ header {
             }
         }
     }
-
-    // Nav menu modal
-    .navModal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba($color: #000000, $alpha: 0.3);
-        display: none;
-
-        &.show {
-            display: block;
-            .nav-mobile {
-                width: 400px;
-            }
-        }
-
-        .nav-mobile {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 400px;
-            width: 0;
-            background-color: $bg-color-base;
-            animation: animateFading 0.4s ease-in-out;
-
-            @keyframes animateFading {
-                from {
-                    transform: translateX(-400px);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-
-            .nav-header {
-                background-color: $color-header;
-                padding-left: $pd-x-nav;
-                position: relative;
-                h3 {
-                    padding: $pd-x-nav;
-                    margin-bottom: 0;
-                    @include Text($fs-1, $fw-2, $color-white);
-                }
-                button {
-                    position: absolute;
-                    right: 20px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    padding: $pd-1;
-                    color: $color-white;
-                    font-size: $fs-2 + 2;
-                    transition: $transition;
-
-                    &:hover {
-                        color: $primary-color;
-                    }
-                }
-            }
-            .nav-body {
-                padding: $pd-1 $pd-5;
-
-                .nav-item {
-                    padding: $pd-3 0;
-                    text-transform: uppercase;
-                    border-bottom: 1px solid $bd-color-base;
-
-                    &:last-child {
-                        border-bottom: none;
-                    }
-
-                    .nav-link {
-                        @include Text($fs-1, $fw-2, $color-header);
-                        flex-grow: 1;
-                    }
-
-                    button {
-                        opacity: 0.5;
-                        font-size: $fs-1;
-                        transition: $transition;
-
-                        &:hover {
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
-            .nav-footer {
-                padding: $pd-y-nav $pd-4;
-                margin-top: auto;
-                margin-bottom: $m-2;
-                button {
-                    margin-top: $m-1;
-                    width: 100%;
-                }
-            }
-        }
-    }
-
-    // Modal search
-    .searchModal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba($color: #000000, $alpha: 0.3);
-        display: none;
-
-        &.show {
-            display: block;
-            .modalContainer {
-                transform: translateY(0);
-            }
-        }
-
-        .modalContainer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 50px;
-            padding: 60px 0;
-            background-color: $bg-color-base;
-            overflow-y: scroll;
-            transform: translateY(-100%);
-            animation: animateSearchFadeIn 0.4s linear forwards;
-
-            @keyframes animateSearchFadeIn {
-                from {
-                    transform: translateY(-100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-
-            .modalHeader {
-                width: 50%;
-
-                .searchModalClose {
-                    position: absolute;
-                    top: 30px;
-                    right: 30px;
-                    font-size: $fs-h4 - 4;
-                    color: rgba($color: #000000, $alpha: 0.5);
-                    transition: $transition;
-                    z-index: 1;
-
-                    &:hover {
-                        color: black;
-                    }
-                }
-                h3 {
-                    @include Text($fs-h3 - 4, $fw-2, $color-link);
-                    margin-bottom: $m-2;
-                }
-
-                .inputGroup {
-                    position: relative;
-                    margin-bottom: $m-1;
-                    .form-control {
-                        border: 1px solid rgba($color: #000000, $alpha: 0.4);
-                        border-radius: $radius-0;
-                        padding: $pd-3 50px $pd-3 $pd-2;
-                        box-shadow: none;
-                        font-size: $fs-1;
-
-                        &:focus {
-                            border-color: $color-black;
-                        }
-                    }
-                    .input-group-text {
-                        position: absolute;
-                        right: 0;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        padding: $pd-1 $pd-2;
-                    }
-                }
-                .search-title {
-                    color: $color-grey;
-                }
-            }
-
-            .modalBody {
-                margin-top: $m-1;
-                padding: 0 $pd-5;
-                h4 {
-                    @include Text($fs-3, $fw-2, $color-link);
-                }
-            }
-        }
-    }
-
-    // Cart modal
-    .cartModal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba($color: #000000, $alpha: 0.3);
-        display: none;
-
-        &.show {
-            display: block;
-            .modalContainer {
-                transform: translateY(0);
-            }
-        }
-
-        .cartModal.cart-empty {
-            .cart-process {
-                .truck-process {
-                    background-color: $bd-color-base;
-                    .truck-icon {
-                        left: 0;
-                    }
-                }
-
-                .cart-list {
-                    padding: $pd-7 $pd-5 $pd-5;
-                    .cart-empty-notice {
-                        display: none;
-                        .cart-empty-notice {
-                            .heading {
-                                @include Text($fs-2 + 2, $fw-3, $color-header);
-                            }
-                            .text {
-                                margin-top: $m-1;
-                                @include Text($fs-2, $fw-1, $color-header);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        .modalContainer {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            transform: translateX(100%);
-            width: 450px;
-            background: $bg-color-base;
-            animation: cartFadeIn 0.4s linear forwards;
-
-            @keyframes cartFadeIn {
-                from {
-                    transform: translateX(100%);
-                }
-                to {
-                    transform: translateY(0);
-                }
-            }
-        }
-
-        .modal__header {
-            padding: $pd-3 - 1 $pd-5;
-            h4 {
-                @include Text($fs-2 + 2, $fw-2, $color-header);
-            }
-            button {
-                font-size: $fs-3;
-                opacity: 0.5;
-                transition: $transition;
-                &:hover {
-                    opacity: 1;
-                }
-            }
-        }
-
-        .cart-process {
-            padding: $pd-5 + 5 $pd-5 $pd-2 $pd-5;
-            background-color: $color-grey-light;
-            border-bottom: 1px solid $bd-color-base;
-            border-top: 1px solid $bd-color-base;
-            .truck-process {
-                height: 5px;
-                background-color: $primary-color;
-                margin-bottom: $m-1 + 2;
-                position: relative;
-                border-radius: $radius-1;
-                .truck-icon {
-                    position: absolute;
-                    right: 0;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    color: $primary-color;
-                    border: 1px solid $primary-color;
-                    background-color: $bg-color-base;
-                    width: 30px;
-                    height: 30px;
-                    line-height: 30px;
-                    border-radius: 50%;
-                    font-size: $fs-1;
-                    text-align: center;
-                }
-            }
-            p {
-                @include Text($fs-1, $fw-1, $color-header);
-                span {
-                    @include Text($fs-1, $fw-2, $primary-color);
-                }
-            }
-        }
-
-        .cart-list {
-            overflow-y: scroll;
-        }
-
-        .product-item {
-            padding: 0 $pd-5 $pd-5 $pd-5;
-            .product-img {
-                width: 87px;
-                height: 87px;
-                img {
-                    border-radius: $radius-1;
-                    object-fit: cover;
-                }
-            }
-
-            .product-info {
-                flex-grow: 1;
-                margin-left: $m-3;
-                margin-right: $m-1;
-                .product-title {
-                    @include Text($fs-2, $fw-1, $color-header);
-                }
-                .product-size {
-                    @include Text($fs-1, $fw-1, $color-grey);
-                }
-                .product-price {
-                    margin-top: 6px;
-                    @include Text($fs-2, $fw-3, $color-header);
-                }
-                .product-qty {
-                    background-color: $color-grey-light;
-                    width: 90px;
-                    height: 30px;
-                    border-radius: $radius-1 - 4;
-                    border: 1px solid $bd-color-base;
-                    .qty-down,
-                    .qty-up {
-                        background-color: transparent;
-                        border: none;
-                        width: 25px;
-                        height: 25px;
-                        font-size: $fs-1 - 2;
-                    }
-                    .qty-value {
-                        width: 40px;
-                        height: 25px;
-                        text-align: center;
-                        outline: none;
-                    }
-                }
-            }
-
-            .product-btn button {
-                line-height: 1;
-                transition: $transition;
-            }
-
-            .product-btn i {
-                font-size: $fs-1 - 2;
-                color: $color-grey;
-                transition: $transition;
-                &:hover {
-                    color: $color-header;
-                }
-            }
-        }
-
-        .cart-checkout {
-            border-bottom: 1px solid $bd-color-base;
-            border-top: 1px solid $bd-color-base;
-            button {
-                background-color: transparent;
-                border: none;
-                padding: $pd-3 + 2 $pd-2;
-            }
-
-            .subtotal {
-                background-color: $color-grey-light;
-                padding: $pd-2 $pd-5;
-                .price {
-                    @include Text($fs-2 + 2, $fw-3, $color-header);
-                }
-                .policy {
-                    input {
-                        appearance: none;
-                        -webkit-appearance: none;
-                        width: 18px;
-                        height: 18px;
-                        background-color: $bg-color-base;
-                        border: 1px solid $color-grey;
-                        margin-right: 8px;
-                        &::before {
-                            content: '\f00c';
-                            display: none;
-                            width: 100%;
-                            font-weight: 900;
-                            font-family: 'Font Awesome 6 Free';
-                            font-size: $pd-3 - 2;
-                            color: $color-white;
-                        }
-
-                        &:checked {
-                            background-color: $color-link;
-                            border-color: $color-link;
-                        }
-
-                        &:checked::before {
-                            display: block;
-                        }
-                    }
-                    .cart-policy {
-                        @include Text($fs-2, $fw-1, $color-link-hover);
-                    }
-                    .cart-policy-link {
-                        @include Text($fs-2, $fw-1, $color-link);
-                    }
-                }
-                .btn.btn--secondary {
-                    background-color: $bg-color-base;
-                    color: $color-header;
-                    border-color: $color-grey;
-                }
-                .btn.btn--primary,
-                .btn.btn--primary:hover,
-                .btn.btn--secondary:hover {
-                    background-color: $color-header;
-                    color: $color-white;
-                }
-            }
-        }
-    }
-
-    // Login modal
-    .loginModal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba($color: #000000, $alpha: 0.3);
-        display: none;
-        align-items: center;
-        justify-content: center;
-
-        &.show {
-            display: flex;
-            .modalContainer {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-
-        .modalContainer {
-            width: 500px;
-            background: $bg-color-base;
-            border-radius: $radius-2;
-            position: relative;
-            opacity: 0;
-            visibility: hidden;
-            display: none;
-
-            .closeLoginIcon {
-                position: absolute;
-                top: 10px;
-                right: 20px;
-                padding: $pd-1;
-                line-height: 1;
-                font-size: $fs-3;
-                color: $color-grey;
-                transition: $transition;
-                &:hover {
-                    color: $color-header;
-                }
-            }
-        }
-
-        .modalContainer.login {
-            display: block;
-        }
-
-        .modalContainer.register {
-            display: block;
-            .login_forgot {
-                font-size: $fs-1;
-            }
-        }
-
-        .modal__header {
-            padding-top: $pd-5 + 5;
-            h4 {
-                @include Text($fs-h4, $fw-2, $color-header);
-            }
-        }
-        .modal_body {
-            padding: $pd-5;
-            .form-control {
-                @include Text($fs-1, $fw-1, $color-input);
-                padding: $pd-1 $pd-2;
-                border-radius: $radius-0;
-                height: 50px;
-                box-shadow: none;
-                border: 1px solid $color-input-bd;
-                transition: $transition;
-                &:focus {
-                    border-color: $color-header;
-                }
-            }
-            .login_forgot {
-                color: $base-color;
-            }
-            .login__button {
-                margin-top: $m-4;
-                button {
-                    width: 100%;
-                }
-                .btn.btn--secondary {
-                    margin-top: $m-2;
-                }
-            }
-        }
-    }
 }
 
 @include Responsive('small-down') {
@@ -612,6 +76,460 @@ header {
         .cartModal {
             .modalContainer {
                 width: 100%;
+            }
+        }
+    }
+}
+
+// ======================== NAV MOBILE MODAL =========================
+
+#navMobile {
+    &.fade .modal-dialog {
+        transform: translate(-50px, 0);
+    }
+
+    &.show .modal-dialog {
+        transform: none;
+    }
+
+    .modal-dialog {
+        margin: auto 0 0 0;
+        max-width: 400px;
+    }
+    
+    .modal-dialog-centered {
+        height: 100vh;
+    }
+
+    .nav-mobile {
+        height: 100vh;
+    }
+
+    .modal-content {
+        border-radius: 0;
+        border: none;
+    }
+
+    .nav-header {
+        background-color: $color-header;
+        padding-left: $pd-x-nav;
+        position: relative;
+        h3 {
+            padding: $pd-x-nav;
+            margin-bottom: 0;
+            @include Text($fs-1, $fw-2, $color-white);
+        }
+        button {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: $pd-1;
+            color: $color-white;
+            font-size: $fs-2 + 2;
+            transition: $transition;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+    .nav-body {
+        padding: $pd-1 $pd-5;
+
+        .nav-item {
+            padding: $pd-3 0;
+            text-transform: uppercase;
+            border-bottom: 1px solid $bd-color-base;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .nav-link {
+                @include Text($fs-1, $fw-2, $color-header);
+                flex-grow: 1;
+            }
+
+            button {
+                opacity: 0.5;
+                font-size: $fs-1;
+                transition: $transition;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .nav-footer {
+        padding: $pd-y-nav $pd-4;
+        margin-top: auto;
+        margin-bottom: $m-2;
+        button {
+            margin-top: $m-1;
+            width: 100%;
+            border-radius: $radius-0;
+        }
+    }
+}
+
+// ======================== CART MODAL =========================
+
+#cartModal {
+    &.fade .modal-dialog {
+        transform: translate(75px, 0);
+    }
+
+    &.show .modal-dialog {
+        transform: none;
+    }
+
+    .modal-dialog {
+        margin: 0 0 0 auto;
+        max-height: 100vh;
+        max-width: 450px;
+    }
+
+    .modal-dialog-scrollable {
+        height: 100vh;
+    }
+
+    .modal-content {
+        border-radius: 0;
+        border: none;
+    }
+
+    .modal__header {
+        padding: $pd-3 - 1 $pd-5;
+        h4 {
+            @include Text($fs-2 + 2, $fw-2, $color-header);
+        }
+        button {
+            font-size: $fs-3;
+            opacity: 0.5;
+            transition: $transition;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .cart-process {
+        padding: $pd-5 + 5 $pd-5 $pd-2 $pd-5;
+        background-color: $color-grey-light;
+        border-bottom: 1px solid $bd-color-base;
+        border-top: 1px solid $bd-color-base;
+        .truck-process {
+            height: 5px;
+            background-color: $primary-color;
+            margin-bottom: $m-1 + 2;
+            position: relative;
+            border-radius: $radius-1;
+            .truck-icon {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                color: $primary-color;
+                border: 1px solid $primary-color;
+                background-color: $bg-color-base;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 50%;
+                font-size: $fs-1;
+                text-align: center;
+            }
+        }
+        p {
+            @include Text($fs-1, $fw-1, $color-header);
+            span {
+                @include Text($fs-1, $fw-2, $primary-color);
+            }
+        }
+    }
+
+    .cart-list {
+        overflow-y: scroll;
+    }
+
+    .product-item {
+        padding: 0 $pd-5 $pd-5 $pd-5;
+        .product-img {
+            width: 87px;
+            height: 87px;
+            img {
+                border-radius: $radius-1;
+                object-fit: cover;
+            }
+        }
+
+        .product-info {
+            flex-grow: 1;
+            margin-left: $m-3;
+            margin-right: $m-1;
+            .product-title {
+                @include Text($fs-2, $fw-1, $color-header);
+            }
+            .product-size {
+                @include Text($fs-1, $fw-1, $color-grey);
+            }
+            .product-price {
+                margin-top: 6px;
+                @include Text($fs-2, $fw-3, $color-header);
+            }
+            .product-qty {
+                background-color: $color-grey-light;
+                width: 90px;
+                height: 30px;
+                border-radius: $radius-1 - 4;
+                border: 1px solid $bd-color-base;
+                .qty-down,
+                .qty-up {
+                    background-color: transparent;
+                    border: none;
+                    width: 25px;
+                    height: 25px;
+                    font-size: $fs-1 - 2;
+                }
+                .qty-value {
+                    width: 40px;
+                    height: 25px;
+                    text-align: center;
+                    outline: none;
+                }
+            }
+        }
+
+        .product-btn button {
+            line-height: 1;
+            transition: $transition;
+        }
+
+        .product-btn i {
+            font-size: $fs-1 - 2;
+            color: $color-grey;
+            transition: $transition;
+            &:hover {
+                color: $color-header;
+            }
+        }
+    }
+
+    .cart-checkout {
+        border-bottom: 1px solid $bd-color-base;
+        border-top: 1px solid $bd-color-base;
+        button {
+            background-color: transparent;
+            border: none;
+            padding: $pd-3 + 2 $pd-2;
+        }
+
+        .subtotal {
+            background-color: $color-grey-light;
+            padding: $pd-2 $pd-5;
+            .price {
+                h4 {
+                    @include Text($fs-2, $fw-2, $color-header);
+                }
+                p {
+                    @include Text($fs-2, $fw-2, $color-header);
+                }
+            }
+            .policy {
+                input {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    width: 18px;
+                    height: 18px;
+                    background-color: $bg-color-base;
+                    border: 1px solid $color-grey;
+                    margin-right: 8px;
+                    &::before {
+                        content: '\f00c';
+                        display: none;
+                        width: 100%;
+                        font-weight: 900;
+                        font-family: 'Font Awesome 6 Free';
+                        font-size: $pd-3 - 2;
+                        color: $color-white;
+                    }
+
+                    &:checked {
+                        background-color: $color-link;
+                        border-color: $color-link;
+                    }
+
+                    &:checked::before {
+                        display: block;
+                    }
+                }
+                .cart-policy {
+                    @include Text($fs-2, $fw-1, $color-link-hover);
+                }
+                .cart-policy-link {
+                    @include Text($fs-2, $fw-1, $color-link);
+                }
+            }
+            .btn {
+                border-radius: $radius-0;
+            }
+            .btn.btn--secondary {
+                background-color: $bg-color-base;
+                color: $color-header;
+                border-color: $color-grey;
+            }
+            .btn.btn--primary,
+            .btn.btn--primary:hover,
+            .btn.btn--secondary:hover {
+                background-color: $color-header;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+// ======================== SEARCH MODAL =========================
+
+#modalSearch {
+    .modal-fullscreen {
+        height: 80%;
+    }
+    .modal-content {
+        overflow-y: scroll;
+
+        .modalHeader {
+            position: relative;
+            padding-top: $pd-10;
+            .header-content {
+                width: 60%;
+            }
+            .searchModalClose {
+                position: absolute;
+                top: 25px;
+                right: 50px;
+                font-size: $fs-h4 - 4;
+                color: rgba($color: #000000, $alpha: 0.5);
+                transition: $transition;
+                z-index: 1;
+
+                &:hover {
+                    color: black;
+                }
+            }
+            h3 {
+                @include Text($fs-h3 - 6, $fw-2, $color-link);
+                margin-bottom: $m-2;
+            }
+
+            .inputGroup {
+                position: relative;
+                margin-bottom: $m-1;
+                .form-control {
+                    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+                    border-radius: $radius-0;
+                    padding: $pd-3 50px $pd-3 $pd-2;
+                    box-shadow: none;
+                    font-size: $fs-1;
+                    height: 45px;
+                    transition: $transition;
+
+                    &:focus {
+                        border-color: $color-black;
+                    }
+                }
+                .input-group-text {
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    padding: $pd-1 $pd-2;
+                    cursor: pointer;
+                }
+            }
+            .q-search {
+                @include Text($fs-1, $fw-1, $color-grey);
+                p {
+                    color: $color-gray;
+                }
+            }
+        }
+
+        .modalBody {
+            margin-top: $m-1;
+            padding: 0 $pd-5;
+            h4 {
+                @include Text($fs-3, $fw-2, $color-link);
+            }
+            .card-title {
+                font-size: $fs-1;
+            }
+            .product-rating i {
+                font-size: $fs-0 - 1;
+            }
+            .product-price {
+                font-size: $fs-1;
+            }
+        }
+    }
+}
+
+// ======================== ACCOUNT MODAL =========================
+
+#accountModal {
+    &.fade .modal-dialog {
+        transform: translate(-50px, 0);
+    }
+
+    &.show .modal-dialog {
+        transform: none;
+    }
+    .closeLoginIcon {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        padding: $pd-1;
+        line-height: 1;
+        font-size: $fs-3;
+        color: $color-grey;
+        transition: $transition;
+        &:hover {
+            color: $color-header;
+        }
+    }
+
+    .modal__header {
+        padding-top: $pd-5 + 5;
+        h4 {
+            @include Text($fs-h4, $fw-2, $color-header);
+        }
+    }
+    .modal_body {
+        padding: $pd-5;
+        .form-control {
+            @include Text($fs-1, $fw-1, $color-input);
+            padding: $pd-1 $pd-2;
+            border-radius: $radius-0;
+            height: 50px;
+            box-shadow: none;
+            border: 1px solid $color-input-bd;
+            transition: $transition;
+            &:focus {
+                border-color: $color-header;
+            }
+        }
+        .login_forgot {
+            @include Text($fs-1, $fw-1, $base-color);
+        }
+        .login__button {
+            margin-top: $m-4;
+            button {
+                width: 100%;
+                border-radius: $radius-0;
+            }
+            .btn.btn--secondary {
+                margin-top: $m-2;
             }
         }
     }

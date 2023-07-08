@@ -1,12 +1,22 @@
-import * as f from '../../assets/js/handleFunction.js';
-import * as api from '../../assets/js/call_API.js';
-import Validator from '../../app/util/validator.js';
-import Product from '../../app/models/Product.js';
-
-const ValidateAddForm = new Validator('#addProductForm');
-let editID = -1;
+import * as f from './fnc_dashboard.js';
+import * as api from '../../../assets/js/call_API.js';
+import Validator from '../../util/validator.js';
+import Product from '../../models/Product.js';  
 
 const event = index => {
+    const $ = document.querySelector.bind(document);
+    
+    // =================================================================
+
+    $('.navbar__toogle-sidebar').onclick = () => {
+        $('.sidebar').classList.toggle('show');
+    };
+
+    // =================================================================
+    
+    const ValidateAddForm = new Validator('#addProductForm');
+    let editID = -1;
+
     // Get infor from input fields and validate
     ValidateAddForm.onSubmit = product => {
         $('#closeModalAddBtn').click();
@@ -76,13 +86,6 @@ const event = index => {
         const targetElement = e.target.dataset.index;
 
         if (targetElement) {
-            // if (targetElement === 'pre') {
-            //     index = index === 0 ? paginateLength - 1 : index - 1;
-            // } else if (targetElement === 'next') {
-            //     index = index === paginateLength - 1 ? 0 : index + 1;
-            // } else {
-            //     index = targetElement;
-            // }
             index = targetElement === 'pre' ? (index <= 0 ? paginateLength - 1 : index - 1) : targetElement === 'next' ? (index >= paginateLength - 1 ? 0 : parseInt(index) + 1) : (index = targetElement);
             f.setUIDashboard(parseInt(index));
         }
