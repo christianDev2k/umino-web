@@ -1163,6 +1163,7 @@ footer .container_top .container_mail input {
   color: white;
 }
 footer .container_top .container_mail button {
+  font-size: 14px;
   padding: 10px 35px;
   border-radius: 50px;
   background-color: white;
