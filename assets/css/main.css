@@ -14,6 +14,10 @@ html, body {
   background-color: #fff;
 }
 
+.modal-dialog .modal-body {
+  padding: 0;
+}
+
 .btn {
   color: #fff;
   font-size: 14px;
