@@ -6,7 +6,7 @@ export function renderAllProducts(productsList) {
     const html = productsList.map(p => {
         const { id, img, name, price, discount } = p;
         return `
-                <div class="mb-5 col-sm-6 col-xl-4">
+                <div id="layout-item" class="mb-5 col-6 col-lg-4">
                     <a href="#" class="card-product-link">
                         <div class="card">
                             <div class="card-img">
@@ -74,6 +74,7 @@ export function renderAllProducts(productsList) {
     });
     container.innerHTML = html.join('');
 }
+
 export function renderPopularProducts(productsList) {
     const container = $('#popular-products');
     const html = productsList.map(p => {

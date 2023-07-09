@@ -10,13 +10,14 @@
     margin-top: 70px;
 
     h1 {
-        margin-bottom: 0;
-        @include Text(clamp(3rem, 4vw, $fs-h2), $fw-2, $color-white);
+        margin-bottom: $m-1 - 5;
+        color: $color-white;
+        font-size: clamp(3rem, 4vw, 45px);
     }
 
     p {
         text-align: center;
-        color: $bg-color-base;
+        @include Text($fs-1, $fw-1, $color-white);
     }
 
     a {
@@ -47,11 +48,14 @@
             bottom: 0px;
             left: 50%;
             transform: translate(-50%, -50%);
-            padding: 10px 50px;
+            width: 90%;
+            max-width: 200px;
+            padding: 12px 0;
             background-color: white;
             border-radius: 50px;
-            font-weight: $fw-2;
-            color: black;
+            text-align: center;
+            line-height: 1.2;
+            @include Text($fs-1, $fw-4, $color-header);
         }
         &:hover {
             img {
@@ -65,17 +69,20 @@
     .content_filter {
         .button {
             background-color: black;
-            border-color: white;
-            color: white;
+            border: 1px solid transparent;
             border-radius: 2px;
             padding: 5px 20px;
             margin-right: 10px;
             transition: all 0.5s;
+            @include Text($fs-1 - 2, $fw-2, $color-white);
             &:hover {
                 background-color: white;
                 border-color: black;
                 color: black;
             }
+        }
+        span {
+            @include Text($fs-1, $fw-1, $color-input);
         }
     }
 
@@ -86,6 +93,27 @@
 
         .icon {
             margin-right: 15px;
+            svg path {
+                transition: $transition;
+            }
+            &:hover svg path {
+                fill: $color-header;
+            }
+        }
+        .icon.active {
+            svg path {
+                fill: $color-header;
+            }
+        }
+    }
+
+    .soft {
+        @include Text($fs-1, $fw-1, $color-header);
+        button {
+            font-weight: $fw-3;
+            i {
+                font-size: $fs-0;
+            }
         }
     }
 
@@ -247,5 +275,12 @@
     }
     .soft {
         display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .col-lg-24 {
+        flex: 0 0 auto;
+        width: calc(100% / 5);
     }
 }

@@ -1,6 +1,8 @@
 //-----------------------------------------------------------------
 
 const eventCollection = () => {
+    const $ = document.querySelector.bind(document);
+
     const toggleButton = document.querySelector('#toggleButton');
     const contentNone = document.querySelector('#contentNone');
 
@@ -25,6 +27,15 @@ const eventCollection = () => {
 
         isContentExpanded = !isContentExpanded;
     });
+
+    // Handle layout all products
+    $('#layout-products').onclick = (e) => {
+        const elayout = e.target;
+        console.log(elayout);
+        if (elayout) {
+            console.log(1);
+        }
+    };
 };
 
 export default eventCollection;
