@@ -235,6 +235,140 @@
     }
 }
 
+//Modal
+
+.content{
+
+    .button_order{
+        border-top: 1px solid $color-grey-light ;
+        padding-top: 25px ;
+        .buy_amount{
+            .minus-btn{
+                padding: 10px 20px;
+                border: none;
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+            }
+            .input_value{
+                padding: 10px;
+                width: 40px;
+                border: none;
+                background-color: #efefef;
+                &:focus-visible{
+                    outline: none;
+                }
+            }
+            .plus-btn{
+                padding: 10px 20px;
+                border: none;
+                border-top-right-radius: 50px;
+                border-bottom-right-radius: 50px;
+            }
+        }
+        .submit_add{
+            button{
+                min-width: 200px;
+                border-radius: 50px;
+            }
+        }
+        .icon_heart{
+            display: flex;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid $color-grey-light;
+            border-radius: 50px;
+            margin-right: 5px;
+            &:hover{
+                background-color: black;
+                svg{
+                    filter: invert(100%);
+                }
+                .tooltips{
+                    opacity: 1;
+                }
+            }
+            .tooltips{
+                width: 100px;
+                padding: 7px 15px;
+                top: -120%;
+                left: 50%;
+                font-size: $fs-0;
+                transform: translate(-50%,50%);
+                background-color: black;
+                text-align: center;
+                color: white;
+                opacity: 0;
+                transition: all .5s;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 120%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-top: 10px solid black;
+                    border-bottom: 10px solid transparent;
+    
+                }
+            }
+        }
+        .icon_compare{
+            display: flex;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid $color-grey-light;
+            border-radius: 50px;
+            &:hover{
+                background-color: black;
+                svg{
+                    filter: invert(100%);
+                }
+                .tooltips{
+                    opacity: 1;
+                }
+            }
+            .tooltips{
+                padding: 7px 15px;
+                top: -120%;
+                left: 50%;
+                font-size: $fs-0;
+                transform: translate(-50%,50%);
+                background-color: black;
+                text-align: center;
+                color: white;
+                opacity: 0;
+                transition: all .5s;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 120%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-top: 10px solid black;
+                    border-bottom: 10px solid transparent;
+    
+                }
+            }
+        }
+    }
+    .button_buyItNow{
+        button{
+            background-color: #df653f;
+            color: white;
+            min-width: 480px;
+            &:hover{
+                border: none;
+            }
+        }
+    }
+}
 // responsive
 @media screen and (max-width: 800px) {
     .content_filter {
