@@ -13,3 +13,13 @@ html, body {
     font-weight: $fw-1;
     background-color: $bg-color-base;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}

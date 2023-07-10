@@ -30,8 +30,8 @@ export const deleteProduct = async id => {
     return data;
 };
 
-export const getProduct = async () => {
-    const res = await fetch(url);
+export const getProduct = async (id = '') => {
+    const res = await fetch(url + id);
     const data = await res.json();
     return data;
 };

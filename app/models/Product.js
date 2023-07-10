@@ -7,5 +7,6 @@ export default class Product {
         this.desc = desc;
         this.discount = discount;
         this.qty = qty;
+        this.cartQty = 0;
     }
 }

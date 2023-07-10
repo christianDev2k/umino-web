@@ -109,7 +109,7 @@
 
     .soft {
         @include Text($fs-1, $fw-1, $color-header);
-        button {
+        .sort-options {
             font-weight: $fw-3;
             i {
                 font-size: $fs-0;

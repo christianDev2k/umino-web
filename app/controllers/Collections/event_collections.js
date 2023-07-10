@@ -29,13 +29,7 @@ const eventCollection = () => {
     });
 
     // Handle layout all products
-    $('#layout-products').onclick = (e) => {
-        const elayout = e.target;
-        console.log(elayout);
-        if (elayout) {
-            console.log(1);
-        }
-    };
+
 };
 
 export default eventCollection;

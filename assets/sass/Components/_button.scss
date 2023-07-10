@@ -54,5 +54,12 @@
             @include Text($fs-1, $fw-3, $color-white);
         }
     }
+
+    &.btn--buy-now, &.btn--buy-now:hover {
+        background-color: $buy-now-btn-color;
+        border-radius: $radius-0;
+        text-transform: uppercase;
+        color: $color-white;
+    }
 }
 

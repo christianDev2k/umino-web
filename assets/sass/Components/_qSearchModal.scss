@@ -1,39 +1,212 @@
-#modalAddToCart{
-    .modal-dialog{
-        top: 50%;
-        transform: translate(-50%,-50%);
-        .modal-content{
-            width: 1000px;
-            height: 490px;
-            overflow: hidden;
-           .image_product{
-                img{
-                    width: 100%;
-                    height: 100%;
+#modalAddToCart {
+    .modal-dialog {
+        max-width: 1030px;
+        max-height: 515px;
+    }
+
+    .modal-content {
+        border: none;
+        position: relative;
+
+        .close-modal {
+            position: absolute;
+            padding: $pd-1;
+            top: 5px;
+            right: 10px;
+            line-height: 1;
+            font-size: $fs-3;
+            color: $color-grey;
+            transition: $transition;
+            &:hover {
+                color: $color-gray;
+            }
+        }
+    }
+
+    .product-img,
+    .product-info {
+        width: 50%;
+        height: 515px;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .product-img {
+        background-image: url('../../../assets/img/fashion_products_7_1_6858d5e7-b1a2-4f31-92f2-16681ef4dcd4.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .product-info {
+        padding: $pd-5;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba($color: #000000, $alpha: 0.1);
+            border-radius: $radius-1;
+            &:hover {
+                background-color: rgba($color: #000000, $alpha: 0.3);
+            }
+        }
+        .product-vendor {
+            @include Text($fs-1 - 2, $fw-2, $color-grey);
+            margin: $m-1 - 5 0;
+        }
+
+        .product-name {
+            @include Text($fs-h3 - 6, $fw-2, $color-header);
+            line-height: 1.3;
+            transition: $transition;
+            margin-bottom: $m-1 - 5;
+            &:hover {
+                color: $color-link-hover;
+            }
+        }
+
+        .review_product {
+            .icon_star {
+                font-size: $fs-0 - 1;
+                color: $color-header;
+            }
+            .review-num {
+                @include Text($fs-1, $fw-1, $base-color);
+            }
+            .hot_product {
+                @include Text($fs-1, $fw-1, $primary-color);
+                .icon_fire {
+                    margin-right: $m-1;
+                    margin-left: $m-2;
+                    line-height: 1;
                 }
-           }
-           .content{
-                .content_size{
-                    .select_size{
-                        label{
-                            background-color: white;
-                            border: 1px solid $color-lighten;
-                            border-radius: $radius-2;
-                            color:$color-gray;
-                            padding: 3px 20px;
-                            transition: all .5s;
-                            &:hover{
-                                background-color: $color-black;
-                                color: $color-white;
-                            }
-                        }
-                        input{
-                            display: none;
+            }
+        }
+        .price-product {
+            padding: $pd-2 0;
+            line-height: 1.2;
+            @include Text($fs-h4 + 6, $fw-2, $color-header);
+        }
+        .desc-product {
+            @include Text($fs-1, $fw-1, $base-color);
+            margin-bottom: $m-2;
+        }
+        .size-product {
+            @include Text($fs-1, $fw-1, $base-color);
+            .size {
+                color: $color-header;
+                font-weight: $fw-2;
+            }
+        }
+        .size-options {
+            input {
+                display: none;
+            }
+            label {
+                background-color: $color-white;
+                border: 1px solid $bd-color-base;
+                border-radius: $radius-2 - 2;
+                color: $base-color;
+                padding: $pd-1 - 4 $pd-2 - 1;
+                transition: $transition;
+                line-height: 1.2;
+                margin-right: $m-1;
+                &:hover,
+                &.active {
+                    background-color: $color-black;
+                    color: $color-white;
+                }
+            }
+        }
+        .action-group {
+            margin-top: $m-2 + 5;
+            .qty-input {
+                width: 130px;
+                height: 45px;
+                border: 1px solid $bd-color-base;
+                border-radius: $radius-0;
+                margin-right: $m-1;
+                background-color: $color-grey-light;
+            }
+            .qty-value {
+                width: 50px;
+                @include Text($fs-1, $fw-1, $color-input);
+                outline: none;
+            }
+            .control-value {
+                flex-grow: 1;
+                border: none;
+                font-size: $fs-1 - 1;
+                color: $color-grey;
+            }
+
+            .add-to-cart-btn {
+                border-radius: $radius-0;
+                width: 185px;
+                height: 48px;
+            }
+            .circle-action {
+                .icon-action {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    border: 1px solid $bd-color-base;
+                    font-size: $fs-1;
+                    margin-left: $m-1;
+                    transition: $transition;
+                    &.active,
+                    &:hover {
+                        background-color: $color-black;
+                        svg path {
+                            fill: $color-white;
                         }
                     }
                 }
-           }
+            }
+        }
+
+        .policy-product {
+            margin: $m-2 0;
+            @include Text($fs-1, $fw-1, $color-header);
+            .label-check-policy {
+                width: 16px;
+                height: 16px;
+                border: 1px solid $bd-color-base;
+                background-color: $color-grey-light;
+                transition: $transition;
+                position: relative;
+                cursor: pointer;
+
+                .check-icon {
+                    display: none;
+                    color: $color-white;
+                    font-size: $fs-0;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -45%);
+                }
+            }
+            .policy-text {
+                cursor: pointer;
+            }
+
+            .policy-detail {
+                text-decoration: underline;
+                transition: $transition;
+                &:hover {
+                    color: $color-link-hover;
+                }
+            }
+            .input-policy:checked ~ .label-check-policy {
+                background-color: $color-black;
+                .check-icon {
+                    display: block;
+                }
+            }
         }
     }
-    
 }
