@@ -1,0 +1,39 @@
+#modalAddToCart{
+    .modal-dialog{
+        top: 50%;
+        transform: translate(-50%,-50%);
+        .modal-content{
+            width: 1000px;
+            height: 490px;
+            overflow: hidden;
+           .image_product{
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+           }
+           .content{
+                .content_size{
+                    .select_size{
+                        label{
+                            background-color: white;
+                            border: 1px solid $color-lighten;
+                            border-radius: $radius-2;
+                            color:$color-gray;
+                            padding: 3px 20px;
+                            transition: all .5s;
+                            &:hover{
+                                background-color: $color-black;
+                                color: $color-white;
+                            }
+                        }
+                        input{
+                            display: none;
+                        }
+                    }
+                }
+           }
+        }
+    }
+    
+}
