@@ -6,6 +6,15 @@ const $$ = document.querySelectorAll.bind(document);
 const event = e => {};
 
 export const eventQuickView = product => {
+    const checkedPolicy = $('#checkbox-policy');
+    const buyBtn = $('#qv-buy-btn');
+    const numProductInput = $('#qv-qty-value');
+
+    // Reset value
+    checkedPolicy.checked = false;
+    buyBtn.disabled = true;
+    numProductInput.value = 1;
+
     // Label size active UI
     const sizeLabels = $$('.label-size');
     sizeLabels.forEach(s => {
@@ -37,20 +46,15 @@ export const eventQuickView = product => {
     let qtyValue = 1;
     $('#qv-qtyInput').onclick = e => {
         const controllers = e.target.closest('.control-value');
-        qtyValue = parseInt($('#qv-qty-value').value);
+        qtyValue = parseInt(numProductInput.value);
 
         if (controllers) {
             controllers.classList.contains('minus-qty') ? (qtyValue > 1 ? (qtyValue -= 1) : null) : (qtyValue += 1);
-            $('#qv-qty-value').value = qtyValue;
+            numProductInput.value = qtyValue;
         }
     };
 
     // handle check policy
-    const checkedPolicy = $('#checkbox-policy');
-    const buyBtn = $('#qv-buy-btn');
-
-    checkedPolicy.checked = false;
-    buyBtn.disabled = true;
     checkedPolicy.onchange = () => {
         checkedPolicy.checked ? (buyBtn.disabled = false) : (buyBtn.disabled = true);
     };
@@ -61,8 +65,10 @@ export const eventQuickView = product => {
         icon ? icon.classList.toggle('active') : null;
     };
 
-    const addButton = $('#addToCartBtn');
-    addButton.onclick = () => {
+    $('#addToCartBtn').onclick = () => {
+        $('#qv-close-modal').click();
+        $('#cartButton').click();
+
         product.cartQty = qtyValue;
         product.cartSize = sizeSelected;
         
