@@ -1,4 +1,4 @@
-import * as api from '../../../assets/js/call_API.js';
+import * as api from '../../../assets/js/api.js';
 
 const $ = document.querySelector.bind(document);
 

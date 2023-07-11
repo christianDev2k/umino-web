@@ -1,12 +1,11 @@
-import * as api from '../../assets/js/call_API.js';
-
 class Cart {
     constructor() {
-        this.cartList = [];
+        this.list = [];
     }
 
-    addToCartMethod(id) {
-        const product = api.getProduct(id);
-        this.cartList.push(product);
+    addToCartMethod(product) {
+        this.list.push(product);
     }
 }
+const CartList = new Cart();
+export default CartList;

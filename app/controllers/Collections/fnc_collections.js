@@ -1,5 +1,6 @@
-import * as api from '../../../assets/js/call_API.js';
+import * as api from '../../../assets/js/api.js';
 import * as mf from '../Main/main_functions.js';
+
 const $ = document.querySelector.bind(document);
 
 export function renderAllProducts(productsList) {
@@ -13,7 +14,7 @@ export function renderAllProducts(productsList) {
                             <div class="card-img">
                                 <img class="card-img-top" src="${img}" alt="Title" />
                                 <div class="card-product-icon">
-                                    <button class="icon-bg" data-id=${id} name="addToCartBtn" data-bs-toggle="modal" data-bs-target="#modalAddToCart">
+                                    <button class="cart-icon icon-bg" data-id=${id} name="addToCartBtn" data-bs-toggle="modal" data-bs-target="#modalAddToCart">
                                         <svg class="product-svg" width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M10.5454 11.3287C10.3922 11.3287 10.2452 11.2672 10.1369 11.1576C10.0285 11.048 9.96763 10.8994 9.96763 10.7444H8.81201C8.81201 11.2093 8.99464 11.6552 9.31972 11.984C9.6448 12.3128 10.0857 12.4975 10.5454 12.4975C11.0052 12.4975 11.4461 12.3128 11.7711 11.984C12.0962 11.6552 12.2789 11.2093 12.2789 10.7444H11.1232C11.1232 10.8994 11.0624 11.048 10.954 11.1576C10.8456 11.2672 10.6987 11.3287 10.5454 11.3287Z"

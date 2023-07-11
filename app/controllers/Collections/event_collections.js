@@ -1,3 +1,5 @@
+import * as mf from '../Main/main_functions.js';
+
 //-----------------------------------------------------------------
 
 const eventCollection = () => {
@@ -29,7 +31,12 @@ const eventCollection = () => {
     });
 
     // Handle layout all products
+    const eventLayouts = $('#all-product');
+    eventLayouts.onclick = e => {
+        const id = e.target.closest('.cart-icon') ? e.target.closest('.cart-icon').dataset.id : null;
 
+        id ? mf.renderQuickView(id) : null;
+    };
 };
 
 export default eventCollection;

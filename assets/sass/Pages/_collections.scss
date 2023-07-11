@@ -12,7 +12,7 @@
     h1 {
         margin-bottom: $m-1 - 5;
         color: $color-white;
-        font-size: clamp(3rem, 4vw, 45px);
+        font-size: clamp($fs-3, 4vw, 45px);
     }
 
     p {

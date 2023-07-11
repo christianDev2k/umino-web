@@ -56,7 +56,7 @@ button {
   height: 100%;
 }
 #modalAddToCart .product-img {
-  background-image: url("../../../assets/img/fashion_products_7_1_6858d5e7-b1a2-4f31-92f2-16681ef4dcd4.jpg");
+  background-image: url("");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -118,6 +118,16 @@ button {
   font-size: 30px;
   font-weight: 600;
 }
+#modalAddToCart .product-info .price-product.sale {
+  color: #d73f0f;
+}
+#modalAddToCart .product-info .price-product-discount {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 20px;
+  font-weight: 400;
+  display: none;
+}
 #modalAddToCart .product-info .desc-product {
   color: #555;
   font-size: 14px;
@@ -136,7 +146,7 @@ button {
 #modalAddToCart .product-info .size-options input {
   display: none;
 }
-#modalAddToCart .product-info .size-options label {
+#modalAddToCart .product-info .size-options .label-size {
   background-color: #fff;
   border: 1px solid #EBEBEB;
   border-radius: 3px;
@@ -145,8 +155,9 @@ button {
   transition: all 0.4s;
   line-height: 1.2;
   margin-right: 10px;
+  cursor: pointer;
 }
-#modalAddToCart .product-info .size-options label:hover, #modalAddToCart .product-info .size-options label.active {
+#modalAddToCart .product-info .size-options .label-size:hover, #modalAddToCart .product-info .size-options .label-size.active {
   background-color: #000;
   color: #fff;
 }
@@ -2314,7 +2325,7 @@ footer .copyright .image_payment img {
 .main_banner h1 {
   margin-bottom: 5px;
   color: #fff;
-  font-size: clamp(3rem, 4vw, 45px);
+  font-size: clamp(20px, 4vw, 45px);
 }
 .main_banner p {
   text-align: center;

@@ -923,7 +923,7 @@
             </div>
         </div>
 
-        <!-- ======================== QUICK SEARCH MODAL ========================= -->
+        <!-- ======================== ADD TO CART MODAL ========================= -->
 
         <div class="modal fade" id="modalAddToCart" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
@@ -931,11 +931,10 @@
                     <button class="close-modal bg-transparent border-0" data-bs-dismiss="modal">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
-                    <div class="product-img">
-                    </div>
+                    <div id="qvImg" class="product-img"></div>
                     <div class="product-info">
                         <a href="#" class="product-vendor d-block">UMINO</a>
-                        <a href="#" class="product-name d-block">FLEX EXPERIENCE RUNNING SHOES</a>
+                        <a href="#" id="qv-name" class="product-name d-block"></a>
                         <div class="review_product d-flex align-items-center">
                             <div class="icon_star me-2">
                                 <i class="fa-solid fa-star"></i>
@@ -981,26 +980,20 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="mb-0 price-product">$180.00</p>
-                        <p class="desc-product">The garments labelled as committed are products that have been produced using sustainable fibres or processes, reducing their environmental impact.</p>
-                        <div class="size-product">Size: <span class="size">M</span></div>
-                        <div class="size-options mt-2">
-                            <label for="size-m" class="label-size active">M</label>
-                            <input type="radio" name="size-options" id="size-m" />
-                            <label for="size-l" class="label-size">L</label>
-                            <input type="radio" name="size-options" id="size-l" />
-                            <label for="size-xl" class="label-size">XL</label>
-                            <input type="radio" name="size-options" id="size-xl" />
-                            <label for="size-xxl" class="label-size">XXL</label>
-                            <input type="radio" name="size-options" id="size-xxl" />
+                        <div class="d-flex align-items-center">
+                            <p id="qvPriceSale" class="mb-0 me-2 price-product sale">$12</p>
+                            <p id="qvPrice" class="mb-0 price-product-discount">$12</p>
                         </div>
+                        <p id="qvDesc" class="desc-product"></p>
+                        <div class="size-product">Size: <span id="sizeSelected" class="size"></span></div>
+                        <div id="sizeOptions" class="size-options mt-2"></div>
                         <div class="action-group d-flex">
-                            <div class="qty-input d-flex">
-                                <button class="control-value"><i class="fa-solid fa-minus"></i></button>
-                                <input class="qty-value border-0 bg-transparent text-center" type="text" id="product-qty" value="1" />
-                                <button class="control-value"><i class="fa-solid fa-plus"></i></button>
+                            <div id="qv-qtyInput" class="qty-input d-flex">
+                                <button class="control-value minus-qty"><i class="fa-solid fa-minus"></i></button>
+                                <input class="qty-value border-0 bg-transparent text-center" type="text" id="qv-qty-value" value="1" />
+                                <button class="control-value plus-qty"><i class="fa-solid fa-plus"></i></button>
                             </div>
-                            <button class="btn btn--primary add-to-cart-btn">ADD TO CARD</button>
+                            <button id="addToCartBtn" class="btn btn--primary add-to-cart-btn">ADD TO CARD</button>
                             <div class="circle-action d-flex">
                                 <button class="icon-action d-flex align-items-center justify-content-center">
                                     <svg width="14" height="13" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1019,7 +1012,7 @@
                             </div>
                         </div>
                         <div class="policy-product d-flex align-items-center">
-                            <input id="checkbox-policy" type="checkbox" class="d-none input-policy" />
+                            <input id="checkbox-policy" type="checkbox" class="d-none input-policy"/>
                             <label class="label-check-policy me-2" for="checkbox-policy">
                                 <span class="check-icon">
                                     <i class="fa-solid fa-check"></i>
@@ -1027,7 +1020,7 @@
                             </label>
                             <label for="checkbox-policy" class="policy-text"> I agree with <a href="#" class="policy-detail">Terms & Conditions</a> </label>
                         </div>
-                        <button type="button" class="btn btn--buy-now w-100">Buy it now</button>
+                        <button id="qv-buy-btn" type="button" class="btn btn--buy-now w-100" disabled>Buy it now</button>
                     </div>
                 </div>
             </div>

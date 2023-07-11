@@ -1,5 +1,5 @@
 import * as f from './fnc_dashboard.js';
-import * as api from '../../../assets/js/call_API.js';
+import * as api from '../../../assets/js/api.js';
 import Validator from '../../util/validator.js';
 import Product from '../../models/Product.js';  
 
