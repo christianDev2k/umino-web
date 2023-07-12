@@ -1,9 +1,21 @@
 import * as api from '../../../assets/js/api.js';
-import * as mf from '../Main/main_event.js';
+import * as me from '../Main/main_event.js';
 import CartList from '../../models/Cart.js';
 
 const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
+// SET LOCAL STORAGE
+export function SetLocalStorages(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+// GET LOCAL STORAGE
+export function GetLocalStorages(key) {
+    return localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)) : [];
+}
+
+// RENDER POPULAR PRODUCTS
 export function renderPopularProducts(productsList) {
     const container = $('#popular-products');
     const html = productsList.map(p => {
@@ -24,7 +36,7 @@ export function renderPopularProducts(productsList) {
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <div>
-                                <span class="product-price ${discount ? 'sale' : null}">$${discount ? (price * ((100 - discount) / 100)).toFixed(2) : price}</span>
+                                <span class="product-price ${discount ? 'sale' : null}">$${CartList.calcDiscount(discount, price)}</span>
                                 <span class="product-price-sale ${discount ? null : 'd-none'} ">$${price}</span>              
                             </div>
                         </div>
@@ -36,6 +48,7 @@ export function renderPopularProducts(productsList) {
     container.innerHTML = html.join('');
 }
 
+// RENDER PRODUCT ON PRODUCT QUICKVIEW
 export async function renderQuickView(id) {
     const product = await api.getProduct(id);
     const salePrice = $('#qvPriceSale');
@@ -49,7 +62,7 @@ export async function renderQuickView(id) {
 
     if (discount) {
         salePrice.classList.add('sale');
-        salePrice.innerHTML = '$' + (price * ((100 - discount) / 100)).toFixed(2);
+        salePrice.innerHTML = '$' + CartList.calcDiscount(discount, price);
         priceElement.classList.add('d-block');
         priceElement.innerHTML = price + '$';
     } else {
@@ -59,7 +72,7 @@ export async function renderQuickView(id) {
     }
 
     const sizeList = size.split('');
-    const htmlSizeOptions = await sizeList.map((s, index) => {
+    const htmlSizeOptions = sizeList.map((s, index) => {
         return `
                 <label for="size-${s}" class="label-size ${index === 0 ? 'active' : null}">${s}</label>
                 <input type="radio" name="size-options" value="${s}" id="size-${s}" ${index === 0 ? 'checked' : null} />
@@ -67,34 +80,11 @@ export async function renderQuickView(id) {
     });
     $('#sizeOptions').innerHTML = htmlSizeOptions.join('');
 
-    mf.eventQuickView(product);
+    me.eventQuickView(product);
 }
 
-export function addToCart(product) {
-    const { id: idProduct, cartSize: productSize } = product;
-
-    if (CartList.list.length) {
-        let isAdded = false;
-        CartList.list = CartList.list.map(p => {
-            if (p.id === idProduct && p.cartSize === productSize) {
-                const newQty = p.cartQty + 1;
-                isAdded = true;
-                return {
-                    ...p,
-                    cartQty: newQty,
-                };
-            }
-            return p;
-        });
-        !isAdded ? CartList.addToCartMethod(product) : null;
-    } else {
-        CartList.addToCartMethod(product);
-    }
-
-    renderCart(CartList.list);
-}
-
-function renderCart(cartList) {
+// RENDER CART
+export function renderCart(cartList = CartList.list) {
     const cartListElement = $('#shopping-cart-products');
     const truckProcess = $('.truck-process');
     const truckIcon = $('.truck-icon');
@@ -109,7 +99,7 @@ function renderCart(cartList) {
 
     if (cartList.length) {
         const html = cartList.map(p => {
-            const { img, name, price, cartQty, cartSize, discount } = p;
+            const { id, img, name, price, cartQty, cartSize, discount } = p;
             return `
                     <div class="product-item mt-3">
                         <div class="card mb-3 border-0">
@@ -121,23 +111,23 @@ function renderCart(cartList) {
                                     <div class="card-body p-0">
                                         <h5 class="product-title mb-0">${name}</h5>
                                         <p class="product-size mb-0">${cartSize}</p>
-                                        <p class="product-price">$${discount ? (price * ((100 - discount) / 100)).toFixed(2) : price}</p>
-                                        <form id="product-qty" class="product-qty d-flex align-items-center" action="#">
-                                            <button class="qty-down">
+                                        <p class="product-price">$${CartList.calcDiscount(discount, price)}</p>
+                                        <div id="cart-form-${id}" class="cart-qty-form product-qty d-flex align-items-center">
+                                            <button class="cart-qty-control qty-down">
                                                 <i class="fa-solid fa-minus"></i>
                                             </button>
-                                            <input type="text" value="${cartQty}" class="qty-value bg-transparent border-0" />
-                                            <button class="qty-up">
+                                            <input type="number" value="${cartQty}" class="qty-value bg-transparent border-0" />
+                                            <button class="cart-qty-control qty-up">
                                                 <i class="fa-solid fa-plus"></i>
                                             </button>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="product-btn">
-                                    <button class="product-del bg-transparent border-0 d-block mb-2">
+                                    <button id="cart-del-${id}" class="product-del bg-transparent border-0 d-block mb-2">
                                         <i class="fa-regular fa-trash-can"></i>
                                     </button>
-                                    <button class="product-edit bg-transparent border-0 d-block">
+                                    <button id="cart-edit-${id}" class="product-edit bg-transparent border-0 d-block" data-bs-toggle="modal" data-bs-target="#editCartModal">
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </button>
                                 </div>
@@ -178,7 +168,7 @@ function renderCart(cartList) {
                 </svg>
                 <p class="heading mt-3">Your cart is empty.</p>
                 <p class="text">You may check out all the available products and buy some in the shop.</p>
-                <button class="btn btn--large btn--primary">RETURN TO SHOP</button>
+                <button id="cart-shopBtn" class="btn btn--large btn--primary">RETURN TO SHOP</button>
             </div>
         `;
 
@@ -188,4 +178,152 @@ function renderCart(cartList) {
         discountGroup.classList.add('d-none');
         subtotalGroup.classList.add('d-none');
     }
+
+    const total = cartList.reduce((acc, p) => {
+        const { discount, cartQty, price } = p;
+        acc += discount ? cartQty * ((price * (100 - discount)) / 100) : cartQty * price;
+        return acc;
+    }, 0);
+    $('#cart-total').innerHTML = '$' + total.toFixed(2);
+
+    me.cartEvents();
+}
+
+// Render quantity control form
+export function qtyControlForm(selectorForm, selectorInput, selectorClosest, classMinus) {
+    const quickViewQtyInput = $(selectorInput);
+    $(selectorForm).onclick = e => {
+        const controllers = e.target.closest(selectorClosest);
+        let qtyValue = parseInt(quickViewQtyInput.value);
+
+        if (controllers) {
+            controllers.classList.contains(classMinus) ? (qtyValue > 1 ? (qtyValue -= 1) : null) : (qtyValue += 1);
+            quickViewQtyInput.value = qtyValue;
+        }
+    };
+}
+
+// Animation select size change
+export function sizeSelectedUI(inputsSelector, SelectedElement, labelsSelector) {
+    const sizeOptions = document.getElementsByName(inputsSelector);
+    const sizeSelectedElement = $(SelectedElement);
+    const sizeLabels = $$(labelsSelector);
+    
+    let sizeSelected = -1;
+
+    sizeLabels.forEach(s => {
+        s.onclick = () => {
+            const labelActive = document.querySelector(labelsSelector + '.active');
+            labelActive.classList.remove('active');
+
+            s.classList.add('active');
+        };
+    });
+
+    sizeOptions.forEach(i => {
+        if (i.checked) {
+            sizeSelectedElement.innerHTML = i.value;
+            sizeSelected = i.value;
+        }
+        i.onchange = () => {
+            if (i.checked) {
+                sizeSelectedElement.innerHTML = i.value;
+                sizeSelected = i.value;
+            }
+        };
+    });
+
+    return sizeSelected;
+}
+
+// Handle add to cart
+export function HandleAddToCart(product) {
+    const { id: addedID, cartSize: addedSize, cartQty: addedQty } = product;
+
+    if (CartList.list.length) {
+        let isAdded = false;
+
+        CartList.list = CartList.list.map(p => {
+            if (p.id === addedID && p.cartSize === addedSize) {
+                const productQty = parseInt(p.cartQty) + parseInt(addedQty);
+                isAdded = true;
+                return {
+                    ...p,
+                    cartQty: productQty,
+                };
+            }
+            return p;
+        });
+        isAdded ? SetLocalStorages('cart', CartList.list) : null;
+
+        if (!isAdded) {
+            CartList.addToCartMethod(product);
+            SetLocalStorages('cart', CartList.list);
+        }
+    } else {
+        CartList.addToCartMethod(product);
+        SetLocalStorages('cart', CartList.list);
+    }
+
+    renderCart(CartList.list);
+}
+
+// Handle edit quantity in cart
+export function handleEditQtyCart(e) {
+    const formSelector = e.target.closest('.cart-qty-form').id;
+    const productID = formSelector.split('-')[2];
+    const inputForm = $('#' + formSelector);
+    const controlBtn = e.target.closest('.cart-qty-control');
+    let inputValue = inputForm.querySelector('.qty-value').value;
+
+    if (controlBtn) {
+        const index = CartList.list.findIndex(p => p.id === productID);
+        if (controlBtn.classList.contains('qty-down')) {
+            if (CartList.list[index].cartQty > 1) {
+                const editedProduct = {
+                    ...CartList.list[index],
+                    cartQty: CartList.list[index].cartQty - 1,
+                };
+                CartList.editCartMethod(index, editedProduct);
+                inputValue = CartList.list[index].cartQty;
+                SetLocalStorages('cart', CartList.list);
+            } else {
+                CartList.deleteCartMethod(index);
+                SetLocalStorages('cart', CartList.list);
+            }
+            renderCart(CartList.list);
+        } else {
+            const editedProduct = {
+                ...CartList.list[index],
+                cartQty: parseInt(CartList.list[index].cartQty) + 1,
+            };
+            CartList.editCartMethod(index, editedProduct);
+            inputValue = CartList.list[index].cartQty;
+            SetLocalStorages('cart', CartList.list);
+            renderCart(CartList.list);
+        }
+    }
+}
+
+// Render edit modal
+export function renderEditModal(id) {
+    const index = CartList.list.findIndex(p => p.id === id);
+    const { img, name, size, price, discount } = CartList.list[index];
+
+    const editCartModal = $('#editCartModal');
+
+    editCartModal.querySelector('.img').src = img;
+    editCartModal.querySelector('.product-name').innerText = name;
+    editCartModal.querySelector('.price').innerText = '$' + CartList.calcDiscount(discount, price);
+
+    const sizeList = size.split('');
+    const htmlSizeOptions = sizeList.map((s, index) => {
+        return `
+                <label for="edit-size-${s}" class="label-size ${index === 0 ? 'active' : null}">${s}</label>
+                <input type="radio" name="edit-size-options" value="${s}" id="edit-size-${s}" ${index === 0 ? 'checked' : null} />
+        `;
+    });
+    $('#editSizeOptions .size-options').innerHTML = htmlSizeOptions.join('');
+
+    const selectedSize = sizeSelectedUI('edit-size-options', '#editSizeOptions .size', '#editSizeOptions .label-size');
 }

@@ -120,25 +120,7 @@
                 @include Text($fs-2, $fw-3, $color-header);
             }
             .product-qty {
-                background-color: $color-grey-light;
-                width: 90px;
-                height: 30px;
-                border-radius: $radius-1 - 4;
-                border: 1px solid $bd-color-base;
-                .qty-down,
-                .qty-up {
-                    background-color: transparent;
-                    border: none;
-                    width: 25px;
-                    height: 25px;
-                    font-size: $fs-1 - 2;
-                }
-                .qty-value {
-                    width: 40px;
-                    height: 25px;
-                    text-align: center;
-                    outline: none;
-                }
+                @extend .form_qty;
             }
         }
 

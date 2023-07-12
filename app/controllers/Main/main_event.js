@@ -1,4 +1,5 @@
 import * as mf from '../Main/main_functions.js';
+import CartList from '../../models/Cart.js';
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -8,51 +9,19 @@ const event = e => {};
 export const eventQuickView = product => {
     const checkedPolicy = $('#checkbox-policy');
     const buyBtn = $('#qv-buy-btn');
-    const numProductInput = $('#qv-qty-value');
+    const quickViewQtyInput = $('#qv-qty-value');
 
     // Reset value
     checkedPolicy.checked = false;
     buyBtn.disabled = true;
-    numProductInput.value = 1;
+    quickViewQtyInput.value = 1;
 
     // Label size active UI
-    const sizeLabels = $$('.label-size');
-    sizeLabels.forEach(s => {
-        s.onclick = () => {
-            const labelActive = document.querySelector('.label-size.active');
-            labelActive.classList.remove('active');
-
-            s.classList.add('active');
-        };
-    });
-
-    // UI size selected
-    const sizeOptions = document.getElementsByName('size-options');
-    let sizeSelected = -1;
-    sizeOptions.forEach(i => {
-        if (i.checked) {
-            $('#sizeSelected').innerHTML = i.value;
-            sizeSelected = i.value;
-        }
-        i.onchange = () => {
-            if (i.checked) {
-                $('#sizeSelected').innerHTML = i.value;
-                sizeSelected = i.value;
-            }
-        };
-    });
-
-    // UI Quantity products
-    let qtyValue = 1;
-    $('#qv-qtyInput').onclick = e => {
-        const controllers = e.target.closest('.control-value');
-        qtyValue = parseInt(numProductInput.value);
-
-        if (controllers) {
-            controllers.classList.contains('minus-qty') ? (qtyValue > 1 ? (qtyValue -= 1) : null) : (qtyValue += 1);
-            numProductInput.value = qtyValue;
-        }
-    };
+    const sizeSelected = mf.sizeSelectedUI('size-options', '#sizeSelected', '.label-size')
+    console.log(sizeSelected);
+    
+    // Quickview quantity form
+    mf.qtyControlForm('#qv-qtyInput', '#qv-qty-value', '.control-value', 'minus-qty');
 
     // handle check policy
     checkedPolicy.onchange = () => {
@@ -65,15 +34,68 @@ export const eventQuickView = product => {
         icon ? icon.classList.toggle('active') : null;
     };
 
+    // event add to cart
     $('#addToCartBtn').onclick = () => {
         $('#qv-close-modal').click();
         $('#cartButton').click();
 
-        product.cartQty = qtyValue;
+        product.cartQty = quickViewQtyInput.value;
         product.cartSize = sizeSelected;
-        
-        mf.addToCart(product);
+
+        mf.HandleAddToCart(product);
     };
+};
+
+// Cart Modal Event
+export const cartEvents = () => {
+    const formElement = $$('.cart-qty-form');
+
+    if ($('#cart-shopBtn')) {
+        $('#cart-shopBtn').onclick = () => {
+            $('#closeCartIcon').click();
+        };
+    }
+
+    const cartEditBtns = $$('.product-btn');
+    cartEditBtns.forEach(edit => {
+        edit.onclick = e => {
+            e.stopPropagation();
+
+            const btnDel = e.target.closest('.product-del');
+            if (btnDel) {
+                const elementID = btnDel.id;
+                const id = elementID.split('-')[2];
+                const index = CartList.list.findIndex(p => p.id === id);
+
+                CartList.deleteCartMethod(index);
+                mf.SetLocalStorages('cart', CartList.list);
+                mf.renderCart();
+            }
+
+            const btnEdit = e.target.closest('.product-edit');
+            if (btnEdit) {
+                const elementID = btnEdit.id;
+                const id = elementID.split('-')[2];
+
+                mf.renderEditModal(id);
+            }
+        };
+    });
+
+    formElement.forEach(f => {
+        f.onclick = e => {
+            e.stopPropagation();
+
+            mf.handleEditQtyCart(e);
+        };
+    });
+
+    // Edit modal quantity edit
+    mf.qtyControlForm('.edit-qty-form', '#edit-qty-input', '.cart-qty-control', 'qty-down');
+
+    // Edit size options in edit options modal
+    // mf.sizeSelectedUI('size-options', '#sizeSelected')
+    
 };
 
 export default event;

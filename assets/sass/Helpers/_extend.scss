@@ -1,0 +1,57 @@
+.form_qty {
+    background-color: $color-grey-light;
+    width: 90px;
+    height: 30px;
+    border-radius: $radius-1 - 4;
+    border: 1px solid $bd-color-base;
+    .qty-down,
+    .qty-up {
+        background-color: transparent;
+        border: none;
+        width: 25px;
+        height: 25px;
+        font-size: $fs-1 - 2;
+    }
+    .qty-value {
+        width: 40px;
+        height: 25px;
+        text-align: center;
+        outline: none;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}
+
+.size-selected {
+    @include Text($fs-1, $fw-1, $base-color);
+    .size {
+        color: $color-header;
+        font-weight: $fw-2;
+    }
+}
+
+.size-option-group {
+    input {
+        display: none;
+    }
+    .label-size {
+        background-color: $color-white;
+        border: 1px solid $bd-color-base;
+        border-radius: $radius-2 - 2;
+        color: $base-color;
+        padding: $pd-1 - 4 $pd-2 - 1;
+        transition: $transition;
+        line-height: 1.2;
+        margin-bottom: $m-1 - 5;
+        margin-right: $m-1 - 5;
+        cursor: pointer;
+        &:hover,
+        &.active {
+            background-color: $color-black;
+            color: $color-white;
+        }
+    }
+}

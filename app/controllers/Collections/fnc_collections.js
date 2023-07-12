@@ -1,5 +1,6 @@
 import * as api from '../../../assets/js/api.js';
 import * as mf from '../Main/main_functions.js';
+import CartList from '../../models/Cart.js';    
 
 const $ = document.querySelector.bind(document);
 
@@ -65,7 +66,7 @@ export function renderAllProducts(productsList) {
                                     <i class="fa-solid fa-star"></i>
                                 </div>
                                 <div>
-                                    <span class="product-price ${discount ? 'sale' : null}">$${discount ? (price * ((100 - discount) / 100)).toFixed(2) : price}</span>
+                                    <span class="product-price ${discount ? 'sale' : null}">$${CartList.calcDiscount(discount, price)}</span>
                                     <span class="product-price-sale ${discount ? null : 'd-none'} ">$${price}</span>              
                                 </div>
                             </div>
@@ -78,8 +79,13 @@ export function renderAllProducts(productsList) {
 }
 
 export async function setUI() {
+    const localData = mf.GetLocalStorages('cart');
     const products = await api.getProduct();
     const popularProducts = products.slice(0, 6);
-    mf.renderPopularProducts(popularProducts);
+
+    CartList.list = localData;
+
     renderAllProducts(products);
+    mf.renderPopularProducts(popularProducts);
+    mf.renderCart(CartList.list);
 }

@@ -1,5 +1,6 @@
 @import './Helpers/variables';
 @import './Helpers/mixin';
+@import './Helpers/extend';
 
 @import './Base/reset';
 
@@ -9,6 +10,7 @@
 @import './Components/slider';
 @import './Components/qSearchModal';
 @import './Components/cartModal';
+@import './Components/editCartModal';
 
 @import './Layouts/header';
 @import './Layouts/footer';

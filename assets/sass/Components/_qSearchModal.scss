@@ -103,32 +103,10 @@
             margin-bottom: $m-2;
         }
         .size-product {
-            @include Text($fs-1, $fw-1, $base-color);
-            .size {
-                color: $color-header;
-                font-weight: $fw-2;
-            }
+            @extend .size-selected;
         }
         .size-options {
-            input {
-                display: none;
-            }
-            .label-size {
-                background-color: $color-white;
-                border: 1px solid $bd-color-base;
-                border-radius: $radius-2 - 2;
-                color: $base-color;
-                padding: $pd-1 - 4 $pd-2 - 1;
-                transition: $transition;
-                line-height: 1.2;
-                margin-right: $m-1;
-                cursor: pointer;
-                &:hover,
-                &.active {
-                    background-color: $color-black;
-                    color: $color-white;
-                }
-            }
+            @extend .size-option-group;
         }
         .action-group {
             margin-top: $m-2 + 5;
@@ -144,6 +122,11 @@
                 width: 50px;
                 @include Text($fs-1, $fw-1, $color-input);
                 outline: none;
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
             }
             .control-value {
                 flex-grow: 1;

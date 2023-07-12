@@ -765,7 +765,7 @@
                         <div class="subtotal d-none">
                             <div class="price d-flex justify-content-between">
                                 <h4 class="mb-0">Subtotal</h4>
-                                <p class="mb-0">$330.00</p>
+                                <p id="cart-total" class="mb-0">$330.00</p>
                             </div>
                             <div class="policy d-flex align-items-center">
                                 <input type="checkbox" name="cart-policy" id="cart-policy" class="d-flex align-items-center text-center" />
@@ -776,6 +776,52 @@
                             </div>
                             <div class="mt-2">
                                 <button class="w-100 btn btn--primary">PROCEED TO CHECKOUT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================== CART EDIT PRODUCT MODAL ========================= -->
+
+        <div class="modal fade" id="editCartModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Edit Options</h5>
+                        <button class="closeEditBtn" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6 d-flex">
+                                <img src="https://cdn.shopify.com/s/files/1/0735/8726/1737/files/products_sport_3_1.jpg?v=1684399634&width=493" alt="" class="img img-fluid" />
+                                <div class="product-info">
+                                    <a href="#" class="brand">UMINO</a>
+                                    <h1 class="product-name">FLEX EXPERIENCE RUNNING SHOES</h1>
+                                    <p class="price">$180.00</p>
+                                    <div class="edit-qty-form d-flex align-items-center">
+                                        <button class="cart-qty-control qty-down">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+                                        <input type="number" value="1" id="edit-qty-input" class="qty-value bg-transparent border-0" />
+                                        <button class="cart-qty-control qty-up">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div id="editSizeOptions" class="edit-size-options mt-2">
+                                    <div class="size-product">Size: <span class="size"></span></div>
+                                    <div class="size-options mt-2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="edit-btn">
+                                <button class="btn btn--primary w-100">ADD TO CART</button>
                             </div>
                         </div>
                     </div>
@@ -881,7 +927,7 @@
                         <div class="action-group d-flex">
                             <div id="qv-qtyInput" class="qty-input d-flex">
                                 <button class="control-value minus-qty"><i class="fa-solid fa-minus"></i></button>
-                                <input class="qty-value border-0 bg-transparent text-center" type="text" id="qv-qty-value" value="1" />
+                                <input class="qty-value border-0 bg-transparent text-center" type="number" id="qv-qty-value" value="1" />
                                 <button class="control-value plus-qty"><i class="fa-solid fa-plus"></i></button>
                             </div>
                             <button id="addToCartBtn" class="btn btn--primary add-to-cart-btn">ADD TO CARD</button>
