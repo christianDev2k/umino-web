@@ -85,18 +85,8 @@
                 }
             }
         }
-        .price-product {
-            padding: $pd-2 0;
-            line-height: 1.2;
-            @include Text($fs-h4 + 6, $fw-2, $color-header);
-            &.sale {
-                color: $primary-color;
-            }
-        }
-        .price-product-discount {
-            text-decoration: line-through;
-            @include Text($fs-3, $fw-1, $color-footer-link);
-            display: none;
+        .price-group {
+            @extend .price-group;
         }
         .desc-product {
             @include Text($fs-1, $fw-1, $base-color);

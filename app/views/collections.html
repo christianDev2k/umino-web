@@ -22,6 +22,11 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
 
+        <!-- Google font  -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
         <!-- Main CSS  -->
         <link rel="stylesheet" href="/assets/css/main.css" />
     </head>
@@ -198,15 +203,15 @@
         </section>
 
         <!-- PRODUCTS LIST -->
-        <section class="all-products px-4">
+        <section class="all-products mt-5 px-4">
             <div class="container-fluid">
-                <div class="content_header d-flex justify-content-between mt-5">
-                    <div class="content_filter">
-                        <button id="toggleButton" class="button"><i class="fa-solid fa-filter"></i> Filter</button>
-                        <span>There are 8 results in total</span>
+                <!-- FILTER BAR  -->
+                <div class="filter-bar d-flex align-items-center justify-content-between mt-5">
+                    <div class="toggle-wrapper">
+                        <button class="filter-toggle" data-bs-toggle="modal" data-bs-target="#filter-sidebar-modal"><i class="fa-solid fa-filter"></i>Filter</button>
                     </div>
-                    <div class="content_style">
-                        <div class="grid-mode-show-type-products">
+                    <div class="grid-layout">
+                        <div class="text-center">
                             <button class="icon bg-transparent border-0 grid-mode bls_tooltip grid-mode-2" data-grid="2">
                                 <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.0742 6C12.7311 6 14.0742 4.65685 14.0742 3C14.0742 1.34315 12.7311 0 11.0742 0C9.41736 0 8.07422 1.34315 8.07422 3C8.07422 4.65685 9.41736 6 11.0742 6Z" fill="#DDDDDD"></path>
@@ -256,8 +261,8 @@
                             </button>
                         </div>
                     </div>
-                    <div class="soft">
-                        <p>
+                    <div class="sort-by">
+                        <p class="mb-0">
                             Soft by:
                             <button class="sort-options bg-transparent border-0">
                                 <span>Featured</span>
@@ -266,108 +271,9 @@
                         </p>
                     </div>
                 </div>
-                <div id="contentNone" class="content_none mt-3">
-                    <div class="row">
-                        <div class="col-sm-12 col-xl-2 pt-2">
-                            <div class="content_category">
-                                <h4>Category</h4>
-                                <ul>
-                                    <li><a href="#">Dresses</a></li>
-                                    <li><a href="#">Sweaters</a></li>
-                                    <li><a href="#">Women's Shirts</a></li>
-                                    <li><a href="#">Top T-shirts</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-2 pt-2">
-                            <div class="content_availability">
-                                <h4>Availability</h4>
-                                <input type="checkbox" name="" id="" /> <span>In stock ()</span>
-                                <br />
-                                <input type="checkbox" name="" id="" /> <span>Out of stock ()</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-2 pt-2">
-                            <div class="content_price">
-                                <h4>Price</h4>
-                                <div class="range">
-                                    <input type="range" class="form-range rang-min" id="customRange1" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-2 pt-2">
-                            <div class="content_brand">
-                                <h4>Brand</h4>
-                                <input type="checkbox" name="" id="" /> <span>Umino ()</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-2 pt-2">
-                            <div class="content_size">
-                                <h4>Size</h4>
-                                <div class="sizeofType d-flex justify-content-start gap-2">
-                                    <div class="type"><span>M</span><a href="#">M</a></div>
-                                    <div class="type"><span>L</span><a href="#">L</a></div>
-                                    <div class="type"><span>XL</span><a href="#">XL</a></div>
-                                    <div class="type"><span>XXL</span><a href="#">XXL</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-xl-2 pt-2">
-                            <div class="content_featuredProduct">
-                                <h4>Featured Product</h4>
-                                <div class="hot_product d-flex justify-content-start gap-2 mb-4">
-                                    <div class="image">
-                                        <img class="img-fluid" src="../../assets/img/fashion_products_7_1_6858d5e7-b1a2-4f31-92f2-16681ef4dcd4.jpg" alt="" />
-                                        <img class="image-none img-fluid" src="../../assets/img/fashion_products_7_2.jpg" alt="" />
-                                    </div>
-                                    <div class="content">
-                                        <h4>SHORT SLEEVE SWEATER</h4>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <h5 class="text-danger">$19.00 <s class="text-muted">$29.00</s></h5>
-                                    </div>
-                                </div>
-                                <div class="hot_product d-flex justify-content-start gap-2 mb-4">
-                                    <div class="image">
-                                        <img class="img-fluid" src="../../assets/img/fashion_products_19_3.jpg" alt="" />
-                                        <img class="image-none img-fluid" src="../../assets/img/fashion_products_19_1.jpg" alt="" />
-                                    </div>
-                                    <div class="content">
-                                        <h4>POLO-NECK BODY DRESS</h4>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <h5>$116.00</h5>
-                                    </div>
-                                </div>
-                                <div class="hot_product d-flex justify-content-start gap-2">
-                                    <div class="image">
-                                        <img class="img-fluid" src="../../assets/img/fashion_products_10_1_62e4194a-b07b-44e9-aea7-3a1172290af0.jpg" alt="" />
-                                        <img class="image-none img-fluid" src="../../assets/img/fashion_products_10_2_3743a0d8-bb8c-4e1d-ba0d-db4b80c5cde1.jpg" alt="" />
-                                    </div>
-                                    <div class="content">
-                                        <h4>LONG-SLEEVE DEMIN</h4>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <h5>$30.00</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="poster mt-sm-5">
-                            <img src="../../assets/img/banner.png" alt="" />
-                        </div>
-                    </div>
-                </div>
-                <div id="all-product" class="product card_product row mt-4"></div>
+
+                <!-- ALL PRODUCT  -->
+                <div id="all-product" class="row"></div>
             </div>
         </section>
 
@@ -518,6 +424,156 @@
                 </div>
             </div>
         </footer>
+
+        <!-- ======================== FILTER SIDEBAR MODAL ========================= -->
+
+        <div class="col-3">
+            <div class="filter-sidebar">
+                <div class="modal fade" id="filter-sidebar-modal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title filter-title mb-0" id="modalTitleId">Filter</h5>
+                                <button class="close-filter-sidebar" data-bs-dismiss="modal">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Brand</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <ul class="list-unstyled filter-options">
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">Nike</a>
+                                        </li>
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">Jordan</a>
+                                        </li>
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">Adidas</a>
+                                        </li>
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">MLB</a>
+                                        </li>
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">Converse</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Availability</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <ul class="list-unstyled filter-options">
+                                        <li class="filter-item d-flex">
+                                            <input type="checkbox" class="filter-checkbox" />
+                                            <a href="#" class="filter-link">In stock</a>
+                                        </li>
+                                        <li class="filter-item d-flex">
+                                            <input type="checkbox" class="filter-checkbox" />
+                                            <a href="#" class="filter-link">Out of stock</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Price</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <div class="list-unstyled filter-options">
+                                        <div class="range-slider">
+                                            <input type="range" class="min-price" value="100" min="0" max="500" step="10" />
+                                            <input type="range" class="max-price" value="250" min="0" max="500" step="10" />
+                                        </div>
+                                        <div class="price-content"><span class="filter-link">Price:</span> <span class="mx-2" id="min-value">$50</span> - <span class="mx-2" id="max-value">$500</span></div>
+                                    </div>
+                                </div>
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Size</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <ul class="list-unstyled filter-options filter-size-options">
+                                        <div class="d-inline-block">
+                                            <input type="radio" name="edit-size-options" id="" />
+                                            <label class="label-size">37</label>
+                                        </div>
+                                        <div class="d-inline-block">
+                                            <input type="radio" name="edit-size-options" id="" />
+                                            <label class="label-size">38</label>
+                                        </div>
+                                        <div class="d-inline-block">
+                                            <input type="radio" name="edit-size-options" id="" />
+                                            <label class="label-size">39</label>
+                                        </div>
+                                        <div class="d-inline-block">
+                                            <input type="radio" name="edit-size-options" id="" />
+                                            <label class="label-size">40</label>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Featured Product</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <ul class="list-unstyled filter-options filter-size-options">
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">
+                                                <div class="card border-0" style="max-width: 540px">
+                                                    <div class="row g-0">
+                                                        <div class="col-md-4">
+                                                            <img src="../../assets/img/fashion_products_7_2.jpg" class="img-fluid" alt="Card title" />
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="card-body pt-0">
+                                                                <h5 class="card-title">Short Sleeve Sweater</h5>
+                                                                <div class="icon_star me-2">
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                </div>
+                                                                <div class="d-flex align-items-center price-group">
+                                                                    <p class="mb-0 me-2 price price-product sale">$12</p>
+                                                                    <p class="mb-0 price price-product-discount d-block">$12</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="filter-block">
+                                    <img src="../../assets/img/Collections/banner.png" alt="" class="img-fluid" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- ======================== NAVBAR MOBILE MODAL ========================= -->
 
@@ -797,11 +853,11 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-6 d-flex">
-                                <img src="https://cdn.shopify.com/s/files/1/0735/8726/1737/files/products_sport_3_1.jpg?v=1684399634&width=493" alt="" class="img img-fluid" />
+                                <img src="" alt="" class="img img-fluid" />
                                 <div class="product-info">
-                                    <a href="#" class="brand">UMINO</a>
-                                    <h1 class="product-name">FLEX EXPERIENCE RUNNING SHOES</h1>
-                                    <p class="price">$180.00</p>
+                                    <a href="#" class="brand"></a>
+                                    <h1 class="product-name"></h1>
+                                    <p class="price"></p>
                                     <div class="edit-qty-form d-flex align-items-center">
                                         <button class="cart-qty-control qty-down">
                                             <i class="fa-solid fa-minus"></i>
@@ -816,10 +872,10 @@
                             <div class="col-6">
                                 <div id="editSizeOptions" class="edit-size-options mt-2">
                                     <div class="size-product">Size: <span class="size"></span></div>
-                                    <div class="size-options mt-2 d-flex">
-                                    </div>
+                                    <div class="size-options mt-2 d-flex"></div>
                                 </div>
                             </div>
+
                             <div class="edit-btn">
                                 <button id="editBtnModal" class="btn btn--primary w-100">ADD TO CART</button>
                             </div>
@@ -917,7 +973,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center price-group">
                             <p id="qvPriceSale" class="mb-0 me-2 price-product sale">$12</p>
                             <p id="qvPrice" class="mb-0 price-product-discount">$12</p>
                         </div>

@@ -1,6 +1,6 @@
 import * as api from '../../../assets/js/api.js';
 import * as mf from '../Main/main_functions.js';
-import CartList from '../../models/Cart.js';    
+import CartList from '../../models/Cart.js';
 
 const $ = document.querySelector.bind(document);
 
@@ -10,7 +10,7 @@ export function renderAllProducts(productsList) {
         const { id, img, name, price, discount } = p;
         return `
                 <div id="layout-item" class="mb-5 col-6 col-lg-4">
-                    <a href="#" class="card-product-link">
+                    <a href="../views/productDetails.html" class="card-product-link">
                         <div class="card">
                             <div class="card-img">
                                 <img class="card-img-top" src="${img}" alt="Title" />
@@ -88,4 +88,34 @@ export async function setUI() {
     renderAllProducts(products);
     mf.renderPopularProducts(popularProducts);
     mf.handleRenderCart(CartList.list);
+}
+
+export function rangePrice() {
+    let minValue = document.getElementById('min-value');
+    let maxValue = document.getElementById('max-value');
+
+    function validateRange(minPrice, maxPrice) {
+        if (minPrice > maxPrice) {
+            // Swap to Values
+            let tempValue = maxPrice;
+            maxPrice = minPrice;
+            minPrice = tempValue;
+        }
+
+        minValue.innerHTML = '$' + minPrice;
+        maxValue.innerHTML = '$' + maxPrice;
+    }
+
+    const inputElements = document.querySelectorAll('.range-slider input');
+
+    inputElements.forEach(element => {
+        element.addEventListener('change', e => {
+            let minPrice = parseInt(inputElements[0].value);
+            let maxPrice = parseInt(inputElements[1].value);
+
+            validateRange(minPrice, maxPrice);
+        });
+    });
+
+    validateRange(inputElements[0].value, inputElements[1].value);
 }

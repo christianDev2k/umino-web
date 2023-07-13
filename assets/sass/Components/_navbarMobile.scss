@@ -1,0 +1,90 @@
+#navMobile {
+    &.fade .modal-dialog {
+        transform: translate(-50px, 0);
+    }
+
+    &.show .modal-dialog {
+        transform: none;
+    }
+
+    .modal-dialog {
+        margin: auto 0 0 0;
+        max-width: 400px;
+    }
+    
+    .modal-dialog-centered {
+        height: 100vh;
+    }
+
+    .nav-mobile {
+        height: 100vh;
+    }
+
+    .modal-content {
+        border-radius: 0;
+        border: none;
+    }
+
+    .nav-header {
+        background-color: $color-header;
+        padding-left: $pd-x-nav;
+        position: relative;
+        h3 {
+            padding: $pd-x-nav;
+            margin-bottom: 0;
+            @include Text($fs-1, $fw-2, $color-white);
+        }
+        button {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: $pd-1;
+            color: $color-white;
+            font-size: $fs-2 + 2;
+            transition: $transition;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+    .nav-body {
+        padding: $pd-1 $pd-5;
+
+        .nav-item {
+            padding: $pd-3 0;
+            text-transform: uppercase;
+            border-bottom: 1px solid $bd-color-base;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .nav-link {
+                @include Text($fs-1, $fw-2, $color-header);
+                flex-grow: 1;
+            }
+
+            button {
+                opacity: 0.5;
+                font-size: $fs-1;
+                transition: $transition;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .nav-footer {
+        padding: $pd-y-nav $pd-4;
+        margin-top: auto;
+        margin-bottom: $m-2;
+        button {
+            margin-top: $m-1;
+            width: 100%;
+            border-radius: $radius-0;
+        }
+    }
+}

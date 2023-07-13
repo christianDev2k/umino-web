@@ -270,18 +270,7 @@
         }
         .drop-body {
             height: 320px;
-            overflow-y: scroll;
-
-            &::-webkit-scrollbar {
-                width: 8px;
-            }
-            &::-webkit-scrollbar-thumb {
-                background-color: rgba($color: #000000, $alpha: 0.1);
-                border-radius: $radius-1;
-                &:hover {
-                    background-color: rgba($color: #000000, $alpha: 0.3);
-                }
-            }
+            @extend .scroll-y;
             .drop-items {
                 padding: $pd-3 $pd-4;
                 transition: $transition;
