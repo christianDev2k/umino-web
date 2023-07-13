@@ -36,8 +36,9 @@
   font-weight: 600;
 }
 
-.size-option-group input, #editCartModal .modal-body .size-options input, #modalAddToCart .product-info .size-options input {
-  display: none;
+.size-option-group input:checked ~ .label-size, #editCartModal .modal-body .size-options input:checked ~ .label-size, #modalAddToCart .product-info .size-options input:checked ~ .label-size {
+  background-color: #000;
+  color: #fff;
 }
 .size-option-group .label-size, #editCartModal .modal-body .size-options .label-size, #modalAddToCart .product-info .size-options .label-size {
   background-color: #fff;
@@ -51,7 +52,7 @@
   margin-right: 5px;
   cursor: pointer;
 }
-.size-option-group .label-size:hover, #editCartModal .modal-body .size-options .label-size:hover, #modalAddToCart .product-info .size-options .label-size:hover, .size-option-group .label-size.active, #editCartModal .modal-body .size-options .label-size.active, #modalAddToCart .product-info .size-options .label-size.active {
+.size-option-group .label-size:hover, #editCartModal .modal-body .size-options .label-size:hover, #modalAddToCart .product-info .size-options .label-size:hover {
   background-color: #000;
   color: #fff;
 }

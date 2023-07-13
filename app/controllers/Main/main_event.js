@@ -17,9 +17,8 @@ export const eventQuickView = product => {
     quickViewQtyInput.value = 1;
 
     // Label size active UI
-    const sizeSelected = mf.sizeSelectedUI('size-options', '#sizeSelected', '.label-size')
-    console.log(sizeSelected);
-    
+    mf.getSizeOption('size-options', '#sizeSelected');
+
     // Quickview quantity form
     mf.qtyControlForm('#qv-qtyInput', '#qv-qty-value', '.control-value', 'minus-qty');
 
@@ -40,22 +39,21 @@ export const eventQuickView = product => {
         $('#cartButton').click();
 
         product.cartQty = quickViewQtyInput.value;
-        product.cartSize = sizeSelected;
-
+        product.cartSize = mf.getSizeOption('size-options', '#sizeSelected');
         mf.HandleAddToCart(product);
     };
 };
 
 // Cart Modal Event
 export const cartEvents = () => {
-    const formElement = $$('.cart-qty-form');
-
+    // Close cart modal on click button when cart have't products
     if ($('#cart-shopBtn')) {
         $('#cart-shopBtn').onclick = () => {
             $('#closeCartIcon').click();
         };
     }
 
+    // Handle delete and edit products in cart.
     const cartEditBtns = $$('.product-btn');
     cartEditBtns.forEach(edit => {
         edit.onclick = e => {
@@ -64,24 +62,25 @@ export const cartEvents = () => {
             const btnDel = e.target.closest('.product-del');
             if (btnDel) {
                 const elementID = btnDel.id;
-                const id = elementID.split('-')[2];
-                const index = CartList.list.findIndex(p => p.id === id);
+                const index = elementID.split('-')[2];
 
                 CartList.deleteCartMethod(index);
                 mf.SetLocalStorages('cart', CartList.list);
-                mf.renderCart();
+                mf.handleRenderCart();
             }
 
             const btnEdit = e.target.closest('.product-edit');
             if (btnEdit) {
                 const elementID = btnEdit.id;
-                const id = elementID.split('-')[2];
+                const index = elementID.split('-')[2];
 
-                mf.renderEditModal(id);
+                mf.renderEditModal(index);
             }
         };
     });
 
+    // Edit qty product in cart when click
+    const formElement = $$('.cart-qty-form');
     formElement.forEach(f => {
         f.onclick = e => {
             e.stopPropagation();
@@ -90,12 +89,33 @@ export const cartEvents = () => {
         };
     });
 
-    // Edit modal quantity edit
-    mf.qtyControlForm('.edit-qty-form', '#edit-qty-input', '.cart-qty-control', 'qty-down');
+    // Edit qty product in cart when change
+    const inputQtyElements = document.querySelectorAll('.cart-list .qty-value');
+    inputQtyElements.forEach((i, index) => {
+        i.onblur = () => {
+            const editedProduct = {
+                ...CartList.list[index],
+                cartQty: i.value,
+            };
 
-    // Edit size options in edit options modal
-    // mf.sizeSelectedUI('size-options', '#sizeSelected')
+            CartList.editCartMethod(index, editedProduct);
+            mf.SetLocalStorages('cart', CartList.list);
+            mf.renderCart();
+        };
+    });
+};
+
+export const editOptionsEvents = (index) => {
+    // Edit quantity UI
+    mf.qtyControlForm('.edit-qty-form', '#edit-qty-input', '.cart-qty-control', 'qty-down');
     
+    // Edit size UI
+    mf.getSizeOption('edit-size-options', '.edit-size-options .size');
+
+    // Edit event
+    $('#editBtnModal').onclick = () => {
+        mf.handleEditOptions(index);
+    }
 };
 
 export default event;

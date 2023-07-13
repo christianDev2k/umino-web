@@ -790,7 +790,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalTitleId">Edit Options</h5>
-                        <button class="closeEditBtn" data-bs-dismiss="modal" aria-label="Close">
+                        <button id="closeEditBtn" data-bs-dismiss="modal" aria-label="Close">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
@@ -816,12 +816,12 @@
                             <div class="col-6">
                                 <div id="editSizeOptions" class="edit-size-options mt-2">
                                     <div class="size-product">Size: <span class="size"></span></div>
-                                    <div class="size-options mt-2">
+                                    <div class="size-options mt-2 d-flex">
                                     </div>
                                 </div>
                             </div>
                             <div class="edit-btn">
-                                <button class="btn btn--primary w-100">ADD TO CART</button>
+                                <button id="editBtnModal" class="btn btn--primary w-100">ADD TO CART</button>
                             </div>
                         </div>
                     </div>
@@ -923,7 +923,7 @@
                         </div>
                         <p id="qvDesc" class="desc-product"></p>
                         <div class="size-product">Size: <span id="sizeSelected" class="size"></span></div>
-                        <div id="sizeOptions" class="size-options mt-2"></div>
+                        <div id="sizeOptions" class="size-options mt-2 d-flex"></div>
                         <div class="action-group d-flex">
                             <div id="qv-qtyInput" class="qty-input d-flex">
                                 <button class="control-value minus-qty"><i class="fa-solid fa-minus"></i></button>

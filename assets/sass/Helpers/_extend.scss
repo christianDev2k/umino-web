@@ -35,7 +35,11 @@
 
 .size-option-group {
     input {
-        display: none;
+        // display: none;
+        &:checked ~ .label-size {
+            background-color: $color-black;
+            color: $color-white;
+        }
     }
     .label-size {
         background-color: $color-white;
@@ -48,8 +52,7 @@
         margin-bottom: $m-1 - 5;
         margin-right: $m-1 - 5;
         cursor: pointer;
-        &:hover,
-        &.active {
+        &:hover {
             background-color: $color-black;
             color: $color-white;
         }

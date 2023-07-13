@@ -87,5 +87,5 @@ export async function setUI() {
 
     renderAllProducts(products);
     mf.renderPopularProducts(popularProducts);
-    mf.renderCart(CartList.list);
+    mf.handleRenderCart(CartList.list);
 }
