@@ -36,6 +36,9 @@
   font-weight: 600;
 }
 
+.size-option-group input, #editCartModal .modal-body .size-options input, #modalAddToCart .product-info .size-options input {
+  display: none;
+}
 .size-option-group input:checked ~ .label-size, #editCartModal .modal-body .size-options input:checked ~ .label-size, #modalAddToCart .product-info .size-options input:checked ~ .label-size {
   background-color: #000;
   color: #fff;

@@ -35,7 +35,7 @@
 
 .size-option-group {
     input {
-        // display: none;
+        display: none;
         &:checked ~ .label-size {
             background-color: $color-black;
             color: $color-white;
