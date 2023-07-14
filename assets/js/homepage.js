@@ -1,6 +1,7 @@
-import eventHeader from '../../app/controllers/Header/header.js';
+import MainEvents from '../../app/controllers/Main/main_event.js';
 
-eventHeader();
+
+MainEvents();
 
 // Owl library
 $('.owl-carousel').owlCarousel({

@@ -34,6 +34,7 @@
     </head>
 
     <body>
+        <!-- Header  -->
         <header>
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid row">
@@ -77,7 +78,7 @@
                                     <a class="nav-link" href="#">Page</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../views/dashboard.html">GO DASHBOARD!</a>
+                                    <a class="nav-link" href="./app/views/dashboard.html">GO DASHBOARD!</a>
                                 </li>
                             </ul>
                         </div>
@@ -135,7 +136,7 @@
                                         <path
                                             d="M19.3299 1.64401C19.2849 1.63633 19.2393 1.63252 19.1937 1.63263H5.9867C5.76778 1.63263 5.55782 1.71985 5.40302 1.8751C5.24823 2.03035 5.16126 2.24092 5.16126 2.46047C5.16126 2.68003 5.24823 2.8906 5.40302 3.04585C5.55782 3.2011 5.76778 3.28832 5.9867 3.28832H18.2192L18.001 4.60149L16.8438 11.5668H6.07595L3.26946 4.60149L1.59537 0.482961C1.50684 0.289212 1.34721 0.13717 1.14972 0.0584856C0.952225 -0.020199 0.732083 -0.0194636 0.535118 0.0605389C0.338153 0.140541 0.179541 0.293646 0.0922992 0.487983C0.00505767 0.682319 -0.00409102 0.902913 0.0667575 1.10384L2.73963 7.68158L4.56385 12.5307C4.6985 12.9389 4.97657 13.2224 5.37794 13.2224H17.5428C17.7383 13.2225 17.9275 13.1531 18.0766 13.0264C18.2258 12.8997 18.3253 12.724 18.3574 12.5307L19.675 4.60149L20.0083 2.59655C20.0443 2.38002 19.993 2.15803 19.8658 1.9794C19.7386 1.80077 19.5458 1.68013 19.3299 1.64401Z"></path>
                                     </svg>
-                                    <div class="wish-list-count">1</div>
+                                    <div id="cart-num" class="wish-list-count">0</div>
                                 </button>
                             </div>
                         </div>
@@ -1282,9 +1283,8 @@
 
         <!-- Footer  -->
         <footer>
-            <!-- place footer here -->
-            <div class="body">
-                <div class="container_top mb-5 row">
+            <div class="footer__content px-4">
+                <div class="container_top mb-5 row container-fluid">
                     <div class="container_contact mb-4 mb-sm-4 col-sm-12 col-xl-4">
                         <img class="mb-4" src="../../assets/img/logo.png" alt="" />
                         <ul>
@@ -1423,11 +1423,161 @@
                         <p class="text-center">© 2022 Umino Store. All Rights Reserved</p>
                     </div>
                     <div class="image_payment col-12 col-sm col-xl">
-                        <img src="../../assets/img/payment_f_black.png" alt="" />
+                        <img src="../../assets/img/Home/Payment/payment_f_black.png" alt="" />
                     </div>
                 </div>
             </div>
         </footer>
+
+        <!-- ======================== FILTER SIDEBAR MODAL ========================= -->
+
+        <div class="col-3">
+            <div class="filter-sidebar">
+                <div class="modal fade" id="filter-sidebar-modal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title filter-title mb-0" id="modalTitleId">Filter</h5>
+                                <button class="close-filter-sidebar" data-bs-dismiss="modal">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Brand</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <ul class="list-unstyled filter-options">
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">Nike</a>
+                                        </li>
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">Jordan</a>
+                                        </li>
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">Adidas</a>
+                                        </li>
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">MLB</a>
+                                        </li>
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">Converse</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Availability</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <ul class="list-unstyled filter-options">
+                                        <li class="filter-item d-flex">
+                                            <input type="checkbox" class="filter-checkbox" />
+                                            <a href="#" class="filter-link">In stock</a>
+                                        </li>
+                                        <li class="filter-item d-flex">
+                                            <input type="checkbox" class="filter-checkbox" />
+                                            <a href="#" class="filter-link">Out of stock</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Price</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <div class="list-unstyled filter-options">
+                                        <div class="range-slider">
+                                            <input type="range" class="min-price" value="100" min="0" max="500" step="10" />
+                                            <input type="range" class="max-price" value="250" min="0" max="500" step="10" />
+                                        </div>
+                                        <div class="price-content"><span class="filter-link">Price:</span> <span class="mx-2" id="min-value">$50</span> - <span class="mx-2" id="max-value">$500</span></div>
+                                    </div>
+                                </div>
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Size</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <ul class="list-unstyled filter-options filter-size-options">
+                                        <div class="d-inline-block">
+                                            <input type="radio" name="edit-size-options" id="" />
+                                            <label class="label-size">37</label>
+                                        </div>
+                                        <div class="d-inline-block">
+                                            <input type="radio" name="edit-size-options" id="" />
+                                            <label class="label-size">38</label>
+                                        </div>
+                                        <div class="d-inline-block">
+                                            <input type="radio" name="edit-size-options" id="" />
+                                            <label class="label-size">39</label>
+                                        </div>
+                                        <div class="d-inline-block">
+                                            <input type="radio" name="edit-size-options" id="" />
+                                            <label class="label-size">40</label>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="filter-block">
+                                    <h4 class="filter-title active d-flex justify-content-between">
+                                        <span>Featured Product</span>
+                                        <button class="filter-title-icon">
+                                            <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
+                                            <i class="fa-solid fa-minus icon-2 opacity-0"></i>
+                                        </button>
+                                    </h4>
+                                    <ul class="list-unstyled filter-options filter-size-options">
+                                        <li class="filter-item">
+                                            <a href="#" class="filter-link">
+                                                <div class="card border-0" style="max-width: 540px">
+                                                    <div class="row g-0">
+                                                        <div class="col-md-4">
+                                                            <img src="../../assets/img/fashion_products_7_2.jpg" class="img-fluid" alt="Card title" />
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="card-body pt-0">
+                                                                <h5 class="card-title">Short Sleeve Sweater</h5>
+                                                                <div class="icon_star me-2">
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                    <i class="fa-solid fa-star"></i>
+                                                                </div>
+                                                                <div class="d-flex align-items-center price-group">
+                                                                    <p class="mb-0 me-2 price price-product sale">$12</p>
+                                                                    <p class="mb-0 price price-product-discount d-block">$12</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="filter-block">
+                                    <img src="../../assets/img/Collections/banner.png" alt="" class="img-fluid" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- ======================== NAVBAR MOBILE MODAL ========================= -->
 
@@ -1444,13 +1594,13 @@
                         <div class="nav-body">
                             <ul class="nav-list ps-0">
                                 <li class="nav-item d-flex justify-content-between">
-                                    <a href="#" class="nav-link">Home</a>
+                                    <a href="" class="nav-link">Home</a>
                                     <button class="bg-transparent border-0">
                                         <i class="fa-solid fa-angle-right"></i>
                                     </button>
                                 </li>
                                 <li class="nav-item d-flex justify-content-between">
-                                    <a href="./app/views/collections.html" class="nav-link">Shop</a>
+                                    <a href="" class="nav-link">Shop</a>
                                     <button class="bg-transparent border-0">
                                         <i class="fa-solid fa-angle-right"></i>
                                     </button>
@@ -1474,7 +1624,7 @@
                                     </button>
                                 </li>
                                 <li class="nav-item d-flex justify-content-between">
-                                    <a href="./app/views/dashboard.html" class="nav-link">Go dashboard!</a>
+                                    <a href="" class="nav-link">Go dashboard!</a>
                                     <button class="bg-transparent border-0">
                                         <i class="fa-solid fa-angle-right"></i>
                                     </button>
@@ -1526,42 +1676,42 @@
 
                     <!-- Register -->
                     <!-- <div id="register" class="modalContainer">
-                                <div class="modal__header text-center">
-                                    <h4 class="mb-0">Create Account</h4>
-                                    <button id="closeRegisterIcon" class="closeLoginIcon bg-transparent border-0" data-bs-dismiss="modal">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </button>
-                                </div>
-                                <form action="" class="modal_body">
-                                    <div class="mb-3 form-group">
-                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="First name" />
-                                        <small id="helpId" class="form-message"></small>
-                                    </div>
-                                    <div class="mb-3 form-group">
-                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Last name" />
-                                        <small id="helpId" class="form-message"></small>
-                                    </div>
-                                    <div class="mb-3 form-group">
-                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Your email*" />
-                                        <small id="helpId" class="form-message"></small>
-                                    </div>
-                                    <div class="mb-3 form-group">
-                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Password*" />
-                                        <small id="helpId" class="form-message"></small>
-                                    </div>
-                                    <a href="#" class="login_forgot text-decoration-none"
-                                        >Your personal data will be used to support your experience throughout this website, to manage access to your account and for other purposes described in our privacy policy.</a
-                                    >
-                                    <div class="login__button">
-                                        <div>
-                                            <button type="button" class="btn btn--primary">LOGIN</button>
-                                        </div>
-                                        <div>
-                                            <button type="button" class="btn btn--secondary">CREATE ACCOUNT</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div> -->
+                <div class="modal__header text-center">
+                    <h4 class="mb-0">Create Account</h4>
+                    <button id="closeRegisterIcon" class="closeLoginIcon bg-transparent border-0" data-bs-dismiss="modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <form action="" class="modal_body">
+                    <div class="mb-3 form-group">
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="First name" />
+                        <small id="helpId" class="form-message"></small>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Last name" />
+                        <small id="helpId" class="form-message"></small>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Your email*" />
+                        <small id="helpId" class="form-message"></small>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Password*" />
+                        <small id="helpId" class="form-message"></small>
+                    </div>
+                    <a href="#" class="login_forgot text-decoration-none"
+                        >Your personal data will be used to support your experience throughout this website, to manage access to your account and for other purposes described in our privacy policy.</a
+                    >
+                    <div class="login__button">
+                        <div>
+                            <button type="button" class="btn btn--primary">LOGIN</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn--secondary">CREATE ACCOUNT</button>
+                        </div>
+                    </div>
+                </form>
+            </div> -->
                 </div>
             </div>
         </div>
@@ -1585,144 +1735,35 @@
                         </div>
                         <p>Spend $100.00 more to enjoy <span>FREE SHIPPING!</span></p>
                     </div>
-                    <div class="cart-list">
-                        <!-- <div class="text-center cart-empty-notice">
-                                <svg
-                                    width="62"
-                                    height="69"
-                                    viewBox="0 0 62 69"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        clip-rule="evenodd"
-                                        d="M2.08737 28.4645C2.08737 28.4645 2.08737 28.4645 2.08737 28.4645L2.73622 31.7945C2.84185 32.3366 2.48803 32.8616 1.94594 32.9673C1.40385 33.0729 0.878769 32.7191 0.773143 32.177L0.124283 28.847C-0.665369 24.7938 2.40693 21 6.52744 21H55.4733C59.5451 21 62.6061 24.7104 61.898 28.7297L55.7575 63.5715C55.2054 66.7055 52.5032 69 49.3328 69H13.9327C10.8871 69 8.25497 66.8784 7.57386 63.8981C7.57386 63.8981 7.57386 63.8981 7.57386 63.8981L6.61662 59.71C6.49356 59.1716 6.83027 58.6354 7.36867 58.5123C7.90707 58.3893 8.44328 58.726 8.56634 59.2644L9.52358 63.4524C9.99963 65.5355 11.8324 67 13.9327 67H49.3328C51.5189 67 53.4017 65.416 53.7878 63.2245L59.9283 28.3827C60.4248 25.565 58.2786 23 55.4733 23H6.52744C3.68849 23 1.53379 25.623 2.08737 28.4645Z"
-                                        fill="#DEDEDE"></path>
-                                    <path
-                                        d="M28.9027 2.47902C29.391 1.74918 29.1972 0.760308 28.4699 0.27033C27.7425 -0.219647 26.7571 -0.0251418 26.2688 0.704705L9.76598 25.3734C9.2777 26.1032 9.47153 27.0921 10.1988 27.5821C10.9262 28.072 11.9116 27.8775 12.3999 27.1477L28.9027 2.47902Z"
-                                        fill="#DEDEDE"></path>
-                                    <path
-                                        d="M49.6341 26.9818C50.3923 27.422 51.3625 27.162 51.8014 26.401C52.2397 25.6401 51.9806 24.6664 51.2224 24.2262L31.0853 12.5365C30.327 12.0963 29.3567 12.3563 28.9181 13.1173C28.4794 13.8781 28.7385 14.8518 29.4967 15.292L49.6341 26.9818Z"
-                                        fill="#DEDEDE"></path>
-                                    <path
-                                        fill-rule="evenodd"
-                                        clip-rule="evenodd"
-                                        d="M31.0099 46.9028C30.7467 46.9639 30.423 47.2225 30.2155 47.4984C29.7609 48.1028 28.9649 48.1704 28.4376 47.6495C27.9102 47.1285 27.8512 46.2162 28.3058 45.6118C28.7285 45.0498 29.5089 44.3029 30.5098 44.0707C31.0378 43.9482 31.6328 43.9702 32.2308 44.2541C32.8242 44.5358 33.335 45.0345 33.7603 45.7078C34.1687 46.354 34.0425 47.2573 33.4786 47.7253C32.9147 48.1933 32.1266 48.0487 31.7183 47.4024C31.5084 47.0702 31.3454 46.9614 31.266 46.9237C31.1911 46.8882 31.114 46.8787 31.0099 46.9028Z"
-                                        fill="#DEDEDE"></path>
-                                    <path
-                                        d="M22.5 42C23.3284 42 24 41.3284 24 40.5C24 39.6716 23.3284 39 22.5 39C21.6716 39 21 39.6716 21 40.5C21 41.3284 21.6716 42 22.5 42Z"
-                                        fill="#DEDEDE"></path>
-                                    <path
-                                        d="M39.5 42C40.3287 42 41 41.3284 41 40.5C41 39.6716 40.3287 39 39.5 39C38.6713 39 38 39.6716 38 40.5C38 41.3284 38.6713 42 39.5 42Z"
-                                        fill="#DEDEDE"></path>
-                                </svg>
-                                <p class="heading mt-3">Your cart is empty.</p>
-                                <p class="text">You may check out all the available products and buy some in the shop.</p>
-                                <button class="btn btn--large btn--primary">RETURN TO SHOP</button>
-                            </div> -->
-
-                        <div class="product-item mt-3">
-                            <div class="card mb-3 border-0">
-                                <div class="d-flex">
-                                    <div class="product-img">
-                                        <img src="../../assets/img/products_sport_1_1.webp" class="img-fluid" alt="Card title" />
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="card-body p-0">
-                                            <h5 class="product-title mb-0">Running Shoes Air Zoom Premium</h5>
-                                            <p class="product-size mb-0">L</p>
-                                            <p class="product-price">$150.00</p>
-                                            <form id="product-qty" class="product-qty d-flex align-items-center" action="#">
-                                                <button class="qty-down">
-                                                    <i class="fa-solid fa-minus"></i>
-                                                </button>
-                                                <input type="text" value="1" class="qty-value bg-transparent border-0" />
-                                                <button class="qty-up">
-                                                    <i class="fa-solid fa-plus"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="product-btn">
-                                        <button class="product-del bg-transparent border-0 d-block mb-2">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </button>
-                                        <button class="product-edit bg-transparent border-0 d-block">
-                                            <i class="fa-regular fa-pen-to-square"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item mt-3">
-                            <div class="card mb-3 border-0">
-                                <div class="d-flex">
-                                    <div class="product-img">
-                                        <img src="../../assets/img/products_sport_1_1.webp" class="img-fluid" alt="Card title" />
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="card-body p-0">
-                                            <h5 class="product-title mb-0">Running Shoes Air Zoom Premium</h5>
-                                            <p class="product-size mb-0">L</p>
-                                            <p class="product-price">$150.00</p>
-                                            <form id="product-qty" class="product-qty d-flex align-items-center" action="#">
-                                                <button class="qty-down">
-                                                    <i class="fa-solid fa-minus"></i>
-                                                </button>
-                                                <input type="text" value="1" class="qty-value bg-transparent border-0" />
-                                                <button class="qty-up">
-                                                    <i class="fa-solid fa-plus"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="product-btn">
-                                        <button class="product-del bg-transparent border-0 d-block mb-2">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </button>
-                                        <button class="product-edit bg-transparent border-0 d-block">
-                                            <i class="fa-regular fa-pen-to-square"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item mt-3">
-                            <div class="card mb-3 border-0">
-                                <div class="d-flex">
-                                    <div class="product-img">
-                                        <img src="../../assets/img/products_sport_1_1.webp" class="img-fluid" alt="Card title" />
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="card-body p-0">
-                                            <h5 class="product-title mb-0">Running Shoes Air Zoom Premium</h5>
-                                            <p class="product-size mb-0">L</p>
-                                            <p class="product-price">$150.00</p>
-                                            <form id="product-qty" class="product-qty d-flex align-items-center" action="#">
-                                                <button class="qty-down">
-                                                    <i class="fa-solid fa-minus"></i>
-                                                </button>
-                                                <input type="text" value="1" class="qty-value bg-transparent border-0" />
-                                                <button class="qty-up">
-                                                    <i class="fa-solid fa-plus"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="product-btn">
-                                        <button class="product-del bg-transparent border-0 d-block mb-2">
-                                            <i class="fa-regular fa-trash-can"></i>
-                                        </button>
-                                        <button class="product-edit bg-transparent border-0 d-block">
-                                            <i class="fa-regular fa-pen-to-square"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                    <div id="shopping-cart-products" class="cart-list">
+                        <div class="text-center cart-empty-notice">
+                            <svg width="62" height="69" viewBox="0 0 62 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M2.08737 28.4645C2.08737 28.4645 2.08737 28.4645 2.08737 28.4645L2.73622 31.7945C2.84185 32.3366 2.48803 32.8616 1.94594 32.9673C1.40385 33.0729 0.878769 32.7191 0.773143 32.177L0.124283 28.847C-0.665369 24.7938 2.40693 21 6.52744 21H55.4733C59.5451 21 62.6061 24.7104 61.898 28.7297L55.7575 63.5715C55.2054 66.7055 52.5032 69 49.3328 69H13.9327C10.8871 69 8.25497 66.8784 7.57386 63.8981C7.57386 63.8981 7.57386 63.8981 7.57386 63.8981L6.61662 59.71C6.49356 59.1716 6.83027 58.6354 7.36867 58.5123C7.90707 58.3893 8.44328 58.726 8.56634 59.2644L9.52358 63.4524C9.99963 65.5355 11.8324 67 13.9327 67H49.3328C51.5189 67 53.4017 65.416 53.7878 63.2245L59.9283 28.3827C60.4248 25.565 58.2786 23 55.4733 23H6.52744C3.68849 23 1.53379 25.623 2.08737 28.4645Z"
+                                    fill="#DEDEDE"></path>
+                                <path
+                                    d="M28.9027 2.47902C29.391 1.74918 29.1972 0.760308 28.4699 0.27033C27.7425 -0.219647 26.7571 -0.0251418 26.2688 0.704705L9.76598 25.3734C9.2777 26.1032 9.47153 27.0921 10.1988 27.5821C10.9262 28.072 11.9116 27.8775 12.3999 27.1477L28.9027 2.47902Z"
+                                    fill="#DEDEDE"></path>
+                                <path
+                                    d="M49.6341 26.9818C50.3923 27.422 51.3625 27.162 51.8014 26.401C52.2397 25.6401 51.9806 24.6664 51.2224 24.2262L31.0853 12.5365C30.327 12.0963 29.3567 12.3563 28.9181 13.1173C28.4794 13.8781 28.7385 14.8518 29.4967 15.292L49.6341 26.9818Z"
+                                    fill="#DEDEDE"></path>
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M31.0099 46.9028C30.7467 46.9639 30.423 47.2225 30.2155 47.4984C29.7609 48.1028 28.9649 48.1704 28.4376 47.6495C27.9102 47.1285 27.8512 46.2162 28.3058 45.6118C28.7285 45.0498 29.5089 44.3029 30.5098 44.0707C31.0378 43.9482 31.6328 43.9702 32.2308 44.2541C32.8242 44.5358 33.335 45.0345 33.7603 45.7078C34.1687 46.354 34.0425 47.2573 33.4786 47.7253C32.9147 48.1933 32.1266 48.0487 31.7183 47.4024C31.5084 47.0702 31.3454 46.9614 31.266 46.9237C31.1911 46.8882 31.114 46.8787 31.0099 46.9028Z"
+                                    fill="#DEDEDE"></path>
+                                <path d="M22.5 42C23.3284 42 24 41.3284 24 40.5C24 39.6716 23.3284 39 22.5 39C21.6716 39 21 39.6716 21 40.5C21 41.3284 21.6716 42 22.5 42Z" fill="#DEDEDE"></path>
+                                <path d="M39.5 42C40.3287 42 41 41.3284 41 40.5C41 39.6716 40.3287 39 39.5 39C38.6713 39 38 39.6716 38 40.5C38 41.3284 38.6713 42 39.5 42Z" fill="#DEDEDE"></path>
+                            </svg>
+                            <p class="heading mt-3">Your cart is empty.</p>
+                            <p class="text">You may check out all the available products and buy some in the shop.</p>
+                            <button class="btn btn--large btn--primary">RETURN TO SHOP</button>
                         </div>
                     </div>
                     <div class="cart-checkout">
-                        <div class="discount row text-center">
+                        <div class="discount row text-center d-none">
                             <div class="col">
                                 <button>
                                     <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1781,10 +1822,10 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="subtotal">
+                        <div class="subtotal d-none">
                             <div class="price d-flex justify-content-between">
                                 <h4 class="mb-0">Subtotal</h4>
-                                <p class="mb-0">$330.00</p>
+                                <p id="cart-total" class="mb-0">$330.00</p>
                             </div>
                             <div class="policy d-flex align-items-center">
                                 <input type="checkbox" name="cart-policy" id="cart-policy" class="d-flex align-items-center text-center" />
@@ -1795,6 +1836,52 @@
                             </div>
                             <div class="mt-2">
                                 <button class="w-100 btn btn--primary">PROCEED TO CHECKOUT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================== CART EDIT PRODUCT MODAL ========================= -->
+
+        <div class="modal fade" id="editCartModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">Edit Options</h5>
+                        <button id="closeEditBtn" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6 d-flex">
+                                <img src="" alt="" class="img img-fluid" />
+                                <div class="product-info">
+                                    <a href="#" class="brand"></a>
+                                    <h1 class="product-name"></h1>
+                                    <p class="price"></p>
+                                    <div class="edit-qty-form d-flex align-items-center">
+                                        <button class="cart-qty-control qty-down">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+                                        <input type="number" value="1" id="edit-qty-input" class="qty-value bg-transparent border-0" />
+                                        <button class="cart-qty-control qty-up">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div id="editSizeOptions" class="edit-size-options mt-2">
+                                    <div class="size-product">Size: <span class="size"></span></div>
+                                    <div class="size-options mt-2 d-flex"></div>
+                                </div>
+                            </div>
+
+                            <div class="edit-btn">
+                                <button id="editBtnModal" class="btn btn--primary w-100">ADD TO CART</button>
                             </div>
                         </div>
                     </div>
@@ -1827,155 +1914,110 @@
                     </div>
                     <div class="modalBody">
                         <h4 class="mb-0">Popular Product</h4>
-                        <div class="row">
-                            <div class="col-6 col-md-4 col-lg-2 mt-4">
-                                <a href="#" class="card-product-link">
-                                    <div class="card">
-                                        <img class="card-img-top" src="../../assets/img/products_sport_1_1.webp" alt="Title" />
-                                        <div class="card-body">
-                                            <h6 class="product-vendor">UMINO</h6>
-                                            <h4 class="card-title mb-0">UMINO JUNIPER TRAIL 2 NEXT NATURE</h4>
-                                            <div class="product-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-                                            <div>
-                                                <span class="product-price sale">$120.00</span>
-                                                <span class="product-price-sale">$150.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mt-4">
-                                <a href="#" class="card-product-link">
-                                    <div class="card">
-                                        <img class="card-img-top" src="../../assets/img/products_sport_2_1.webp" alt="Title" />
-                                        <div class="card-body">
-                                            <h6 class="product-vendor">UMINO</h6>
-                                            <h4 class="card-title mb-0">UMINO JUNIPER TRAIL 2 NEXT NATURE</h4>
-                                            <div class="product-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-                                            <div>
-                                                <span class="product-price">$120.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mt-4">
-                                <a href="#" class="card-product-link">
-                                    <div class="card">
-                                        <img class="card-img-top" src="../../assets/img/products_sport_3_1.webp" alt="Title" />
-                                        <div class="card-body">
-                                            <h6 class="product-vendor">UMINO</h6>
-                                            <h4 class="card-title mb-0">UMINO JUNIPER TRAIL 2 NEXT NATURE</h4>
-                                            <div class="product-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-                                            <div>
-                                                <span class="product-price sale">$120.00</span>
-                                                <span class="product-price-sale">$150.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mt-4">
-                                <a href="#" class="card-product-link">
-                                    <div class="card">
-                                        <img class="card-img-top" src="../../assets/img/products_sport_4_1.webp" alt="Title" />
-                                        <div class="card-body">
-                                            <h6 class="product-vendor">UMINO</h6>
-                                            <h4 class="card-title mb-0">UMINO JUNIPER TRAIL 2 NEXT NATURE</h4>
-                                            <div class="product-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-                                            <div>
-                                                <span class="product-price">$120.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mt-4">
-                                <a href="#" class="card-product-link">
-                                    <div class="card">
-                                        <img class="card-img-top" src="../../assets/img/products_sport_7_1.webp" alt="Title" />
-                                        <div class="card-body">
-                                            <h6 class="product-vendor">UMINO</h6>
-                                            <h4 class="card-title mb-0">UMINO JUNIPER TRAIL 2 NEXT NATURE</h4>
-                                            <div class="product-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-                                            <div>
-                                                <span class="product-price">$120.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-4 col-lg-2 mt-4">
-                                <a href="#" class="card-product-link">
-                                    <div class="card">
-                                        <img class="card-img-top" src="../../assets/img/products_sport_6_1.webp" alt="Title" />
-                                        <div class="card-body">
-                                            <h6 class="product-vendor">UMINO</h6>
-                                            <h4 class="card-title mb-0">UMINO JUNIPER TRAIL 2 NEXT NATURE</h4>
-                                            <div class="product-rating">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-                                            <div>
-                                                <span class="product-price sale">$120.00</span>
-                                                <span class="product-price-sale">$150.00</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        <div id="popular-products" class="row"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ======================== ADD TO CART MODAL ========================= -->
+        <!-- ======================== QUICK VIEW MODAL ========================= -->
 
-        <div class="modal fade" id="modalAddToCart" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitle">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">Body</div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
+        <div class="modal fade" id="modalAddToCart" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+                <div class="modal-content flex-row">
+                    <button id="qv-close-modal" class="close-modal bg-transparent border-0" data-bs-dismiss="modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div id="qvImg" class="product-img"></div>
+                    <div class="product-info">
+                        <a href="#" class="product-vendor d-block">UMINO</a>
+                        <a href="#" id="qv-name" class="product-name d-block"></a>
+                        <div class="review_product d-flex align-items-center">
+                            <div class="icon_star me-2">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="review-num">
+                                <span>1 review</span>
+                            </div>
+                            <div class="hot_product">
+                                <div class="d-flex align-items-center">
+                                    <div class="icon_fire">
+                                        <svg class="mr-10" width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5.60552 15.4995C3.16895 15.4995 0.979212 13.9433 0.249175 11.6187C0.0947371 11.127 0.000706673 10.605 0.000706673 10.063C0.000706673 7.03116 2.48295 4.58474 2.48295 4.58474C2.48295 4.58474 2.31195 5.5751 2.41833 6.41811C2.52472 7.26112 2.91678 7.77863 2.91678 7.77863C2.91678 7.77863 2.63048 6.45493 3.01087 5.56745C3.44872 4.54597 4.26538 4.07212 4.57909 3.15239C4.94015 2.09384 4.39912 0.862793 4.39912 0.862793C4.39912 0.862793 6.17867 1.55043 7.46461 3.32489C8.92305 5.33742 7.94028 7.93025 7.94028 7.93025C7.94028 7.93025 8.07621 7.21408 8.81328 6.63383C9.55034 6.05359 9.25175 5.15369 9.25175 5.15369C9.25175 5.15369 11.2441 7.38664 11.2441 10.0631C11.2441 10.7897 11.0361 11.5225 10.733 12.2045C9.8367 14.2211 7.81231 15.4995 5.60552 15.4995Z"
+                                                fill="#D10028"></path>
+                                            <path
+                                                d="M2.48328 4.58545C2.48328 4.58545 2.39044 5.12372 2.38423 5.7443C1.80336 6.71722 1.25555 8.01226 1.25555 9.43645C1.25555 9.97842 1.34958 10.5004 1.50402 10.9921C2.23406 13.3167 4.42379 14.873 6.86037 14.873C7.51532 14.873 8.15383 14.7595 8.75195 14.5484C7.83906 15.1576 6.74708 15.5002 5.60579 15.5002C3.16922 15.5002 0.979482 13.944 0.249444 11.6194C0.095006 11.1277 0.000975609 10.6057 0.000975609 10.0637C0.00103855 7.03187 2.48328 4.58545 2.48328 4.58545Z"
+                                                fill="#B7022D"></path>
+                                            <path
+                                                d="M2.7933 11.3892C2.7933 9.85828 3.79765 8.8708 4.42305 8.2373C5.53668 7.109 5.33896 5.8252 5.33896 5.8252C5.33896 5.8252 7.5216 7.70166 7.86454 9.25809C8.19242 10.7467 7.3676 11.5742 7.3676 11.5742C7.3676 11.5742 7.75194 11.4259 7.99094 11.16C8.29536 10.8215 8.40476 10.4113 8.40476 10.4113C8.40476 10.4113 8.53197 10.7191 8.36518 11.7722C8.24662 12.5207 7.8577 13.0808 7.40135 13.4931C6.29218 14.495 4.56244 14.398 3.55715 13.2919C3.12639 12.8181 2.7933 12.192 2.7933 11.3892Z"
+                                                fill="#FFA91A"></path>
+                                            <path
+                                                d="M7.10057 11.4354C7.13381 11.4354 7.167 11.4223 7.19165 11.3963C7.24277 11.3424 7.69141 10.8434 7.69141 9.94607C7.69141 9.7407 7.66738 9.52755 7.62008 9.31258C7.55077 8.99793 7.39351 8.64295 7.15276 8.25748C7.11606 8.1987 7.03872 8.18076 6.97988 8.21752C6.9211 8.25422 6.90322 8.33162 6.93992 8.3904C7.16549 8.75153 7.31184 9.07992 7.375 9.36652C7.41841 9.5638 7.44043 9.75876 7.44043 9.94607C7.44043 10.7599 7.02711 11.2051 7.00949 11.2237C6.96181 11.2739 6.96388 11.3533 7.01419 11.401C7.03853 11.424 7.06958 11.4354 7.10057 11.4354ZM6.7639 8.03473C6.78969 8.03473 6.81572 8.02683 6.83811 8.01039C6.89394 7.96937 6.90598 7.89083 6.86496 7.835L6.82814 7.78526C6.78667 7.72974 6.70814 7.71839 6.65256 7.75973C6.59705 7.80119 6.58563 7.87979 6.62703 7.9353L6.66279 7.98354C6.68731 8.01704 6.72539 8.03473 6.7639 8.03473Z"
+                                                fill="#FFC91D"></path>
+                                            <path
+                                                d="M4.42442 8.2373C5.53804 7.109 5.34032 5.8252 5.34032 5.8252C5.34032 5.8252 6.03373 6.42143 6.70035 7.22041C6.08661 7.85522 5.30388 8.78298 5.30388 10.1347C5.30388 10.9375 5.63697 11.5635 6.06773 12.0374C6.55914 12.5781 7.22375 12.877 7.9043 12.9249C7.75638 13.1395 7.5852 13.3284 7.40278 13.4932C6.29361 14.4951 4.56387 14.3981 3.55858 13.292C3.12782 12.8181 2.79473 12.192 2.79473 11.3892C2.79467 9.85828 3.79908 8.87087 4.42442 8.2373Z"
+                                                fill="#F79219"></path>
+                                            <path
+                                                d="M4.42153 8.2373C5.53516 7.109 5.33743 5.8252 5.33743 5.8252C5.33743 5.8252 5.77509 6.20188 6.28909 6.75697C6.15103 7.03605 5.95456 7.32786 5.67611 7.61002C5.05077 8.24358 4.04635 9.23099 4.04635 10.762C4.04635 11.5648 4.37944 12.1908 4.8102 12.6647C5.48008 13.4018 6.47151 13.69 7.38672 13.5044C6.27705 14.4939 4.55703 14.3938 3.55563 13.292C3.12487 12.8181 2.79178 12.192 2.79178 11.3892C2.79178 9.85828 3.79619 8.87087 4.42153 8.2373Z"
+                                                fill="#EF7816"></path>
+                                            <path
+                                                d="M3.3175 0.5C3.3175 0.5 4.07074 0.974982 4.05644 1.85657C4.04891 2.32221 3.81105 2.69657 3.63722 3.11133C3.48197 3.48181 3.45111 4.04536 3.45111 4.04536C3.45111 4.04536 2.93504 3.60244 2.8799 2.61998C2.85826 2.23445 3.06238 1.76794 3.16883 1.43391C3.33362 0.916707 3.3175 0.5 3.3175 0.5Z"
+                                                fill="#D10028"></path>
+                                            <path
+                                                d="M8.7855 4.76708C8.7855 4.76708 9.42307 4.14261 9.22278 3.28197C9.11702 2.82738 8.64498 2.53005 8.33542 2.20254C8.01989 1.86876 7.87461 1.26562 7.87461 1.26562C7.87461 1.26562 7.53726 1.67769 7.74966 2.47572C7.88615 2.98866 8.31221 3.36026 8.4871 3.66506C8.7579 4.13678 8.7855 4.76708 8.7855 4.76708Z"
+                                                fill="#D10028"></path>
+                                        </svg>
+                                    </div>
+                                    <span>15 sold in last 20 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center price-group">
+                            <p id="qvPriceSale" class="mb-0 me-2 price-product sale">$12</p>
+                            <p id="qvPrice" class="mb-0 price-product-discount">$12</p>
+                        </div>
+                        <p id="qvDesc" class="desc-product"></p>
+                        <div class="size-product">Size: <span id="sizeSelected" class="size"></span></div>
+                        <div id="sizeOptions" class="size-options mt-2 d-flex"></div>
+                        <div class="action-group d-flex">
+                            <div id="qv-qtyInput" class="qty-input d-flex">
+                                <button class="control-value minus-qty"><i class="fa-solid fa-minus"></i></button>
+                                <input class="qty-value border-0 bg-transparent text-center" type="number" id="qv-qty-value" value="1" />
+                                <button class="control-value plus-qty"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <button id="addToCartBtn" class="btn btn--primary add-to-cart-btn">ADD TO CARD</button>
+                            <div class="circle-action d-flex">
+                                <button class="icon-action d-flex align-items-center justify-content-center">
+                                    <svg width="14" height="13" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M13.4219 2.875C13.7135 3.16667 13.9323 3.5 14.0781 3.875C14.224 4.23958 14.2969 4.61458 14.2969 5C14.2969 5.38542 14.224 5.76562 14.0781 6.14062C13.9323 6.50521 13.7135 6.83333 13.4219 7.125L8 12.5469L2.57812 7.125C2.28646 6.83333 2.06771 6.50521 1.92188 6.14062C1.77604 5.76562 1.70312 5.38542 1.70312 5C1.70312 4.61458 1.77604 4.23958 1.92188 3.875C2.06771 3.5 2.28646 3.16667 2.57812 2.875C2.86979 2.58333 3.19792 2.36458 3.5625 2.21875C3.9375 2.07292 4.31771 2 4.70312 2C5.08854 2 5.46354 2.07292 5.82812 2.21875C6.19271 2.36458 6.52604 2.58333 6.82812 2.875L7.53125 3.57812C7.65625 3.71354 7.8125 3.78125 8 3.78125C8.1875 3.78125 8.34375 3.71354 8.46875 3.57812L9.17188 2.875C9.47396 2.58333 9.80729 2.36458 10.1719 2.21875C10.5365 2.07292 10.9115 2 11.2969 2C11.6823 2 12.0573 2.07292 12.4219 2.21875C12.7969 2.36458 13.1302 2.58333 13.4219 2.875ZM14.3594 1.9375C13.9427 1.51042 13.4635 1.19271 12.9219 0.984375C12.3906 0.776042 11.849 0.671875 11.2969 0.671875C10.7448 0.671875 10.2031 0.776042 9.67188 0.984375C9.14062 1.19271 8.66146 1.51042 8.23438 1.9375L8 2.17188L7.76562 1.9375C7.33854 1.51042 6.85938 1.19271 6.32812 0.984375C5.79688 0.776042 5.25521 0.671875 4.70312 0.671875C4.15104 0.671875 3.60417 0.776042 3.0625 0.984375C2.53125 1.19271 2.05729 1.51042 1.64062 1.9375C1.21354 2.35417 0.890625 2.83333 0.671875 3.375C0.463542 3.90625 0.359375 4.44792 0.359375 5C0.359375 5.55208 0.463542 6.09896 0.671875 6.64062C0.890625 7.17188 1.21354 7.64583 1.64062 8.0625L7.53125 13.9531C7.65625 14.0885 7.8125 14.1562 8 14.1562C8.1875 14.1562 8.34375 14.0885 8.46875 13.9531L14.3594 8.0625C14.7865 7.64583 15.1042 7.17188 15.3125 6.64062C15.5312 6.09896 15.6406 5.55208 15.6406 5C15.6406 4.44792 15.5312 3.90625 15.3125 3.375C15.1042 2.84375 14.7865 2.36458 14.3594 1.9375Z"
+                                            fill="#111111"></path>
+                                    </svg>
+                                </button>
+                                <button class="icon-action d-flex align-items-center justify-content-center">
+                                    <svg width="14" height="13" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8 1.40625L13.1719 4L8 6.59375L2.82812 4L8 1.40625ZM7.70312 0.078125L1.03125 3.40625C0.864583 3.48958 0.75 3.61979 0.6875 3.79688C0.635417 3.96354 0.651042 4.13021 0.734375 4.29688C0.765625 4.36979 0.807292 4.43229 0.859375 4.48438C0.911458 4.52604 0.96875 4.5625 1.03125 4.59375L7.70312 7.92188C7.79688 7.97396 7.89583 8 8 8C8.10417 8 8.20312 7.97396 8.29688 7.92188L14.9688 4.59375C15.1354 4.51042 15.2448 4.38542 15.2969 4.21875C15.3594 4.04167 15.349 3.86979 15.2656 3.70312C15.2344 3.63021 15.1927 3.57292 15.1406 3.53125C15.0885 3.47917 15.0312 3.4375 14.9688 3.40625L8.29688 0.0625C8.20312 0.0208333 8.10417 0 8 0C7.89583 0 7.79688 0.0208333 7.70312 0.0625V0.078125ZM1.03125 11.2656L7.70312 14.5938C7.79688 14.6458 7.89583 14.6667 8 14.6562C8.10417 14.6562 8.20312 14.6354 8.29688 14.5938L14.9688 11.2656C15.1354 11.1823 15.2448 11.0521 15.2969 10.875C15.3594 10.6979 15.349 10.5312 15.2656 10.375C15.1823 10.2083 15.0521 10.099 14.875 10.0469C14.6979 9.98438 14.5312 9.98958 14.375 10.0625L8 13.25L1.625 10.0781C1.46875 9.99479 1.30208 9.98438 1.125 10.0469C0.947917 10.099 0.817708 10.2083 0.734375 10.375C0.651042 10.5312 0.635417 10.6979 0.6875 10.875C0.75 11.0521 0.864583 11.1823 1.03125 11.2656ZM1.03125 7.92188L7.70312 11.2656C7.79688 11.3073 7.89583 11.3281 8 11.3281C8.10417 11.3281 8.20312 11.3073 8.29688 11.2656L14.9688 7.92188C15.1354 7.84896 15.2448 7.72396 15.2969 7.54688C15.3594 7.36979 15.349 7.19792 15.2656 7.03125C15.1823 6.86458 15.0521 6.75521 14.875 6.70312C14.6979 6.64062 14.5312 6.65104 14.375 6.73438L8 9.92188L1.625 6.73438C1.46875 6.65104 1.30208 6.64062 1.125 6.70312C0.947917 6.75521 0.817708 6.86458 0.734375 7.03125C0.651042 7.19792 0.635417 7.36979 0.6875 7.54688C0.75 7.72396 0.864583 7.85417 1.03125 7.9375V7.92188Z"
+                                            fill="#111111"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="policy-product d-flex align-items-center">
+                            <input id="checkbox-policy" type="checkbox" class="d-none input-policy" />
+                            <label class="label-check-policy me-2" for="checkbox-policy">
+                                <span class="check-icon">
+                                    <i class="fa-solid fa-check"></i>
+                                </span>
+                            </label>
+                            <label for="checkbox-policy" class="policy-text"> I agree with <a href="#" class="policy-detail">Terms & Conditions</a> </label>
+                        </div>
+                        <button id="qv-buy-btn" type="button" class="btn btn--buy-now w-100" disabled>Buy it now</button>
                     </div>
                 </div>
             </div>

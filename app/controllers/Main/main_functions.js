@@ -43,6 +43,7 @@ export function getSizeOption(inputsName, SelectedElement) {
             if (i.checked) {
                 sizeSelectedElement.innerHTML = i.value;
                 sizeSelected = i.value;
+                console.log(sizeSelected);
             }
         };
     });
@@ -109,8 +110,8 @@ export async function renderQuickView(id) {
     const htmlSizeOptions = sizeList.map((s, index) => {
         return `
                 <div>
-                    <input type="radio" name="size-options" value="${s}" id="size-${s}" ${index === 0 ? 'checked' : null} />
-                    <label for="size-${s}" class="label-size">${s}</label>
+                    <input type="radio" name="qv-size-options" value="${s}" id="qv-size-${s}" ${index === 0 ? 'checked' : null} />
+                    <label for="qv-size-${s}" class="label-size">${s}</label>
                 </div>
         `;
     });
@@ -122,7 +123,6 @@ export async function renderQuickView(id) {
 // Quickview: Handle add to cart
 export function HandleAddToCart(product) {
     const { id: addedID, cartSize: addedSize, cartQty: addedQty } = product;
-
     if (CartList.list.length) {
         let isAdded = false;
 
@@ -342,7 +342,6 @@ export function renderEditModal(index) {
 export function handleEditOptions(index) {
     const qtyValue = document.querySelector('.edit-qty-form .qty-value').value;
     const sizeSelected = getSizeOption('edit-size-options', '.edit-size-options .size');
-
 
     const editedProduct = {
         ...CartList.list[index],

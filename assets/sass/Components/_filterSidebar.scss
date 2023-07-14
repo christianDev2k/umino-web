@@ -9,37 +9,41 @@
 
     .modal-dialog {
         margin: auto 0 0 0;
-        max-width: 400px;
+        max-width: 380px;
         height: 100vh;
+        padding-right: 0;
+        background-color: $bg-color-base;
     }
 
-    .modal-content {
-        height: 100vh;
-        border-radius: 0;
-        border: 0;
-        font-family: 'Jost', sans-serif;
-        @extend .scroll-y;
-    }
+    .modal {
+        &-content {
+            height: 100vh;
+            border-radius: 0;
+            border: 0;
+            font-family: 'Jost', sans-serif;
+            @extend .scroll-y;
+        }
 
-    .modal-header {
-        padding: $pd-3 - 1 $pd-5;
-        border-bottom: 0;
-        border-bottom: 1px solid $bd-color-base;
+        &-header {
+            padding: $pd-3 - 1 $pd-5;
+            border-bottom: 0;
+            border-bottom: 1px solid $bd-color-base;
 
-        .close-filter-sidebar {
-            font-size: $fs-3;
-            color: $color-grey;
-            transition: $transition;
-            line-height: 1;
-            &:hover {
-                color: $color-header;
+            .close-filter-sidebar {
+                font-size: $fs-3;
+                color: $color-grey;
+                transition: $transition;
+                line-height: 1;
+                &:hover {
+                    color: $color-header;
+                }
             }
         }
-    }
 
-    .modal-body {
-        padding: 0 $pd-5;
-        overflow: unset;
+        &-body {
+            padding: 0 $pd-5;
+            overflow: unset;
+        }
     }
 
     .filter-block {
@@ -55,6 +59,7 @@
         margin-bottom: 0;
         height: 0;
         overflow: hidden;
+        transition: $transition;
     }
 
     .filter-title {
@@ -87,6 +92,10 @@
 
     .filter-size-options {
         @extend .size-option-group;
+        .label-size {
+            font-size: $fs-2;
+            font-weight: $fw-1;
+        }
     }
 
     .filter-item {

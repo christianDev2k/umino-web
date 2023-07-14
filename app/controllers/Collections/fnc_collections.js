@@ -1,16 +1,30 @@
 import * as api from '../../../assets/js/api.js';
 import * as mf from '../Main/main_functions.js';
+import * as e from '../Collections/event_collections.js';
 import CartList from '../../models/Cart.js';
 
 const $ = document.querySelector.bind(document);
 
-export function renderAllProducts(productsList) {
+export async function setUI() {
+    const localData = mf.GetLocalStorages('cart');
+    const products = await api.getProduct();
+    const popularProducts = products.slice(0, 6);
+
+    CartList.list = localData;
+
+    renderAllProducts(products);
+    rangeFilter();
+    mf.renderPopularProducts(popularProducts);
+    mf.handleRenderCart(CartList.list);
+}
+
+function renderAllProducts(productsList) {
     const container = $('#all-product');
     const html = productsList.map(p => {
         const { id, img, name, price, discount } = p;
         return `
                 <div id="layout-item" class="mb-5 col-6 col-lg-4">
-                    <a href="../views/productDetails.html" class="card-product-link">
+                    <a href="#" class="card-product-link">
                         <div class="card">
                             <div class="card-img">
                                 <img class="card-img-top" src="${img}" alt="Title" />
@@ -66,7 +80,7 @@ export function renderAllProducts(productsList) {
                                     <i class="fa-solid fa-star"></i>
                                 </div>
                                 <div>
-                                    <span class="product-price ${discount ? 'sale' : null}">$${CartList.calcDiscount(discount, price)}</span>
+                                    <span class="product-price ${discount ? 'sale' : null}">$${CartList.calcDiscount.call(CartList, discount, price)}</span>
                                     <span class="product-price-sale ${discount ? null : 'd-none'} ">$${price}</span>              
                                 </div>
                             </div>
@@ -78,44 +92,151 @@ export function renderAllProducts(productsList) {
     container.innerHTML = html.join('');
 }
 
-export async function setUI() {
-    const localData = mf.GetLocalStorages('cart');
-    const products = await api.getProduct();
-    const popularProducts = products.slice(0, 6);
+async function rangeFilter() {
+    async function renderPriceInput() {
+        const maxPrice = data.reduce((max, p) => {
+            const price = CartList.calcDiscount(p.discount, p.price);
+            return (max = price > max ? price : max);
+        }, 0);
 
-    CartList.list = localData;
-
-    renderAllProducts(products);
-    mf.renderPopularProducts(popularProducts);
-    mf.handleRenderCart(CartList.list);
-}
-
-export function rangePrice() {
-    let minValue = document.getElementById('min-value');
-    let maxValue = document.getElementById('max-value');
-
-    function validateRange(minPrice, maxPrice) {
-        if (minPrice > maxPrice) {
-            // Swap to Values
-            let tempValue = maxPrice;
-            maxPrice = minPrice;
-            minPrice = tempValue;
-        }
-
-        minValue.innerHTML = '$' + minPrice;
-        maxValue.innerHTML = '$' + maxPrice;
+        const filterPrice = $('#filter-price');
+        filterPrice.innerHTML = `
+            <div class="range-slider">
+                <input type="range" class="min-price filter-element" value="10" min="0" max="${maxPrice}" step="1" />
+                <input type="range" class="max-price filter-element" value="${maxPrice - 10}" min="0" max="${maxPrice}" step="1" />
+            </div>
+            <div class="price-content">
+                <span class="filter-link">Price:</span> 
+                <span class="mx-2" id="min-value"></span> - <span class="mx-2" id="max-value"></span>
+            </div>`;
     }
 
-    const inputElements = document.querySelectorAll('.range-slider input');
+    function processInputPrice() {
+        let minValue = document.getElementById('min-value');
+        let maxValue = document.getElementById('max-value');
 
-    inputElements.forEach(element => {
-        element.addEventListener('change', e => {
-            let minPrice = parseInt(inputElements[0].value);
-            let maxPrice = parseInt(inputElements[1].value);
+        function validateRange(minPrice, maxPrice) {
+            if (minPrice > maxPrice) {
+                // Swap to Values
+                let tempValue = maxPrice;
+                maxPrice = minPrice;
+                minPrice = tempValue;
+            }
 
-            validateRange(minPrice, maxPrice);
+            minValue.value = minPrice;
+            maxValue.value = maxPrice;
+
+            minValue.innerHTML = '$' + minPrice;
+            maxValue.innerHTML = '$' + maxPrice;
+        }
+
+        const inputElements = document.querySelectorAll('.range-slider input');
+
+        inputElements.forEach(element => {
+            element.addEventListener('change', e => {
+                let minPrice = parseInt(inputElements[0].value);
+                let maxPrice = parseInt(inputElements[1].value);
+
+                validateRange(minPrice, maxPrice);
+            });
         });
+        validateRange(inputElements[0].value, inputElements[1].value);
+    }
+
+    function renderSizeOptions() {
+        let sizeList = [];
+
+        for (let i = 0; i < data.length; i++) {
+            const productSize = data[i].size.split('');
+
+            for (let j = 0; j < productSize.length; j++) {
+                let isTrue = true;
+
+                for (let k = 0; k < sizeList.length; k++) {
+                    if (sizeList[k] === productSize[j]) {
+                        isTrue = false;
+                    }
+                }
+
+                isTrue ? sizeList.push(productSize[j]) : null;
+            }
+        }
+        sizeList = sizeList.sort();
+
+        const html = sizeList.map(s => {
+            return `
+                <div class="d-inline-block">
+                    <input type="checkbox" name="filter-size-options" value="${s}" id="size-${s}" class="filter-element"/>
+                    <label for="size-${s}" class="label-size">${s}</label>
+                </div>
+            `;
+        });
+        const filterSize = $('#filter-size');
+        filterSize.innerHTML = html.join('');
+    }
+
+    function renderFeatureProduct() {
+        const products = data.slice(0, 3);
+        const html = products.map(p => {
+            const { img, name, price, discount } = p;
+            return `
+                <li class="filter-item">
+                    <a href="#" class="filter-link">
+                        <div class="card border-0">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="${img}" class="img-fluid" alt="Featured product" />
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body pt-0">
+                                        <h5 class="card-title">${name}</h5>
+                                        <div class="icon_star me-2">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <div class="d-flex align-items-center price-group">
+                                            <p class="mb-0 me-2 price price-product ${discount ? 'sale' : null}">$${CartList.calcDiscount.call(CartList, discount, price)}</p>
+                                            <p class="mb-0 price price-product-discount ${discount ? 'd-block' : null}">$${price}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            `;
+        });
+        const featuredProduct = $('#featuredProduct');
+        featuredProduct.innerHTML = html.join('');
+    }
+
+    const data = await api.getProduct();
+    await renderPriceInput();
+    processInputPrice();
+    renderSizeOptions();
+    renderFeatureProduct();
+    e.EventSideBar(data);
+}
+
+export function handleFilter(data, filterElement) {
+    const value = [];
+    const sizeConditions = [];
+    let i = 0;
+
+    filterElement.forEach((e, index) => {
+        if (e.type === 'range') {
+            value[index] = e.value;
+        } else {
+            e.checked ? (sizeConditions[i++] = e.value) : null;
+        }
     });
 
-    validateRange(inputElements[0].value, inputElements[1].value);
+    let max = value[0] > value[1] ? value[0] : value[1];
+    let min = value[1] > value[0] ? value[0] : value[1];
+
+    max = Number(max);
+    min = Number(min);
 }

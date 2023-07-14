@@ -208,7 +208,7 @@
                 <!-- FILTER BAR  -->
                 <div class="filter-bar d-flex align-items-center justify-content-between mt-5">
                     <div class="toggle-wrapper">
-                        <button class="filter-toggle" data-bs-toggle="modal" data-bs-target="#filter-sidebar-modal"><i class="fa-solid fa-filter"></i>Filter</button>
+                        <button class="filter-toggle" data-bs-toggle="modal" data-bs-target="#filter-sidebar-modal"><i class="fa-solid fa-filter me-1"></i>Filter</button>
                     </div>
                     <div class="grid-layout">
                         <div class="text-center">
@@ -441,7 +441,7 @@
                             <div class="modal-body">
                                 <div class="filter-block">
                                     <h4 class="filter-title active d-flex justify-content-between">
-                                        <span>Brand</span>
+                                        <span>Brand <span class="filter-link d-inline-block">( Unavailable )</span> </span>
                                         <button class="filter-title-icon">
                                             <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
                                             <i class="fa-solid fa-minus icon-2 opacity-0"></i>
@@ -467,7 +467,7 @@
                                 </div>
                                 <div class="filter-block">
                                     <h4 class="filter-title active d-flex justify-content-between">
-                                        <span>Availability</span>
+                                        <span>Availability <span class="filter-link d-inline-block">( Unavailable )</span></span>
                                         <button class="filter-title-icon">
                                             <i class="fa-solid fa-minus icon-1 nev-rotate-180"></i>
                                             <i class="fa-solid fa-minus icon-2 opacity-0"></i>
@@ -492,13 +492,7 @@
                                             <i class="fa-solid fa-minus icon-2 opacity-0"></i>
                                         </button>
                                     </h4>
-                                    <div class="list-unstyled filter-options">
-                                        <div class="range-slider">
-                                            <input type="range" class="min-price" value="100" min="0" max="500" step="10" />
-                                            <input type="range" class="max-price" value="250" min="0" max="500" step="10" />
-                                        </div>
-                                        <div class="price-content"><span class="filter-link">Price:</span> <span class="mx-2" id="min-value">$50</span> - <span class="mx-2" id="max-value">$500</span></div>
-                                    </div>
+                                    <div id="filter-price" class="list-unstyled filter-options"></div>
                                 </div>
                                 <div class="filter-block">
                                     <h4 class="filter-title active d-flex justify-content-between">
@@ -508,24 +502,7 @@
                                             <i class="fa-solid fa-minus icon-2 opacity-0"></i>
                                         </button>
                                     </h4>
-                                    <ul class="list-unstyled filter-options filter-size-options">
-                                        <div class="d-inline-block">
-                                            <input type="radio" name="edit-size-options" id="" />
-                                            <label class="label-size">37</label>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <input type="radio" name="edit-size-options" id="" />
-                                            <label class="label-size">38</label>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <input type="radio" name="edit-size-options" id="" />
-                                            <label class="label-size">39</label>
-                                        </div>
-                                        <div class="d-inline-block">
-                                            <input type="radio" name="edit-size-options" id="" />
-                                            <label class="label-size">40</label>
-                                        </div>
-                                    </ul>
+                                    <ul id="filter-size" class="list-unstyled filter-options filter-size-options"></ul>
                                 </div>
                                 <div class="filter-block">
                                     <h4 class="filter-title active d-flex justify-content-between">
@@ -535,35 +512,7 @@
                                             <i class="fa-solid fa-minus icon-2 opacity-0"></i>
                                         </button>
                                     </h4>
-                                    <ul class="list-unstyled filter-options filter-size-options">
-                                        <li class="filter-item">
-                                            <a href="#" class="filter-link">
-                                                <div class="card border-0" style="max-width: 540px">
-                                                    <div class="row g-0">
-                                                        <div class="col-md-4">
-                                                            <img src="../../assets/img/fashion_products_7_2.jpg" class="img-fluid" alt="Card title" />
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <div class="card-body pt-0">
-                                                                <h5 class="card-title">Short Sleeve Sweater</h5>
-                                                                <div class="icon_star me-2">
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                    <i class="fa-solid fa-star"></i>
-                                                                </div>
-                                                                <div class="d-flex align-items-center price-group">
-                                                                    <p class="mb-0 me-2 price price-product sale">$12</p>
-                                                                    <p class="mb-0 price price-product-discount d-block">$12</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <ul id="featuredProduct" class="list-unstyled filter-options filter-size-options"></ul>
                                 </div>
                                 <div class="filter-block">
                                     <img src="../../assets/img/Collections/banner.png" alt="" class="img-fluid" />
@@ -831,7 +780,7 @@
                                 <button class="w-100 btn btn--secondary">VIEW CART</button>
                             </div>
                             <div class="mt-2">
-                                <button class="w-100 btn btn--primary">PROCEED TO CHECKOUT</button>
+                                <button id="checkoutCart" class="w-100 btn btn--primary" disabled>CHECKOUT NOW</button>
                             </div>
                         </div>
                     </div>

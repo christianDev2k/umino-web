@@ -2,10 +2,11 @@ import * as mf from '../Main/main_functions.js';
 import * as f from '../Collections/fnc_collections.js';
 
 //-----------------------------------------------------------------
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
 const eventCollection = () => {
-    const $ = document.querySelector.bind(document);
-    const $$ = document.querySelectorAll.bind(document);
+
 
     // Filter sidebar
     const filterTitleIcon = $$('.filter-title-icon');
@@ -30,8 +31,16 @@ const eventCollection = () => {
 
         id ? mf.renderQuickView(id) : null;
     };
-    
-    f.rangePrice();
 };
+
+export function EventSideBar(data) {
+    const filterElement = $$('.filter-element');
+    
+    filterElement.forEach(e => {
+        e.onchange = () => {
+            const product = f.handleFilter(data, filterElement);
+        }
+    })
+}
 
 export default eventCollection;

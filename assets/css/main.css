@@ -1007,8 +1007,10 @@ button {
 }
 #filter-sidebar-modal .modal-dialog {
   margin: auto 0 0 0;
-  max-width: 400px;
+  max-width: 380px;
   height: 100vh;
+  padding-right: 0;
+  background-color: #fff;
 }
 #filter-sidebar-modal .modal-content {
   height: 100vh;
@@ -1046,6 +1048,7 @@ button {
   margin-bottom: 0;
   height: 0;
   overflow: hidden;
+  transition: all 0.4s;
 }
 #filter-sidebar-modal .filter-title {
   color: #000;
@@ -1074,6 +1077,10 @@ button {
   transition: all 0.4s;
   right: 0;
   transform: rotate(90deg);
+}
+#filter-sidebar-modal .filter-size-options .label-size {
+  font-size: 16px;
+  font-weight: 400;
 }
 #filter-sidebar-modal .filter-item {
   margin-bottom: 10px;

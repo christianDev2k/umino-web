@@ -17,7 +17,7 @@ export const eventQuickView = product => {
     quickViewQtyInput.value = 1;
 
     // Label size active UI
-    mf.getSizeOption('size-options', '#sizeSelected');
+    mf.getSizeOption('qv-size-options', '#sizeSelected');
 
     // Quickview quantity form
     mf.qtyControlForm('#qv-qtyInput', '#qv-qty-value', '.control-value', 'minus-qty');
@@ -39,7 +39,7 @@ export const eventQuickView = product => {
         $('#cartButton').click();
 
         product.cartQty = quickViewQtyInput.value;
-        product.cartSize = mf.getSizeOption('size-options', '#sizeSelected');
+        product.cartSize = mf.getSizeOption('qv-size-options', '#sizeSelected');
         mf.HandleAddToCart(product);
     };
 };
@@ -100,22 +100,35 @@ export const cartEvents = () => {
 
             CartList.editCartMethod(index, editedProduct);
             mf.SetLocalStorages('cart', CartList.list);
-            mf.renderCart();
+            mf.handleRenderCart();
         };
     });
+
+    // Checkout cart
+    const cartPolicy = $('#cart-policy');
+    const checkoutCart = $('#checkoutCart');
+    cartPolicy.onchange = () => {
+        cartPolicy.checked ? checkoutCart.disabled = false : checkoutCart.disabled = true;
+    };
+
+    checkoutCart.onclick = () => {
+        CartList.list = [];
+        mf.SetLocalStorages('cart', CartList.list);
+        mf.handleRenderCart();
+    }
 };
 
-export const editOptionsEvents = (index) => {
+export const editOptionsEvents = index => {
     // Edit quantity UI
     mf.qtyControlForm('.edit-qty-form', '#edit-qty-input', '.cart-qty-control', 'qty-down');
-    
+
     // Edit size UI
     mf.getSizeOption('edit-size-options', '.edit-size-options .size');
 
     // Edit event
     $('#editBtnModal').onclick = () => {
         mf.handleEditOptions(index);
-    }
+    };
 };
 
 export default event;
