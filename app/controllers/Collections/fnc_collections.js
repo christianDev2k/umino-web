@@ -18,7 +18,7 @@ export async function setUI() {
     mf.handleRenderCart(CartList.list);
 }
 
-function renderAllProducts(productsList) {
+export function renderAllProducts(productsList) {
     const container = $('#all-product');
     const html = productsList.map(p => {
         const { id, img, name, price, discount } = p;
@@ -239,4 +239,35 @@ export function handleFilter(data, filterElement) {
 
     max = Number(max);
     min = Number(min);
+
+    let products = [];
+    if (sizeConditions.length) {
+        for (let i = 0; i < data.length; i++) {
+            const { size, price, discount } = data[i];
+            const priceDiscount = CartList.calcDiscount.call(CartList, discount, price);
+            const sizeArray = size.split('');
+
+            if (priceDiscount >= min && priceDiscount <= max) {
+                let isTrue = false;
+                for (let j = 0; j < sizeArray.length; j++) {
+               
+                    for (let k = 0; k < sizeConditions.length; k++) {
+                        if (sizeConditions[k] === sizeArray[j]) {
+                            isTrue = true;
+                            break;
+                        }
+                    }
+                }
+                isTrue ? products.push(data[i]) : null;
+            }
+        }
+    } else {
+        data.forEach(p => {
+            const { discount, price: priceProduct } = p;
+            const price = CartList.calcDiscount.call(CartList, discount, priceProduct);
+            price >= min && price <= max ? products.push(p) : null;
+        });
+    }
+
+    return products;
 }

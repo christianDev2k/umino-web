@@ -2668,27 +2668,34 @@ footer .copyright .image_payment img {
 }
 
 .all-products .filter-bar {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
-.all-products .toggle-wrapper .filter-toggle {
+.all-products .toggle-wrapper .filter-toggle, .all-products .toggle-wrapper .clear-all {
   background-color: black;
   border: 1px solid transparent;
-  border-radius: 2px;
+  border-radius: 4px;
   padding: 5px 20px;
   transition: all 0.5s;
   color: #fff;
   font-size: 12px;
   font-weight: 600;
 }
-.all-products .toggle-wrapper .filter-toggle:hover {
+.all-products .toggle-wrapper .filter-toggle:hover, .all-products .toggle-wrapper .clear-all:hover {
   background-color: white;
   border-color: black;
   color: black;
+}
+.all-products .toggle-wrapper .clear-all:hover {
+  background-color: black;
+  color: #fff;
 }
 .all-products .toggle-wrapper .filter-notice {
   color: #555;
   font-size: 14px;
   font-weight: 400;
+}
+.all-products .clear-all {
+  margin-bottom: 30px;
 }
 .all-products .grid-layout .icon {
   margin-right: 15px;

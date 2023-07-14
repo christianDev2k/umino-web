@@ -1,13 +1,12 @@
 import * as mf from '../Main/main_functions.js';
 import * as f from '../Collections/fnc_collections.js';
+import CartList from '../../models/Cart.js';
 
 //-----------------------------------------------------------------
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const eventCollection = () => {
-
-
     // Filter sidebar
     const filterTitleIcon = $$('.filter-title-icon');
     filterTitleIcon.forEach(icon => {
@@ -21,8 +20,8 @@ const eventCollection = () => {
             icon1.classList.toggle('nev-rotate-180');
 
             filterTitle.classList.toggle('active');
-        }
-    })
+        };
+    });
 
     // Handle layout all products
     const eventLayouts = $('#all-product');
@@ -35,12 +34,24 @@ const eventCollection = () => {
 
 export function EventSideBar(data) {
     const filterElement = $$('.filter-element');
-    
+    const clearElement = $('#clear-btn');
     filterElement.forEach(e => {
         e.onchange = () => {
+            clearElement.classList.remove('d-none');
             const product = f.handleFilter(data, filterElement);
-        }
-    })
+            f.renderAllProducts(product);
+        };
+    });
+
+    const clearAll = $('#clear-all');
+    clearAll.onclick = () => {
+        clearElement.classList.add('d-none');
+        f.renderAllProducts(data);
+        
+        filterElement.forEach(i => {
+            i.checked ? (i.checked = false) : null;
+        });
+    };
 }
 
 export default eventCollection;

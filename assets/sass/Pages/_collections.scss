@@ -68,14 +68,14 @@
 .all-products {
     // Filter bar
     .filter-bar {
-        margin-bottom: $m-4;
+        margin-bottom: $m-2;
     }
 
     .toggle-wrapper {
-        .filter-toggle {
+        .filter-toggle, .clear-all {
             background-color: black;
             border: 1px solid transparent;
-            border-radius: 2px;
+            border-radius: 4px;
             padding: 5px 20px;
             transition: all 0.5s;
             @include Text($fs-1 - 2, $fw-2, $color-white);
@@ -85,9 +85,18 @@
                 color: black;
             }
         }
+        .clear-all:hover {
+            background-color: black;
+            color: $color-white;
+        }
+
         .filter-notice {
             @include Text($fs-1, $fw-1, $color-input);
         }
+    }
+    
+    .clear-all {
+        margin-bottom: $m-4;
     }
 
     .grid-layout {
