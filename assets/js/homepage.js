@@ -1,7 +1,10 @@
-import MainEvents from '../../app/controllers/Main/main_event.js';
+import * as f from '../../app/controllers/Homepages/fnc_Homepage.js';
 
+const app = async() => {
+    f.setUI();
+}
 
-MainEvents();
+app();
 
 // Owl library
 $('.owl-carousel').owlCarousel({

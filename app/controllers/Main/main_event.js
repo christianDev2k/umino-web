@@ -4,8 +4,7 @@ import CartList from '../../models/Cart.js';
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const event = e => {};
-
+// Event: Quickview
 export const eventQuickView = product => {
     const checkedPolicy = $('#checkbox-policy');
     const buyBtn = $('#qv-buy-btn');
@@ -44,7 +43,7 @@ export const eventQuickView = product => {
     };
 };
 
-// Cart Modal Event
+// Event: Cart 
 export const cartEvents = () => {
     // Close cart modal on click button when cart have't products
     if ($('#cart-shopBtn')) {
@@ -118,6 +117,7 @@ export const cartEvents = () => {
     }
 };
 
+// Event: Edit optons in cart
 export const editOptionsEvents = index => {
     // Edit quantity UI
     mf.qtyControlForm('.edit-qty-form', '#edit-qty-input', '.cart-qty-control', 'qty-down');
@@ -131,4 +131,3 @@ export const editOptionsEvents = index => {
     };
 };
 
-export default event;
