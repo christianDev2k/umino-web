@@ -43,11 +43,16 @@ export function getSizeOption(inputsName, SelectedElement) {
             if (i.checked) {
                 sizeSelectedElement.innerHTML = i.value;
                 sizeSelected = i.value;
-                console.log(sizeSelected);
             }
         };
     });
     return sizeSelected;
+}
+
+// Common: Handle size input
+export function handleInputSize(string) {
+    const arr = string.split(' ');
+    return arr.filter(a => a !== '');
 }
 
 // Search modal: Render UI
@@ -101,12 +106,12 @@ export async function renderQuickView(id) {
         priceElement.classList.add('d-block');
         priceElement.innerHTML = price + '$';
     } else {
-        salePrice.innerHTML = price;
+        salePrice.innerHTML = '$' + price;
         salePrice.classList.remove('sale');
         priceElement.classList.remove('d-block');
     }
 
-    const sizeList = size.split('');
+    const sizeList = handleInputSize(size);
     const htmlSizeOptions = sizeList.map((s, index) => {
         return `
                 <div>
@@ -324,7 +329,7 @@ export function renderEditModal(index) {
     editCartModal.querySelector('.product-name').innerText = name;
     editCartModal.querySelector('.price').innerText = '$' + CartList.calcDiscount(discount, price);
 
-    const sizeList = size.split('');
+    const sizeList = handleInputSize(size);
     const htmlSizeOptions = sizeList.map(s => {
         return `
                <div>

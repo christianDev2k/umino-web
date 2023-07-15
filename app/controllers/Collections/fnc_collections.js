@@ -147,7 +147,7 @@ async function rangeFilter() {
         let sizeList = [];
 
         for (let i = 0; i < data.length; i++) {
-            const productSize = data[i].size.split('');
+            const productSize = mf.handleInputSize(data[i].size);
 
             for (let j = 0; j < productSize.length; j++) {
                 let isTrue = true;
@@ -234,23 +234,25 @@ export function handleFilter(data, filterElement) {
         }
     });
 
-    let max = value[0] > value[1] ? value[0] : value[1];
-    let min = value[1] > value[0] ? value[0] : value[1];
+    let min = Number(value[0]);
+    let max = Number(value[1]);
 
-    max = Number(max);
-    min = Number(min);
+    if (min > max) {
+        let tempValue = max;
+        max = min;
+        min = tempValue;
+    }
 
     let products = [];
     if (sizeConditions.length) {
         for (let i = 0; i < data.length; i++) {
             const { size, price, discount } = data[i];
             const priceDiscount = CartList.calcDiscount.call(CartList, discount, price);
-            const sizeArray = size.split('');
+            const sizeArray = mf.handleInputSize(size);
 
             if (priceDiscount >= min && priceDiscount <= max) {
                 let isTrue = false;
                 for (let j = 0; j < sizeArray.length; j++) {
-               
                     for (let k = 0; k < sizeConditions.length; k++) {
                         if (sizeConditions[k] === sizeArray[j]) {
                             isTrue = true;

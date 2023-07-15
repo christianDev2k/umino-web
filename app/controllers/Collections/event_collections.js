@@ -35,17 +35,25 @@ const eventCollection = () => {
 export function EventSideBar(data) {
     const filterElement = $$('.filter-element');
     const clearElement = $('#clear-btn');
+    const filterNotice = $('#filter-notice');
+    const filterNum = $('#filter-num');
+
     filterElement.forEach(e => {
         e.onchange = () => {
-            clearElement.classList.remove('d-none');
             const product = f.handleFilter(data, filterElement);
             f.renderAllProducts(product);
+            
+            clearElement.classList.remove('d-none');
+            filterNotice.classList.remove('d-none');
+            filterNum.innerText = product.length;
         };
     });
 
     const clearAll = $('#clear-all');
     clearAll.onclick = () => {
         clearElement.classList.add('d-none');
+        filterNotice.classList.add('d-none');
+        
         f.renderAllProducts(data);
         
         filterElement.forEach(i => {
