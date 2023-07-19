@@ -1,8 +1,22 @@
 import * as api from '../../../assets/js/api.js';
 import * as mf from '../Main/main_functions.js';
-import CartList from '../../models/Cart.js';    
+import * as e from '../Collections/event_collections.js';
+import CartList from '../../models/Cart.js';
 
 const $ = document.querySelector.bind(document);
+
+export async function setUI() {
+    const localData = mf.GetLocalStorages('cart');
+    const products = await api.getProduct();
+    const popularProducts = products.slice(0, 6);
+
+    CartList.list = localData;
+
+    renderAllProducts(products);
+    rangeFilter();
+    mf.renderPopularProducts(popularProducts);
+    mf.handleRenderCart(CartList.list);
+}
 
 export function renderAllProducts(productsList) {
     const container = $('#all-product');
@@ -66,7 +80,7 @@ export function renderAllProducts(productsList) {
                                     <i class="fa-solid fa-star"></i>
                                 </div>
                                 <div>
-                                    <span class="product-price ${discount ? 'sale' : null}">$${CartList.calcDiscount(discount, price)}</span>
+                                    <span class="product-price ${discount ? 'sale' : null}">$${CartList.calcDiscount.call(CartList, discount, price)}</span>
                                     <span class="product-price-sale ${discount ? null : 'd-none'} ">$${price}</span>              
                                 </div>
                             </div>
@@ -78,14 +92,184 @@ export function renderAllProducts(productsList) {
     container.innerHTML = html.join('');
 }
 
-export async function setUI() {
-    const localData = mf.GetLocalStorages('cart');
-    const products = await api.getProduct();
-    const popularProducts = products.slice(0, 6);
+async function rangeFilter() {
+    async function renderPriceInput() {
+        const maxPrice = data.reduce((max, p) => {
+            const price = CartList.calcDiscount(p.discount, p.price);
+            return (max = price > max ? price : max);
+        }, 0);
 
-    CartList.list = localData;
+        const filterPrice = $('#filter-price');
+        filterPrice.innerHTML = `
+            <div class="range-slider">
+                <input type="range" class="min-price filter-element" value="10" min="0" max="${maxPrice}" step="1" />
+                <input type="range" class="max-price filter-element" value="${maxPrice - 10}" min="0" max="${maxPrice}" step="1" />
+            </div>
+            <div class="price-content">
+                <span class="filter-link">Price:</span> 
+                <span class="mx-2" id="min-value"></span> - <span class="mx-2" id="max-value"></span>
+            </div>`;
+    }
 
-    renderAllProducts(products);
-    mf.renderPopularProducts(popularProducts);
-    mf.renderCart(CartList.list);
+    function processInputPrice() {
+        let minValue = document.getElementById('min-value');
+        let maxValue = document.getElementById('max-value');
+
+        function validateRange(minPrice, maxPrice) {
+            if (minPrice > maxPrice) {
+                // Swap to Values
+                let tempValue = maxPrice;
+                maxPrice = minPrice;
+                minPrice = tempValue;
+            }
+
+            minValue.value = minPrice;
+            maxValue.value = maxPrice;
+
+            minValue.innerHTML = '$' + minPrice;
+            maxValue.innerHTML = '$' + maxPrice;
+        }
+
+        const inputElements = document.querySelectorAll('.range-slider input');
+
+        inputElements.forEach(element => {
+            element.addEventListener('change', e => {
+                let minPrice = parseInt(inputElements[0].value);
+                let maxPrice = parseInt(inputElements[1].value);
+
+                validateRange(minPrice, maxPrice);
+            });
+        });
+        validateRange(inputElements[0].value, inputElements[1].value);
+    }
+
+    function renderSizeOptions() {
+        let sizeList = [];
+
+        for (let i = 0; i < data.length; i++) {
+            const productSize = mf.handleInputSize(data[i].size);
+
+            for (let j = 0; j < productSize.length; j++) {
+                let isTrue = true;
+
+                for (let k = 0; k < sizeList.length; k++) {
+                    if (sizeList[k] === productSize[j]) {
+                        isTrue = false;
+                    }
+                }
+
+                isTrue ? sizeList.push(productSize[j]) : null;
+            }
+        }
+        sizeList = sizeList.sort();
+
+        const html = sizeList.map(s => {
+            return `
+                <div class="d-inline-block">
+                    <input type="checkbox" name="filter-size-options" value="${s}" id="size-${s}" class="filter-element"/>
+                    <label for="size-${s}" class="label-size">${s}</label>
+                </div>
+            `;
+        });
+        const filterSize = $('#filter-size');
+        filterSize.innerHTML = html.join('');
+    }
+
+    function renderFeatureProduct() {
+        const products = data.slice(0, 3);
+        const html = products.map(p => {
+            const { img, name, price, discount } = p;
+            return `
+                <li class="filter-item">
+                    <a href="#" class="filter-link">
+                        <div class="card border-0">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="${img}" class="img-fluid" alt="Featured product" />
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body pt-0">
+                                        <h5 class="card-title">${name}</h5>
+                                        <div class="icon_star me-2">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <div class="d-flex align-items-center price-group">
+                                            <p class="mb-0 me-2 price price-product ${discount ? 'sale' : null}">$${CartList.calcDiscount.call(CartList, discount, price)}</p>
+                                            <p class="mb-0 price price-product-discount ${discount ? 'd-block' : null}">$${price}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            `;
+        });
+        const featuredProduct = $('#featuredProduct');
+        featuredProduct.innerHTML = html.join('');
+    }
+
+    const data = await api.getProduct();
+    await renderPriceInput();
+    processInputPrice();
+    renderSizeOptions();
+    renderFeatureProduct();
+    e.EventSideBar(data);
+}
+
+export function handleFilter(data, filterElement) {
+    const value = [];
+    const sizeConditions = [];
+    let i = 0;
+
+    filterElement.forEach((e, index) => {
+        if (e.type === 'range') {
+            value[index] = e.value;
+        } else {
+            e.checked ? (sizeConditions[i++] = e.value) : null;
+        }
+    });
+
+    let min = Number(value[0]);
+    let max = Number(value[1]);
+
+    if (min > max) {
+        let tempValue = max;
+        max = min;
+        min = tempValue;
+    }
+
+    let products = [];
+    if (sizeConditions.length) {
+        for (let i = 0; i < data.length; i++) {
+            const { size, price, discount } = data[i];
+            const priceDiscount = CartList.calcDiscount.call(CartList, discount, price);
+            const sizeArray = mf.handleInputSize(size);
+
+            if (priceDiscount >= min && priceDiscount <= max) {
+                let isTrue = false;
+                for (let j = 0; j < sizeArray.length; j++) {
+                    for (let k = 0; k < sizeConditions.length; k++) {
+                        if (sizeConditions[k] === sizeArray[j]) {
+                            isTrue = true;
+                            break;
+                        }
+                    }
+                }
+                isTrue ? products.push(data[i]) : null;
+            }
+        }
+    } else {
+        data.forEach(p => {
+            const { discount, price: priceProduct } = p;
+            const price = CartList.calcDiscount.call(CartList, discount, priceProduct);
+            price >= min && price <= max ? products.push(p) : null;
+        });
+    }
+
+    return products;
 }

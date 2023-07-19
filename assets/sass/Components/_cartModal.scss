@@ -162,31 +162,7 @@
             }
             .policy {
                 input {
-                    appearance: none;
-                    -webkit-appearance: none;
-                    width: 18px;
-                    height: 18px;
-                    background-color: $bg-color-base;
-                    border: 1px solid $color-grey;
-                    margin-right: 8px;
-                    &::before {
-                        content: '\f00c';
-                        display: none;
-                        width: 100%;
-                        font-weight: 900;
-                        font-family: 'Font Awesome 6 Free';
-                        font-size: $pd-3 - 2;
-                        color: $color-white;
-                    }
-
-                    &:checked {
-                        background-color: $color-link;
-                        border-color: $color-link;
-                    }
-
-                    &:checked::before {
-                        display: block;
-                    }
+                    @extend .checkbox;
                 }
                 .cart-policy {
                     @include Text($fs-2, $fw-1, $color-link-hover);
