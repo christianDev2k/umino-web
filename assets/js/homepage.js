@@ -1,27 +1,11 @@
-import * as f from '../../app/controllers/Homepages/fnc_Homepage.js';
+import { setUI } from '../../app/controllers/Homepages/fnc_Homepage.js';
+import event from '../../app/controllers/Homepages/event_Homepage.js';
+import { getProduct } from './api.js';
 
-const app = async() => {
-    f.setUI();
-}
+const app = async () => {
+    const data = await getProduct();
+    await setUI(data);
+    event(data);
+};
 
 app();
-
-// Owl library
-$('.owl-carousel').owlCarousel({
-    loop: true,
-    margin: 10,
-    nav: true,
-    dots: false,
-    autoplay: true,
-    responsive: {
-        0: {
-            items: 2,
-        },
-        768: {
-            items: 3,
-        },
-        1200: {
-            items: 4,
-        },
-    },
-});

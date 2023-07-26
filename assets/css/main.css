@@ -89,17 +89,17 @@
   display: block;
 }
 
-.scroll-y, .headerDashboard .dropdown .drop-body, #filter-sidebar-modal .modal-content {
+.scroll-y, .headerDashboard .dropdown .drop-body, #mayyoulike-slider, .trendProduct .tab-content .tab-pane .wrapper, #filter-sidebar-modal .modal-content {
   overflow-y: scroll;
 }
-.scroll-y::-webkit-scrollbar, .headerDashboard .dropdown .drop-body::-webkit-scrollbar, #filter-sidebar-modal .modal-content::-webkit-scrollbar {
+.scroll-y::-webkit-scrollbar, .headerDashboard .dropdown .drop-body::-webkit-scrollbar, #mayyoulike-slider::-webkit-scrollbar, .trendProduct .tab-content .tab-pane .wrapper::-webkit-scrollbar, #filter-sidebar-modal .modal-content::-webkit-scrollbar {
   width: 8px;
 }
-.scroll-y::-webkit-scrollbar-thumb, .headerDashboard .dropdown .drop-body::-webkit-scrollbar-thumb, #filter-sidebar-modal .modal-content::-webkit-scrollbar-thumb {
+.scroll-y::-webkit-scrollbar-thumb, .headerDashboard .dropdown .drop-body::-webkit-scrollbar-thumb, #mayyoulike-slider::-webkit-scrollbar-thumb, .trendProduct .tab-content .tab-pane .wrapper::-webkit-scrollbar-thumb, #filter-sidebar-modal .modal-content::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
-.scroll-y::-webkit-scrollbar-thumb:hover, .headerDashboard .dropdown .drop-body::-webkit-scrollbar-thumb:hover, #filter-sidebar-modal .modal-content::-webkit-scrollbar-thumb:hover {
+.scroll-y::-webkit-scrollbar-thumb:hover, .headerDashboard .dropdown .drop-body::-webkit-scrollbar-thumb:hover, #mayyoulike-slider::-webkit-scrollbar-thumb:hover, .trendProduct .tab-content .tab-pane .wrapper::-webkit-scrollbar-thumb:hover, #filter-sidebar-modal .modal-content::-webkit-scrollbar-thumb:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -2476,7 +2476,6 @@ footer .copyright .image_payment img {
 
 .trendProduct .nav-tabs {
   border-bottom: none;
-  margin-bottom: 40px;
 }
 .trendProduct .nav-tabs .nav-item {
   margin-right: 20px;
@@ -2507,6 +2506,14 @@ footer .copyright .image_payment img {
 }
 .trendProduct .nav-tabs .nav-item .nav-link.active::after {
   width: 100%;
+}
+.trendProduct .tab-content .tab-pane .wrapper {
+  max-width: 100%;
+  overflow-x: scroll;
+  padding-bottom: 10px;
+}
+.trendProduct .tab-content .tab-pane .wrapper::-webkit-scrollbar {
+  height: 8px;
 }
 
 .banner .bg-img {
@@ -2592,6 +2599,14 @@ footer .copyright .image_payment img {
 .inspire-product .item .cart-svg {
   top: 10px;
   right: 10px;
+}
+
+#mayyoulike-slider {
+  overflow-x: scroll;
+  padding-bottom: 10px;
+}
+#mayyoulike-slider::-webkit-scrollbar {
+  height: 8px;
 }
 
 @media screen and (max-width: 575.98px) {

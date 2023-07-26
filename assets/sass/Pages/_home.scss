@@ -13,7 +13,6 @@
 .trendProduct {
     .nav-tabs {
         border-bottom: none;
-        margin-bottom: $m-6;
         .nav-item {
             margin-right: $m-3 + 5;
             margin-left: $m-3 + 5;
@@ -41,6 +40,19 @@
                 border: none;
                 &::after {
                     width: 100%;
+                }
+            }
+        }
+    }
+    .tab-content {
+        .tab-pane {
+            .wrapper {
+                max-width: 100%;
+                overflow-x: scroll;
+                padding-bottom: $pd-1;
+                @extend .scroll-y;
+                &::-webkit-scrollbar {
+                    height: 8px;
                 }
             }
         }
@@ -135,6 +147,15 @@
             top: 10px;
             right: 10px;
         }
+    }
+}
+
+#mayyoulike-slider {
+    overflow-x: scroll;
+    padding-bottom: $pd-1;
+    @extend .scroll-y;
+    &::-webkit-scrollbar {
+        height: 8px;
     }
 }
 
