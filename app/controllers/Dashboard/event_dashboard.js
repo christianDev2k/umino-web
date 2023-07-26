@@ -28,6 +28,7 @@ const event = index => {
 
     // Reset form when add product
     $('#addNewBtn').onclick = () => {
+        editID = -1;
         f.resetForm();
     };
 
@@ -54,14 +55,6 @@ const event = index => {
 
     $('#clearFilter').onclick = () => {
         f.setUIDashboard(0);
-    };
-
-    $('#searchNameInput').oninput = () => {
-        const inputValue = $('#searchNameInput').value;
-        if (!inputValue) {
-            f.showNotice('No results found!', 'no result');
-            f.setUIDashboard(0);
-        }
     };
 
     // Edit, Delete product

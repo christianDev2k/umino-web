@@ -1,5 +1,4 @@
-import { renderPopularProducts } from '../Main/main_functions.js';
-import {} from '../Main/main_event.js';
+import { renderPopularProducts, handleRenderCart } from '../Main/main_functions.js';
 import CartList from '../../models/Cart.js';
 
 const $ = document.querySelector.bind(document);
@@ -9,6 +8,7 @@ export async function setUI(data) {
     renderPopularProducts(data);
     renderTopTrending(data);
     renderMayYouLike(data);
+    handleRenderCart();
 }
 
 // Render: Slider
@@ -113,7 +113,10 @@ const renderSlider = data =>
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <div>
-                            <span class="product-price sale">${CartList.calcDiscount(p.discount, p.price)}</span>
+                            <span class="product-price ${p.discount ? 'sale' : null} ">${CartList.calcDiscount(
+                p.discount,
+                p.price
+            )}$</span>
                             <span class="product-price-sale ${p.discount ? null : 'd-none'}">$150.00</span>
                         </div>
                     </div>

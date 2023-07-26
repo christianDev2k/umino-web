@@ -80,8 +80,12 @@ export function renderAllProducts(productsList) {
                                     <i class="fa-solid fa-star"></i>
                                 </div>
                                 <div>
-                                    <span class="product-price ${discount ? 'sale' : null}">$${CartList.calcDiscount.call(CartList, discount, price)}</span>
-                                    <span class="product-price-sale ${discount ? null : 'd-none'} ">$${price}</span>              
+                                    <span class="product-price ${
+                                        discount ? 'sale' : null
+                                    }">$${CartList.calcDiscount.call(CartList, discount, price)}</span>
+                                    <span class="product-price-sale ${
+                                        discount ? null : 'd-none'
+                                    } ">$${price}</span>              
                                 </div>
                             </div>
                         </div>
@@ -94,16 +98,21 @@ export function renderAllProducts(productsList) {
 
 async function rangeFilter() {
     async function renderPriceInput() {
-        const maxPrice = data.reduce((max, p) => {
+        let maxPrice = data.reduce((max, p) => {
             const price = CartList.calcDiscount(p.discount, p.price);
             return (max = price > max ? price : max);
         }, 0);
+
+        
+        maxPrice = Math.ceil(maxPrice);
 
         const filterPrice = $('#filter-price');
         filterPrice.innerHTML = `
             <div class="range-slider">
                 <input type="range" class="min-price filter-element" value="10" min="0" max="${maxPrice}" step="1" />
-                <input type="range" class="max-price filter-element" value="${maxPrice - 10}" min="0" max="${maxPrice}" step="1" />
+                <input type="range" class="max-price filter-element" value="${
+                    maxPrice - 10
+                }" min="0" max="${maxPrice}" step="1" />
             </div>
             <div class="price-content">
                 <span class="filter-link">Price:</span> 
@@ -198,8 +207,12 @@ async function rangeFilter() {
                                             <i class="fa-solid fa-star"></i>
                                         </div>
                                         <div class="d-flex align-items-center price-group">
-                                            <p class="mb-0 me-2 price price-product ${discount ? 'sale' : null}">$${CartList.calcDiscount.call(CartList, discount, price)}</p>
-                                            <p class="mb-0 price price-product-discount ${discount ? 'd-block' : null}">$${price}</p>
+                                            <p class="mb-0 me-2 price price-product ${
+                                                discount ? 'sale' : null
+                                            }">$${CartList.calcDiscount.call(CartList, discount, price)}</p>
+                                            <p class="mb-0 price price-product-discount ${
+                                                discount ? 'd-block' : null
+                                            }">$${price}</p>
                                         </div>
                                     </div>
                                 </div>

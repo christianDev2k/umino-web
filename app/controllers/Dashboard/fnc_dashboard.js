@@ -14,7 +14,7 @@ export async function handleAddProduct(product, activePage) {
 
 // Delete product và render product
 export async function handleDeleteProduct(id, index) {
-    api.deleteProduct(id);
+    await api.deleteProduct(id);
 
     const selectorChild = `[data-del="${id}"]`;
     const childElement = $(selectorChild);
