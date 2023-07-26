@@ -24,6 +24,13 @@ const event = data => {
 
         id ? renderQuickView(id) : null;
     };
+
+    const mayyoulike = $('#mayyoulike-slider');
+    mayyoulike.onclick = e => {
+        const id = e.target.closest('.cart-icon') ? e.target.closest('.cart-icon').dataset.id : null;
+
+        id ? renderQuickView(id) : null;
+    };
 };
 
 export default event;
